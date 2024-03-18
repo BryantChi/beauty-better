@@ -1,0 +1,16 @@
+body {
+    background-color: #f4f6f9 !important;
+}
+.main-header {
+    background-color: #f4f6f9 !important;
+    border-bottom: unset !important;
+}
+.main-header nav {
+    border: 1px solid #e6e6e6cc;
+    margin: 20px 10px;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+}
