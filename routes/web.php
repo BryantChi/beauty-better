@@ -37,3 +37,13 @@ Route::post(
     '\InfyOm\GeneratorBuilder\Controllers\GeneratorBuilderController@generateFromFile'
 )->name('io_generator_builder_generate_from_file');
 
+Route::prefix('admin')->group(function () {
+    Route::middleware(['auth'])->group(function() {
+        Route::resource('aboutUsInfos', App\Http\Controllers\Admin\AboutUsInfoController::class, ["as" => 'admin']);
+    });
+});
+
+
+Route::any('/editor-image-upload', [App\Http\Controllers\EditorImageUploadController::class, 'upload'])->name('editor-image-upload');
+Route::any('/delete-editor-image', [App\Http\Controllers\EditorImageUploadController::class, 'deleteUpload'])->name('delete-editor-image');
+
