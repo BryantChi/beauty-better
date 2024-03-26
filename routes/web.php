@@ -40,6 +40,7 @@ Route::post(
 Route::prefix('admin')->group(function () {
     Route::middleware(['auth'])->group(function() {
         Route::resource('aboutUsInfos', App\Http\Controllers\Admin\AboutUsInfoController::class, ["as" => 'admin']);
+        Route::resource('pageSettingInfos', App\Http\Controllers\Admin\PageSettingInfoController::class, ["as" => 'admin']);
     });
 });
 

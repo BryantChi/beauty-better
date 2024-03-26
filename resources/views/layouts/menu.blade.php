@@ -1,3 +1,9 @@
+<li class="nav-item">
+    <a href="{{ route('admin.pageSettingInfos.index') }}"
+       class="nav-link {{ Request::is('admin/pageSettingInfos*') ? 'active' : '' }}">
+        <p>頁面設定</p>
+    </a>
+</li>
 
 <li class="nav-item">
     <?php
@@ -14,7 +20,5 @@
         <p>關於我們</p>
     </a>
 </li>
-
-
 
 
