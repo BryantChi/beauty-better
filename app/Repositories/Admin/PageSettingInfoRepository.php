@@ -19,10 +19,10 @@ class PageSettingInfoRepository extends BaseRepository
     protected $fieldSearchable = [
         'url',
         'title',
-        'meta-title',
-        'meta-description',
-        'meta-keywords',
-        'meta-google-site-verification'
+        'meta_title',
+        'meta_description',
+        'meta_keywords',
+        'meta_google_site_verification'
     ];
 
     /**
