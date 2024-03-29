@@ -36,8 +36,8 @@
         integrity="sha512-aEe/ZxePawj0+G2R+AaIxgrQuKT68I28qh+wgLrcAJOz3rxCP+TwrK5SPN+E5I+1IQjNtcfvb96HDagwrKRdBw=="
         crossorigin="anonymous" />
 
-    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/app.css') }}?v={{ time() }}">
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}?v={{ time() }}">
 
     @stack('third_party_stylesheets')
 
@@ -59,14 +59,14 @@
 
                 <ul class="navbar-nav ml-auto mr-3">
                     <li class="nav-item dropdown user-menu">
-                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" id="navbarDropdown" data-bs-toggle="dropdown" aria-expanded="false">
                             <img src="{{ asset('images/logo.png') }}"
                                 class="user-image img-circle elevation-2" alt="User Image">
                             <span class="d-none d-md-inline">{{ Auth::user()->name }}</span>
                         </a>
-                        <ul class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+                        <ul class="dropdown-menu dropdown-menu-lg dropdown-menu-right " style="border-radius: 15px;" aria-labelledby="navbarDropdown">
                             <!-- User image -->
-                            <li class="user-header bg-primary">
+                            <li class="user-header bg-purple" style="border-top-left-radius: 15px; border-top-right-radius: 15px">
                                 <img src="{{ asset('images/logo.png') }}"
                                     class="img-circle elevation-2" alt="User Image">
                                 <p>
@@ -75,11 +75,12 @@
                                 </p>
                             </li>
                             <!-- Menu Footer-->
-                            <li class="user-footer">
-                                <a href="#" class="btn btn-default btn-flat">Profile</a>
+                            <li class="user-footer" style="border-bottom-left-radius: 15px; border-bottom-right-radius: 15px">
+                                <a href="{{ route('admin.adminUsers.edit', Auth::user()->id) }}" class="btn btn-default btn-flat">Profile</a>
                                 <a href="#" class="btn btn-default btn-flat float-right"
                                     onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                                    Sign out
+                                    <i class="fas fa-sign-out-alt"></i>
+                                    登出
                                 </a>
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                     @csrf
