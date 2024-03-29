@@ -41,4 +41,37 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public static $rules = [
+        'name' => ['required', 'string', 'max:255'],
+        'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+        'password' => ['required', 'string', 'min:8', 'confirmed']
+    ];
+
+    public static $update_rules = [
+        'name' => ['required', 'string', 'max:255'],
+        'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+        'password' => ['required', 'string', 'min:8', 'confirmed']
+    ];
+
+    public static $messages = [
+        'name.required' => 'Name is required',
+        'name.max' => 'Name must be at most 255 characters',
+        'email.required' => 'Email is required',
+        'email.email' => 'Email is invalid',
+        'email.max' => 'Email must be at most 255 characters',
+        'email.unique' => 'Email has already been taken',
+    ];
+
+    public static $update_messages = [
+        'name.required' => 'Name is required',
+        'name.max' => 'Name must be at most 255 characters',
+        'email.required' => 'Email is required',
+        'email.email' => 'Email is invalid',
+        'email.max' => 'Email must be at most 255 characters',
+        'email.unique' => 'Email has already been taken',
+        'password.required' => 'Password is required',
+        'password.min' => 'Password must be at least 8 characters',
+        'password.confirmed' => 'Password confirmation does not match',
+    ];
 }

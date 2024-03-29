@@ -1,4 +1,11 @@
 <li class="nav-item">
+    <a href="{{ route('admin.adminUsers.index') }}"
+       class="nav-link {{ Request::is('admin/adminUsers*') ? 'active' : '' }}">
+        <p>管理員</p>
+    </a>
+</li>
+
+<li class="nav-item">
     <a href="{{ route('admin.pageSettingInfos.index') }}"
        class="nav-link {{ Request::is('admin/pageSettingInfos*') ? 'active' : '' }}">
         <p>頁面設定</p>
