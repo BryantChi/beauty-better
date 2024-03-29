@@ -51,7 +51,7 @@ class User extends Authenticatable
     public static $update_rules = [
         'name' => ['required', 'string', 'max:255'],
         'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-        'password' => ['required', 'string', 'min:8', 'confirmed']
+        'password' => ['string', 'min:8', 'confirmed']
     ];
 
     public static $messages = [
@@ -61,6 +61,9 @@ class User extends Authenticatable
         'email.email' => 'Email is invalid',
         'email.max' => 'Email must be at most 255 characters',
         'email.unique' => 'Email has already been taken',
+        'password.required' => 'Password is required',
+        'password.min' => 'Password must be at least 8 characters',
+        'password.confirmed' => 'Password confirmation does not match',
     ];
 
     public static $update_messages = [
@@ -70,7 +73,6 @@ class User extends Authenticatable
         'email.email' => 'Email is invalid',
         'email.max' => 'Email must be at most 255 characters',
         'email.unique' => 'Email has already been taken',
-        'password.required' => 'Password is required',
         'password.min' => 'Password must be at least 8 characters',
         'password.confirmed' => 'Password confirmation does not match',
     ];
