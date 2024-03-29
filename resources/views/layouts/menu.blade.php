@@ -29,3 +29,11 @@
 </li>
 
 
+<li class="nav-item {{ Auth::user()->id == 1 ? '' : 'd-none' }}">
+    <a href="{{ route('admin.postTypeInfos.index') }}"
+       class="nav-link {{ Request::is('admin/postTypeInfos*') ? 'active' : '' }}">
+        <p>文章類型</p>
+    </a>
+</li>
+
+

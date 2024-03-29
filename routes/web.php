@@ -41,6 +41,7 @@ Route::prefix('admin')->group(function () {
     Route::middleware(['auth'])->group(function() {
         Route::resource('aboutUsInfos', App\Http\Controllers\Admin\AboutUsInfoController::class, ["as" => 'admin']);
         Route::resource('pageSettingInfos', App\Http\Controllers\Admin\PageSettingInfoController::class, ["as" => 'admin']);
+        Route::resource('postTypeInfos', App\Http\Controllers\Admin\PostTypeInfoController::class, ["as" => 'admin']);
 
         Route::any('adminUsers', [App\Http\Controllers\Admin\AdminAccountController::class, 'index'])->name('admin.adminUsers.index');
         Route::any('adminUsers/create', [App\Http\Controllers\Admin\AdminAccountController::class, 'create'])->name('admin.adminUsers.create');
