@@ -20,7 +20,8 @@
         integrity="sha512-mxrUXSjrxl8vm5GwafxcqTrEwO1/oBNU25l20GODsysHReZo4uhVISzAKzaABH6/tTfAxZrY2FprmeAP5UZY8A=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
     <!-- iCheck -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/icheck-bootstrap/3.0.1/icheck-bootstrap.min.css"
@@ -59,24 +60,29 @@
 
                 <ul class="navbar-nav ml-auto mr-3">
                     <li class="nav-item dropdown user-menu">
-                        <a href="#" class="nav-link dropdown-toggle" id="navbarDropdown" data-bs-toggle="dropdown" aria-expanded="false">
-                            <img src="{{ asset('images/logo.png') }}"
-                                class="user-image img-circle elevation-2" alt="User Image">
+                        <a href="#" class="nav-link dropdown-toggle" id="navbarDropdown" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            <img src="{{ asset('images/logo.png') }}" class="user-image img-circle elevation-2"
+                                alt="User Image">
                             <span class="d-none d-md-inline">{{ Auth::user()->name }}</span>
                         </a>
-                        <ul class="dropdown-menu dropdown-menu-lg dropdown-menu-right " style="border-radius: 15px;" aria-labelledby="navbarDropdown">
+                        <ul class="dropdown-menu dropdown-menu-lg dropdown-menu-right " style="border-radius: 15px;"
+                            aria-labelledby="navbarDropdown">
                             <!-- User image -->
-                            <li class="user-header bg-purple" style="border-top-left-radius: 15px; border-top-right-radius: 15px">
-                                <img src="{{ asset('images/logo.png') }}"
-                                    class="img-circle elevation-2" alt="User Image">
+                            <li class="user-header bg-purple"
+                                style="border-top-left-radius: 15px; border-top-right-radius: 15px">
+                                <img src="{{ asset('images/logo.png') }}" class="img-circle elevation-2"
+                                    alt="User Image">
                                 <p>
                                     {{ Auth::user()->name }}
                                     <small>Member since {{ Auth::user()->created_at->format('M. Y') }}</small>
                                 </p>
                             </li>
                             <!-- Menu Footer-->
-                            <li class="user-footer" style="border-bottom-left-radius: 15px; border-bottom-right-radius: 15px">
-                                <a href="{{ route('admin.adminUsers.edit', Auth::user()->id) }}" class="btn btn-default btn-flat">Profile</a>
+                            <li class="user-footer"
+                                style="border-bottom-left-radius: 15px; border-bottom-right-radius: 15px">
+                                <a href="{{ route('admin.adminUsers.edit', Auth::user()->id) }}"
+                                    class="btn btn-default btn-flat">Profile</a>
                                 <a href="#" class="btn btn-default btn-flat float-right"
                                     onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                                     <i class="fas fa-sign-out-alt"></i>
@@ -127,8 +133,12 @@
         integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous">
     </script> --}}
 
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
+        integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"
+        integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous">
+    </script>
 
     <script src="https://cdn.jsdelivr.net/npm/bs-custom-file-input/dist/bs-custom-file-input.min.js"></script>
 
@@ -155,6 +165,8 @@
         integrity="sha512-DAc/LqVY2liDbikmJwUS1MSE3pIH0DFprKHZKPcJC7e3TtAOzT55gEMTleegwyuIWgCfOPOM8eLbbvFaG9F/cA=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
     <script>
         $(function() {
             bsCustomFileInput.init();
@@ -163,6 +175,16 @@
         $("input[data-bootstrap-switch]").each(function() {
             $(this).bootstrapSwitch('state', $(this).prop('checked'));
         });
+
+        $('select').select2({
+            language: 'zh-TW',
+            width: '100%',
+            maximumInputLength: 100,
+            minimumInputLength: 0,
+            tags: false,
+            placeholder: '請選擇',
+            allowClear: true
+        });
     </script>
 
     <link rel="stylesheet" href="{{ asset('js/app.js') }}">
@@ -170,6 +192,24 @@
     @stack('third_party_scripts')
 
     @stack('page_scripts')
+
+    <script>
+        function check(e) {
+            Swal.fire({
+                title: 'Are you sure?',
+                text: "You won't be able to revert this!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Yes, delete it!'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    e.parentElement.parentElement.submit();
+                }
+            })
+        }
+    </script>
 </body>
 
 </html>

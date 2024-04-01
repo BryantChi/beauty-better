@@ -3,7 +3,7 @@
     <div class="d-flex">
         {!! Form::label('url', '網址:') !!} <span class="text-danger ml-auto">* 必填</span>
     </div>
-    {!! Form::text('url', null, ['class' => 'form-control', 'required' => true]) !!}
+    {!! Form::text('url', null, ['class' => 'form-control', 'required' => true, 'readonly' => Request::is('admin/pageSettingInfos/*/edit*')]) !!}
 </div>
 
 <!-- Title Field -->

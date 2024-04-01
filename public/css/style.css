@@ -4,23 +4,32 @@ body {
 a {
     text-decoration: none !important;
 }
-a:hover, a:focus {
+a:hover,
+a:focus {
     color: #6f42c1;
     text-decoration: none !important;
 }
-.btn-primary:not(:disabled):not(.disabled).active, .btn-primary:not(:disabled):not(.disabled):active, .show>.btn-primary.dropdown-toggle {
+.btn-primary:not(:disabled):not(.disabled).active,
+.btn-primary:not(:disabled):not(.disabled):active,
+.show > .btn-primary.dropdown-toggle {
     color: #fff;
     background-color: #714288 !important;
     border-color: #6f42c1 !important;
 }
-.btn-check:focus+.btn-primary, .btn-primary:focus {
+.btn-check:focus + .btn-primary,
+.btn-primary:focus {
     color: #fff;
     background-color: #714288;
     border-color: #6f42c1;
     box-shadow: 0 0 0 0.25rem #71428888;
 }
 .login-page {
-    background-image: linear-gradient(0deg, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.3)), url(../images/admin_login_bg.jpg);
+    background-image: linear-gradient(
+            0deg,
+            rgba(255, 255, 255, 0.8),
+            rgba(255, 255, 255, 0.3)
+        ),
+        url(../images/admin_login_bg.jpg);
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -48,7 +57,8 @@ a:hover, a:focus {
     margin-bottom: 10px;
     border-bottom: unset !important;
 }
-.sidebar-dark-primary .nav-sidebar>.nav-item>.nav-link.active, .sidebar-light-primary .nav-sidebar>.nav-item>.nav-link.active {
+.sidebar-dark-primary .nav-sidebar > .nav-item > .nav-link.active,
+.sidebar-light-primary .nav-sidebar > .nav-item > .nav-link.active {
     background-color: #714288 !important;
     color: #fff;
 }
@@ -58,4 +68,38 @@ a:hover, a:focus {
 }
 .bg-purple {
     background-color: #714288 !important;
+}
+.select2-selection__rendered {
+    line-height: 28px !important;
+    /* line-height: calc(2.25rem) !important; */
+}
+
+.select2-container .select2-selection--single {
+    /* height: 35px !important; */
+    height: calc(2.25rem + 2px) !important;
+}
+
+.select2-selection__arrow {
+    /* height: 34px !important; */
+    height: calc(2.25rem + 2px) !important;
+}
+.single-ellipsis {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.multiline-ellipsis {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 5;
+    overflow: hidden;
+
+    /* line-clamp: 5; */
+
+    /*
+    display: flex;
+    flex-direction: column;
+    line-clamp: 5;
+    overflow: hidden;
+    */
 }

@@ -28,11 +28,41 @@
     </a>
 </li>
 
+<li class="nav-item">
+    <a href="{{ route('admin.servicesInfos.index') }}"
+       class="nav-link {{ Request::is('admin/servicesInfos*') ? 'active' : '' }}">
+        <p>服務項目</p>
+    </a>
+</li>
 
-<li class="nav-item {{ Auth::user()->id == 1 ? '' : 'd-none' }}">
+<li class="nav-item">
     <a href="{{ route('admin.postTypeInfos.index') }}"
        class="nav-link {{ Request::is('admin/postTypeInfos*') ? 'active' : '' }}">
-        <p>文章類型</p>
+        <p>文章分類</p>
+    </a>
+</li>
+
+<li class="nav-item">
+    <a href="{{ route('admin.postsInfos.index') }}"
+       class="nav-link {{ Request::is('admin/postsInfos*') ? 'active' : '' }}">
+        <p>文章資訊</p>
+    </a>
+</li>
+
+
+<li class="nav-item">
+    <?php
+     $company = DB::table('company_infos')->get();
+     if (count($company) == 0) {
+        # code...
+        $route_company = route('admin.companyInfos.create');
+     }else{
+        $route_company = route('admin.companyInfos.edit', 1);
+     }
+    ?>
+    <a href="{{ $route_company }}"
+       class="nav-link {{ Request::is('admin/companyInfos*') ? 'active' : '' }}">
+        <p>公司資訊</p>
     </a>
 </li>
 

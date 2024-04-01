@@ -21,12 +21,14 @@
                            class='btn btn-default btn-xs'>
                             <i class="far fa-eye"></i>
                         </a> --}}
+                        @if (Auth::user()->id <= 2 || Auth::user()->id == $adminUser->id)
                         <a href="{{ route('admin.adminUsers.edit', [$adminUser->id]) }}"
                            class='btn btn-default btn-xs'>
                             <i class="far fa-edit"></i>
                         </a>
-                        @if (Auth::user()->id <= 2 && $adminUser->id != 1)
-                        {!! Form::button('<i class="far fa-trash-alt"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-xs', 'onclick' => "return confirm('Are you sure?')"]) !!}
+                        @endif
+                        @if ((Auth::user()->id <= 2 && $adminUser->id != 1) || Auth::user()->id == $adminUser->id)
+                        {!! Form::button('<i class="far fa-trash-alt"></i>', ['type' => 'button', 'class' => 'btn btn-danger btn-xs', 'onclick' => "return check(this)"]) !!}
                         @endif
                     </div>
 

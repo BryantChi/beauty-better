@@ -7,7 +7,8 @@
 <!-- Email Field -->
 <div class="form-group">
     {!! Form::label('email', 'Email:') !!}
-    {!! Form::text('email', null, ['class' => 'form-control', 'id' => 'email', 'required' => true]) !!}
+    {{-- {!! Form::text('email', $adminUsers->email ?? '', ['class' => 'form-control', 'id' => 'email', 'required' => true, 'disabled' => Request::is('admin/adminUsers/edit*')]) !!} --}}
+    <input type="text" name="email" id="email" value="{{ $adminUsers->email ?? '' }}" class="form-control" required {{ Request::is('admin/adminUsers/edit*') ? 'disabled' : '' }}>
 </div>
 
 <!-- Password Field -->
@@ -18,5 +19,12 @@
     @if (Request::is('admin/adminUsers/edit*'))
     <span class="help-block text-danger">★若欲變更密碼，才需輸入密碼，最少6碼</span>
     @endif
+</div>
 
+<div class="form-group">
+    {!! Form::label('password_confirmation', 'Password Confirmation:') !!}
+    <input type="password" name="password_confirmation" id="password_confirmation" class="form-control" placeholder="請輸入密碼，最少6碼" minlength="6">
+    @if (Request::is('admin/adminUsers/edit*'))
+    <span class="help-block text-danger">★若欲變更密碼，才需輸入密碼，最少6碼</span>
+    @endif
 </div>

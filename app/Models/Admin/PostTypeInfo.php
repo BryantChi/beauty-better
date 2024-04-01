@@ -3,6 +3,7 @@
 namespace App\Models\Admin;
 
 use Eloquent as Model;
+use Illuminate\Database\Eloquent\Model as EloquentModel;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 
@@ -13,7 +14,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  *
  * @property string $type_name
  */
-class PostTypeInfo extends Model
+class PostTypeInfo extends EloquentModel
 {
     use SoftDeletes;
 
@@ -55,9 +56,9 @@ class PostTypeInfo extends Model
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      **/
-    public function posts()
+    public function postsInfo()
     {
-        // return $this->hasMany(Post::class);
+        return $this->hasMany(PostsInfo::class);
     }
 
 
