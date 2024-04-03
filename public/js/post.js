@@ -12,7 +12,7 @@ tinymce.init({
     },
     menubar: 'menu',
     plugins: [
-        'advlist', 'autolink', 'link', 'image', 'mediaembed', 'lists', 'charmap', 'preview', 'anchor', 'pagebreak',
+        'advlist', 'autolink', 'link', 'image', 'media', 'lists', 'charmap', 'preview', 'anchor', 'pagebreak',
         'searchreplace', 'wordcount', 'visualblocks', 'code', 'fullscreen', 'insertdatetime',
         'table', 'emoticons', 'template', 'help'
     ],
