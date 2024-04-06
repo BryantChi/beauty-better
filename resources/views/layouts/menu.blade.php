@@ -31,7 +31,7 @@
 <li class="nav-item">
     <a href="{{ route('admin.servicesInfos.index') }}"
        class="nav-link {{ Request::is('admin/servicesInfos*') ? 'active' : '' }}">
-        <p>服務項目</p>
+        <p>療程項目</p>
     </a>
 </li>
 

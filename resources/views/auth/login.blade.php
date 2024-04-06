@@ -54,13 +54,18 @@
 
 
     <!-- /.login-logo -->
+    <div class="login-logo">
+        <a href="{{ url('/admin') }}">
+            <img src="{{ asset('images/logo_full_bk.png') }}" class="img-fluid" alt="">
+        </a>
+    </div>
 
     <!-- /.login-box-body -->
     <div class="card" style="border-radius: 20px !important;background: #f4f6f948 !important;">
         <div class="card-body login-card-body" style="border-radius: 20px !important;background: #f4f6f948 !important;">
             {{-- <p class="login-box-msg">Sign in to start your session</p> --}}
             <div class="login-logo">
-                <a href="{{ url('/home') }}"><b>{{ config('app.name') }}</b></a>
+                <a href="{{ url('/admin') }}"><b>{{ config('app.name') }}</b></a>
             </div>
 
             <form method="post" action="{{ url('/login') }}">

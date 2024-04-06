@@ -62,7 +62,7 @@
                     <li class="nav-item dropdown user-menu">
                         <a href="#" class="nav-link dropdown-toggle" id="navbarDropdown" data-bs-toggle="dropdown"
                             aria-expanded="false">
-                            <img src="{{ asset('images/logo.png') }}" class="user-image img-circle elevation-2"
+                            <img src="{{ asset('images/logo_bk.png') }}" class="user-image img-circle elevation-2"
                                 alt="User Image">
                             <span class="d-none d-md-inline">{{ Auth::user()->name }}</span>
                         </a>

@@ -37,3 +37,9 @@
     {!! Form::label('meta_google_site_verification', 'Meta-Google-Site-Verification:') !!}
     {!! Form::text('meta_google_site_verification', null, ['class' => 'form-control']) !!}
 </div>
+
+<!-- Header-Anlytics-Code Field -->
+<div class="form-group col-sm-8">
+    {!! Form::label('header_anlytics_code', 'Header分析碼:') !!}
+    {!! Form::textarea('header_anlytics_code', null, ['class' => 'form-control', 'rows' => 10]) !!}
+</div>

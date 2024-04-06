@@ -2,13 +2,13 @@
     <table class="table" id="servicesInfos-table">
         <thead>
             <tr>
-                <th>服務名稱</th>
-                <th>服務項目 Icon</th>
-                <th>服務項目 Icon Alt</th>
-                <th>服務項目封面</th>
-                <th>服務項目封面 Alt</th>
-                <th>服務描述</th>
-                <th>服務子項目</th>
+                <th>療程名稱</th>
+                <th>療程項目 Icon</th>
+                <th>療程項目 Icon Alt</th>
+                <th>療程項目封面</th>
+                <th>療程項目封面 Alt</th>
+                <th>療程描述</th>
+                <th>療程子項目</th>
                 <th colspan="3">操作</th>
             </tr>
         </thead>

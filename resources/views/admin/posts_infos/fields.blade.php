@@ -19,7 +19,7 @@
 
 <!-- Post Seo Setting Customize Field -->
 <div class="form-group col-sm-12">
-    {!! Form::label('post_seo_setting_customize', '文章自訂SEO', ['class' => 'form-check-label']) !!}
+    {!! Form::label('post_seo_setting_customize', '文章自訂SEO:', ['class' => 'form-check-label2']) !!}
     <label class="form-check">
         {!! Form::radio('post_seo_setting_customize', true, null, ['class' => 'form-check-input', 'checked' => true]) !!} 開
     </label>
