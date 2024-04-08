@@ -120,6 +120,7 @@
         var swiper = new Swiper(".heroSwiper", {
             loop: true,
             autoplay: true,
+            speed: 2500,
             autoheight: true,
             centeredSlides: true,
             slidesPerView: 1,
