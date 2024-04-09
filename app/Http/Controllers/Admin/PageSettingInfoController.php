@@ -90,6 +90,38 @@ class PageSettingInfoController extends AppBaseController
 
         $input['banner'] = $banner;
 
+        $image_banners_mob = $request->file('banner_mob');
+
+        $banner_mob = [];
+
+        if ($image_banners_mob) {
+            foreach ($image_banners_mob as $index => $image_mob) {
+                if ($image_mob) {
+                    $path = public_path('uploads/images/banner_mob/');
+                    $filename = time() . '_' . $index . '_' . $image_mob->getClientOriginalName();
+                    if (!file_exists($path)) {
+                        mkdir($path, 0755, true);
+                    }
+
+                    // 壓縮圖片
+                    $image_banner_mob = Image::make($image_mob)->orientate()->encode('jpg', 75);
+                    // ->resize(function ($constraint) {
+                    //     $constraint->aspectRatio();
+                    //     $constraint->upsize();
+                    // })->encode('jpg', 75); // 設定 JPG 格式和 75% 品質
+                    $image_banner_mob->save($path.$filename);
+
+                    $banner_mob[$index] = 'images/banner_mob/' . $filename;
+                } else {
+                    $banner_mob[$index] = '';
+                }
+
+                // 在這裡，您可以保存圖片資訊到資料庫，包括alt標籤、排序和點擊網址
+            }
+        }
+
+        $input['banner_mob'] = $banner;
+
         $pageSettingInfo = $this->pageSettingInfoRepository->create($input);
 
         Flash::success('Page Setting Info saved successfully.');
@@ -159,7 +191,7 @@ class PageSettingInfoController extends AppBaseController
 
         $bc = $input['banner_input'];
         $image_banners = $request->file('banner');
-        // dd(count($bc), count($pageSettingInfo['banner']));
+
         $banner = $pageSettingInfo['banner'];
         if ($image_banners) {
             foreach ($image_banners as $index => $image) {
@@ -213,6 +245,63 @@ class PageSettingInfoController extends AppBaseController
         }
 
         $input['banner'] = $banner;
+
+        $bc_mob = $input['banner_mob_input'];
+        $image_banners_mob = $request->file('banner_mob');
+
+        $banner_mob = $pageSettingInfo['banner_mob'];
+        if ($image_banners_mob) {
+            foreach ($image_banners_mob as $index => $image_mob) {
+                if ($image_mob) {
+                    $path = public_path('uploads/images/banner_mob/');
+                    $filename = time() . '_' . $index . '_' . $image_mob->getClientOriginalName();
+                    if (!file_exists($path)) {
+                        mkdir($path, 0755, true);
+                    }
+
+                    if ($pageSettingInfo['banner_mob'][$index] ?? null != null) {
+                        // 若已存在，則覆蓋原有圖片
+                        if (File::exists(public_path('uploads/' . $pageSettingInfo['banner_mob'][$index]))) {
+                            File::delete(public_path('uploads/' . $pageSettingInfo['banner_mob'][$index]));
+                        }
+                    }
+
+                    // 壓縮圖片
+                    $image_banner_mob = Image::make($image_mob)->orientate()->encode('jpg', 75);
+                    // ->resize(function ($constraint) {
+                    //     $constraint->aspectRatio();
+                    //     $constraint->upsize();
+                    // })->encode('jpg', 75); // 設定 JPG 格式和 75% 品質
+                    $image_banner_mob->save($path.$filename);
+
+                    $banner_mob[$index] = 'images/banner_mob/' . $filename;
+                } else {
+                    $banner_mob[$index] = $pageSettingInfo['banner_mob'][$index];
+                }
+
+                // 在這裡，您可以保存圖片資訊到資料庫，包括alt標籤、排序和點擊網址
+            }
+
+        } else {
+            $banner_mob = $pageSettingInfo['banner_mob'];
+        }
+
+        // 刪除多餘的圖片
+        if (count($banner_mob) > count($bc_mob)) {
+            $tempBanner_mob = $banner_mob;
+            foreach ($tempBanner_mob as $i => $image_mob) {
+                if (!in_array($image_mob, $bc_mob)) {
+                    if ($image_mob != null) {
+                        if (File::exists(public_path('uploads/' . $image_mob))) {
+                            File::delete(public_path('uploads/' . $image_mob));
+                        }
+                    }
+                    array_splice($banner_mob, array_search($image_mob, $banner_mob), 1);
+                }
+            }
+        }
+
+        $input['banner_mob'] = $banner_mob;
 
         $pageSettingInfo = $this->pageSettingInfoRepository->update($input, $id);
 

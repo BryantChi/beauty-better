@@ -50,17 +50,29 @@
     {!! Form::label('banner', '輪播圖片:') !!}
     <div id="dynamicField">
         @foreach ($pageSettingInfo->banner ?? [] as $i => $banner)
-        <div class="mt-2 field-group">
+        <div class="mt-2 field-group card p-4 bg-light-subtle">
             <input type="text" name="banner_input[]" class="form-control d-none" id="banner" value="{{ $banner }}">
+            <input type="text" name="banner_mob_input[]" class="form-control d-none" id="banner" value="{{ $pageSettingInfo->banner_mob[$i] ?? '' }}">
             <div class="custom-file">
-                <input type="file" class="custom-file-input" id="banner" name="banner[]" accept="image/*" >
-                <label class="custom-file-label" for="banner">Choose file</label>
+                <input type="file" class="custom-file-input banner_pc" id="banner" name="banner[]" accept="image/*" >
+                <label class="custom-file-label" for="banner">Choose PC Image</label>
+            </div>
+            <div class="custom-file mt-2">
+                <input type="file" class="custom-file-input banner_mob" id="banner_mob" name="banner_mob[]" accept="image/*" >
+                <label class="custom-file-label" for="banner">Choose Mobile Image</label>
             </div>
             <input type="text" name="banner_alt[]" class="form-control my-2" id="banner_alt" value="{{ $pageSettingInfo->banner_alt[$i] }}">
             <input type="text" name="banner_link[]" class="form-control" id="banner_link" value="{{ $pageSettingInfo->banner_link[$i] }}">
             <div class="img-preview mt-2">
-                <img src="{{ env('APP_URL'). '/uploads/' . $banner }}" style="max-width: 200px; max-height: 200px;">
+                <p for="">PC</p>
+                <img src="{{ env('APP_URL', 'https://beauty4u-clinic.com'). '/uploads/' . $banner }}" style="max-width: 200px; max-height: 200px;">
             </div>
+            <div class="img-preview-mob mt-2">
+                <p for="">Mobile</p>
+                <img src="{{ env('APP_URL', 'https://beauty4u-clinic.com'). '/uploads/' . ($pageSettingInfo->banner_mob[$i] ?? '') }}"
+                class="{{ ($pageSettingInfo->banner_mob[$i] ?? '') ? 'd-block' : 'd-none' }}" style="max-width: 200px; max-height: 200px;">
+            </div>
+
             <span class="btn btn-danger mt-2 removeButton d-flex ml-auto" style="width: max-content;"><i class="fas fa-minus"></i></span>
         </div>
         @endforeach
@@ -89,16 +101,21 @@
                     return;
                 }
                 // 動態添加一組輸入欄位
-                $("#dynamicField").append('<div class="mt-2 field-group">' +
+                $("#dynamicField").append('<div class="mt-2 field-group card p-4 bg-light-subtle">' +
                     // '<span class="btn btn-primary my-2" style="cursor: pointer;"><i class="fas fa-sort"></i></span>' +
                     '<input type="text" name="banner_input[]" class="form-control d-none" id="banner" value="">' +
                     '<div class="custom-file w-100">' +
                         '<input type="file" class="custom-file-input" id="banner" name="banner[]" accept="image/*" required>' +
-                        '<label class="custom-file-label" for="banner">Choose file</label>' +
+                        '<label class="custom-file-label" for="banner">Choose PC Image</label>' +
+                    '</div>' +
+                    '<div class="custom-file w-100 mt-2">' +
+                        '<input type="file" class="custom-file-input" id="banner_mob" name="banner_mob[]" accept="image/*" required>' +
+                        '<label class="custom-file-label" for="banner">Choose Mobile Image</label>' +
                     '</div>' +
                     '<input type="text" name="banner_alt[]" class="form-control w-100 my-2" id="banner_alt" placeholder="圖片說明" required>' +
                     '<input type="text" name="banner_link[]" class="form-control w-100" id="banner_link" placeholder="圖片連結，無連結請填 - " required>' +
                     '<div class="img-preview mt-2"></div>' +
+                    '<div class="img-preview-mob mt-2"></div>' +
                     '<span class="btn btn-danger mt-2 removeButton d-flex ml-auto" style="width: max-content;"><i class="fas fa-minus"></i></span>' +
                 '</div>');
                 count++;
@@ -110,13 +127,24 @@
                 $(this).parent('div').remove();
             });
 
-            $(document).on('change', '.custom-file-input', function () {
+            $(document).on('change', '.banner_pc', function () {
                 let fileInput = this;
                 let fileReader = new FileReader();
 
                 fileReader.onload = function(e) {
-                    let previewHtml = `<img src="${e.target.result}" style="max-width: 200px; max-height: 200px;">`;
+                    let previewHtml = `<p for="">PC</p><img src="${e.target.result}" style="max-width: 200px; max-height: 200px;">`;
                     $(fileInput).closest('.field-group').find('.img-preview').html(previewHtml);
+                };
+
+                fileReader.readAsDataURL(fileInput.files[0]);
+            });
+            $(document).on('change', '.banner_mob', function () {
+                let fileInput = this;
+                let fileReader = new FileReader();
+
+                fileReader.onload = function(e) {
+                    let previewHtml = `<p for="">Mobile</p><img src="${e.target.result}" style="max-width: 200px; max-height: 200px;">`;
+                    $(fileInput).closest('.field-group').find('.img-preview-mob').html(previewHtml);
                 };
 
                 fileReader.readAsDataURL(fileInput.files[0]);

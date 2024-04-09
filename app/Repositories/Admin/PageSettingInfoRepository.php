@@ -22,7 +22,12 @@ class PageSettingInfoRepository extends BaseRepository
         'meta_title',
         'meta_description',
         'meta_keywords',
-        'meta_google_site_verification'
+        'meta_google_site_verification',
+        'header_anlytics_code',
+        'banner',
+        'banner_mob',
+        'banner_alt',
+        'banner_link',
     ];
 
     /**
