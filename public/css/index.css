@@ -54,3 +54,7 @@
     border-radius: 5px;
     color: #000;
 }
+
+.ev-area {
+    line-height: 0;
+}
