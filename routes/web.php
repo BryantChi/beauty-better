@@ -27,7 +27,7 @@ Route::any('/clear-cache', function () {
     // return "All Cache is cleared";
     // $pageInfo = PageSettingInfo::getHomeBanner('/index');
     // return view('index', ['pageInfo' => $pageInfo]);
-    return redirect()->route('home');
+    return redirect()->route('index');
 });
 
 Auth::routes();
