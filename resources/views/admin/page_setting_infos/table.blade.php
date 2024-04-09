@@ -8,6 +8,7 @@
                 <th>Meta-Description</th>
                 <th>Meta-Keywords</th>
                 <th>Meta-Google-Site-Verification</th>
+                <th>Banner</th>
                 <th colspan="3">操作</th>
             </tr>
         </thead>
@@ -20,6 +21,17 @@
                     <td>{{ $pageSettingInfo->meta_description }}</td>
                     <td>{{ $pageSettingInfo->meta_keywords }}</td>
                     <td>{{ $pageSettingInfo->meta_google_site_verification }}</td>
+                    <td style="max-width: 120px;">
+                        <div class="slick">
+                            @foreach ($pageSettingInfo->banner ?? [] as $i => $image)
+                                <div>
+                                    <a href="{{ env('APP_URL'). '/uploads/' . $image }}" data-fancybox="gallery_{{ $pageSettingInfo->id }}">
+                                        <img src="{{ env('APP_URL'). '/uploads/' . $image }}" alt="{{ $pageSettingInfo->banner_alt[$i] }}" style="max-width: 100px;">
+                                    </a>
+                                </div>
+                            @endforeach
+                        </div>
+                    </td>
                     <td width="120">
                         {!! Form::open(['route' => ['admin.pageSettingInfos.destroy', $pageSettingInfo->id], 'method' => 'delete']) !!}
                         <div class='btn-group'>
