@@ -1,0 +1,56 @@
+.treatment-slick .slick-next:before,
+.treatment-slick .slick-prev:before {
+    color: #6f42c1;
+}
+
+.vid {
+    width: 100%;
+    height: 36rem;
+    object-fit: cover;
+    object-position: center;
+}
+
+@media (max-width: 767px) {
+    .vid {
+        height: 20rem;
+    }
+
+    .treatment-slick .slick-next {
+        right: 23px;
+        z-index: 1;
+    }
+
+    .treatment-slick .slick-prev {
+        left: 23px;
+        z-index: 1;
+    }
+}
+
+#myImageCompare {
+    border: 5px solid #cccccc;
+}
+
+.images-compare-handle {
+    transform: translate(-50%, -50%);
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+
+.cm-text-before {
+    position: absolute;
+    top: 50px;
+    left: 50px;
+    padding: 10px 20px;
+    background: #ffffffcc;
+    border-radius: 5px;
+    color: #000;
+}
+.cm-text-after {
+    position: absolute;
+    top: 50px;
+    right: 50px;
+    padding: 10px 20px;
+    background: #ffffffcc;
+    border-radius: 5px;
+    color: #000;
+}

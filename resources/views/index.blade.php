@@ -18,8 +18,7 @@
                 <div class="mb-3">
                     <div class="single_dream text-center">
                         <div class="thumb">
-                            <img src="images/services/services-01.webp" class="img-fluid w-75 mx-auto"
-                                alt="">
+                            <img src="images/services/services-01.webp" class="img-fluid w-75 mx-auto" alt="">
                         </div>
                         <h3>醫美手術</h3>
                         <p></p>
@@ -28,8 +27,7 @@
                 <div class="mb-3">
                     <div class="single_dream text-center">
                         <div class="thumb">
-                            <img src="images/services/services-02.webp" class="img-fluid w-75 mx-auto"
-                                alt="">
+                            <img src="images/services/services-02.webp" class="img-fluid w-75 mx-auto" alt="">
                         </div>
                         <h3>微整手術</h3>
                         <p></p>
@@ -38,8 +36,7 @@
                 <div class="mb-3">
                     <div class="single_dream text-center">
                         <div class="thumb">
-                            <img src="images/services/services-03.webp" class="img-fluid w-75 mx-auto"
-                                alt="">
+                            <img src="images/services/services-03.webp" class="img-fluid w-75 mx-auto" alt="">
                         </div>
                         <h3>肌膚管理</h3>
                         <p></p>
@@ -48,8 +45,7 @@
                 <div class="mb-3">
                     <div class="single_dream text-center">
                         <div class="thumb">
-                            <img src="images/services/services-04.webp" class="img-fluid w-75 mx-auto"
-                                alt="">
+                            <img src="images/services/services-04.webp" class="img-fluid w-75 mx-auto" alt="">
                         </div>
                         <h3>雷射光電療程</h3>
                         <p></p>
@@ -58,8 +54,7 @@
                 <div class="mb-3">
                     <div class="single_dream text-center">
                         <div class="thumb">
-                            <img src="images/services/services-05.webp" class="img-fluid w-75 mx-auto"
-                                alt="">
+                            <img src="images/services/services-05.webp" class="img-fluid w-75 mx-auto" alt="">
                         </div>
                         <h3>預防醫學</h3>
                         <p></p>
@@ -108,11 +103,48 @@
     </div>
     <!-- about_area_end -->
 
+    <div class="my-5 bg-white">
+
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-12 justify-content-center">
+                    <div class="section_title mb-60 text-center">
+                        {{-- <span class="sub_heading"></span> --}}
+                        <h3 class="title-brown">專業醫療團隊‧打造美麗極緻</h3>
+                        <div class="seperator"></div>
+                        <p>這是我們的美麗見證，也是我們與您的約定，和我們一起專注於您的美麗。</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-lg-8 p-0 m-0">
+                    <div id="myImageCompare" class="position-relative">
+                        <!-- The first div will be the front element, to prevent FOUC add a style="display: none;" -->
+                        <div style="display: none;" >
+                            <span class="images-compare-label">Before</span>
+                            <img src="images/bf/a1.png" class="img-fluid" alt="Before">
+                        </div>
+                        <!-- This div will be the back element -->
+                        <div>
+                            <span class="images-compare-label">After</span>
+                            <img src="images/bf/a2.png" class="img-fluid" alt="After">
+                        </div>
+                    </div>
+                    <div class="w-100 d-flex mt-3">
+                        <a href="#" class="boxed-btn ml-auto">更多案例 >></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
     <div class="ev_area p-0 m-0 position-relative">
         <div class="container-fluid p-0 m-0">
             <video src="images/ev-vid.mov" autoplay loop muted playsinline class="vid p-0 m-0"></video>
         </div>
-        <div class=" p-0 m-0 w-100 h-100 position-absolute" style="z-index: 2;top: 0;left: 0;background-color: rgba(0, 0, 0, 0.3);"></div>
+        <div class=" p-0 m-0 w-100 h-100 position-absolute"
+            style="z-index: 2;top: 0;left: 0;background-color: rgba(0, 0, 0, 0.3);"></div>
     </div>
 
     <!-- lastest_project_strat -->
@@ -294,71 +326,16 @@
     <!-- messege_area_end -->
 @endsection
 
+@push('third_party_css')
+<link rel="stylesheet" href="css/images-compare.css">
+@endpush
 @push('custom_css')
-    <style>
-        .treatment-slick .slick-next:before,
-        .treatment-slick .slick-prev:before {
-            color: #6f42c1;
-        }
-        .vid {
-            width: 100%;
-            height: 36rem;
-            object-fit: cover;
-            object-position: center;
-        }
-        @media (max-width: 767px) {
-            .vid {
-                height: 20rem;
-            }
-            .treatment-slick .slick-next {
-                right: 23px;
-                z-index: 1;
-            }
-            .treatment-slick .slick-prev {
-                left: 23px;
-                z-index: 1;
-            }
-        }
-    </style>
+<link rel="stylesheet" href="css/index.css?v={{ time() }}">
+@endpush
+@push('third_party_scripts')
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/hammer.js/2.0.8/hammer.min.js"></script>
+<script type="text/javascript" src="js/jquery.images-compare.js"></script>
 @endpush
 @push('custom_scripts')
-    <script>
-        $(function() {
-            $('.treatment-slick').slick({
-                loop: true,
-                dots: true,
-                arrows: true,
-                autoplay: true,
-                infinite: true,
-                speed: 1500,
-                slidesToShow: 3,
-                slidesToScroll: 3,
-                responsive: [
-                    {
-                        breakpoint: 1024,
-                        settings: {
-                            slidesToShow: 3,
-                            slidesToScroll: 3,
-                            infinite: true,
-                            dots: true
-                        }
-                    },
-                    {
-                        breakpoint: 600,
-                        settings: {
-                            slidesToShow: 2,
-                            slidesToScroll: 2
-                        }
-                    },
-                    {
-                        breakpoint: 480,
-                        settings: {
-                            slidesToShow: 1,
-                            slidesToScroll: 1
-                        }
-                    }
-                ]
-            });
-        })
-    </script>
+<script src="js/index.js?v={{ time() }}"></script>
 @endpush

@@ -3998,3 +3998,15 @@ h6 {
         object-position: center;
     }
 }
+
+.title-brown {
+    color: #a68a5e !important;
+}
+
+.bg-brown {
+    background-color: #a68a5e !important;
+}
+
+.bg-brown-500 {
+    background-color: #a68a5e80 !important;
+}
