@@ -1,15 +1,28 @@
 <!doctype html>
-<html class="no-js" lang="zxx">
+<html class="" lang="zh-TW">
 
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>{{ config('app.name') }}</title>
-    <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
+    <meta name="description" content="{{ $pageSettings->meta_description }}" />
+    <meta name="keywords" content="{{ $pageSettings->meta_keywords }}" />
+    <meta property="og:locale" content="zh_TW" />
+    <meta name="author" content="紀孟勳 Bryantchi.work@gmail.com" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="{{ $pageSettings->meta_title }}" />
+    <meta property="og:description" content="{{ $pageSettings->meta_description }}" />
+    <meta property="og:image" content="{{ env('APP_URL') . 'images/logo_bk.png'}}" />
+    <meta property="og:url" content="{{ env('APP_URL') }}" />
+    <meta property="og:site_name" content="{{ $pageSettings->title }}" />
+    <title>{{ $pageSettings->title }}</title>
+    <meta name="title" content="{{ $pageSettings->meta_title }}" />
+    <meta name="google-site-verification" content="{{ $pageSettings->meta_google_site_verification }}" />
+    <link rel="canonical" href="{{ env('APP_URL') }}" />
+
     <!-- <link rel="manifest" href="site.webmanifest"> -->
-    <link rel="shortcut icon" type="image/x-icon" href="img/favicon.png">
+    <link rel="shortcut icon" type="image/x-icon" href="images/logo_bk.png">
     <!-- Place favicon.ico in the root directory -->
 
     <!-- CSS here -->
@@ -39,64 +52,7 @@
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
         <![endif]-->
 
-    <!-- header-start -->
-    <header>
-        <div class="header-area ">
-            <div id="sticky-header" class="main-header-area white-bg" style="background: #5703863 !important;">
-                <div class="container-fluid p-0">
-                    <div class="row align-items-center justify-content-between no-gutters">
-                        <div class="col-xl-2 col-lg-2">
-                            <div class="logo-img">
-                                <a href="{{ route('index') }}">
-                                    <img src="images/logo_full_bk.png" class="img-fluid img-logo" alt="">
-                                </a>
-                            </div>
-                        </div>
-                        <div class="col-auto">
-                            <div class="main-menu  d-none d-lg-block">
-                                <nav>
-                                    <ul id="navigation">
-                                        <li><a class="active" href="{{ route('index') }}">首頁</a></li>
-                                        <li><a href="about.html">關於美美</a></li>
-                                        {{-- <li><a href="project.html">Projects</a></li> --}}
-                                        {{-- <li><a href="service.html">療程項目</a></li> --}}
-                                        <li><a href="service.html">醫師團隊</a></li>
-                                        <li><a href="service.html">診所資訊</a></li>
-                                        <li><a href="service.html">美麗見證</a></li>
-                                        <li><a href="service.html">醫師專欄</a></li>
-
-                                        <li><a href="#">療程項目 <i class="ti-angle-down"></i></a>
-                                            <ul class="submenu">
-                                                <li><a href="blog.html">blog</a></li>
-                                                <li><a href="single-blog.html">single-blog</a></li>
-                                            </ul>
-                                        </li>
-                                        {{-- <li><a href="#">pages <i class="ti-angle-down"></i></a>
-                                            <ul class="submenu">
-                                                <li><a href="project-details.html">project-details</a></li>
-                                                <li><a href="elements.html">elements</a></li>
-                                            </ul>
-                                        </li> --}}
-                                        <li><a href="contact.html">聯絡資訊</a></li>
-                                    </ul>
-                                </nav>
-                            </div>
-                        </div>
-                        {{-- <div class="col-xl-3 col-lg-3 d-none d-lg-block">
-                            <div class="get_in_tauch">
-                                <a href="#" class="boxed-btn">GET IN TOUCH</a>
-                            </div>
-                        </div> --}}
-                        <div class="col-12">
-                            <div class="mobile_menu d-block d-lg-none"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </header>
-    <!-- header-end -->
-
+    @include('layouts_main.header')
 
 
     @yield('content')

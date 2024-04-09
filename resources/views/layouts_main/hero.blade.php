@@ -1,56 +1,35 @@
 <!-- slider_area_start -->
 <div class="slider_area position-relative">
-    <div class="swiper heroSwiper">
+    <div class="swiper heroSwiper d-md-block d-none">
         <div class="swiper-wrapper">
+            @foreach ($pageSettings->banner as $i => $banner)
             <div class="swiper-slide">
-                <a href="#" class="w-100 h-100">
-                    <img src="images/hero-default.webp" class="img-fluid hero-img" alt="">
+                <a href="{{ ($pageSettings->banner_link[$i] ?? '-') == '-' ? 'javascript:void(0);' : $pageSettings->banner_link[$i] }}" class="w-100 h-100">
+                    <img src="{{ env('APP_URLs', 'https://beauty4u-clinic.com') . '/uploads/' . $banner }}" class="img-fluid hero-img" style="background-color: #cecece;" alt="{{ $pageSettings->banner_alt[$i] ?? '' }}">
                 </a>
             </div>
+            @endforeach
+        </div>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-pagination"></div>
+    </div>
+    <div class="swiper heroSwiper d-md-none d-block">
+        <div class="swiper-wrapper">
+            @foreach ($pageSettings->banner_mob ?? $pageSettings->banner as $i => $banner)
             <div class="swiper-slide">
-                <a href="#" class="w-100 h-100">
-                    <img src="images/hero-default-02.webp" class="img-fluid hero-img" alt="">
+                <a href="{{ ($pageSettings->banner_link[$i] ?? '-') == '-' ? 'javascript:void(0);' : $pageSettings->banner_link[$i] }}" class="w-100 h-100">
+                    <img src="{{ env('APP_URLs', 'https://beauty4u-clinic.com') . '/uploads/' . $banner }}" class="img-fluid hero-img" style="background-color: #cecece;" alt="{{ $pageSettings->banner_alt[$i] ?? '' }}">
                 </a>
             </div>
-            <div class="swiper-slide">
-                <a href="#" class="w-100 h-100">
-                    <img src="images/hero-default-03.webp" class="img-fluid hero-img" alt="">
-                </a>
-            </div>
+            @endforeach
         </div>
         <div class="swiper-button-next"></div>
         <div class="swiper-button-prev"></div>
         <div class="swiper-pagination"></div>
     </div>
     <div class="overlay-hero-bottom"></div>
-    {{-- <div class="slider_active owl-carousel">
-        <div class="single_slider overlay2 d-flex align-items-center justify-content-center slider_bg_">
-            <a href="#" class="w-100 h-100">
-                <img src="images/hero-default.webp" class="img-fluid hero-img" alt="">
-            </a>
-            <div class="container">
-                <div class="row">
-                    <div class="col-xl-12">
-                        <div class="slider_text text-center">
-                            <h3>We Design your space</h3>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusmod tempor</p>
-                            <a href="#" class="boxed-btn2">See Our Projects</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="single_slider overlay2 d-flex align-items-center justify-content-center slider_bg_">
-            <a href="#" class="w-100 h-100">
-                <img src="images/hero-default-02.webp" class="img-fluid hero-img" alt="">
-            </a>
-        </div>
-        <div class="single_slider overlay2 d-flex align-items-center justify-content-center slider_bg_">
-            <a href="#" class="w-100 h-100">
-                <img src="images/hero-default-03.webp" class="img-fluid hero-img" alt="">
-            </a>
-        </div>
-    </div> --}}
+
 </div>
 <!-- slider_area_end -->
 @push('third_party_css')

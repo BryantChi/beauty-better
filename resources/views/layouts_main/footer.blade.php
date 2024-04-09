@@ -42,8 +42,8 @@
                                             導覽列
                                         </h3>
                                         <ul class="quick_links">
-                                            <li><a href="#">Home</a></li>
-                                            <li><a href="#">關於美美</a></li>
+                                            <li><a href="{{ route('index') }}">Home</a></li>
+                                            <li><a href="{{ route('about') }}">關於美美</a></li>
                                             <li><a href="#">醫師團隊</a></li>
                                             <li><a href="#">療程項目</a></li>
                                             <li><a href="#">美麗見證</a></li>
