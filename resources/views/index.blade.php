@@ -95,7 +95,7 @@
                             <li>專業的雷射儀器 </li>
                             <li>舒適的個人接待空間 </li>
                         </ul>
-                        <a href="#" class="boxed-btn">了解更多 >></a>
+                        <a href="{{ route('about') }}" class="boxed-btn">了解更多 >></a>
                     </div>
                 </div>
             </div>
@@ -131,7 +131,7 @@
                         </div>
                     </div>
                     <div class="w-100 d-flex mt-3">
-                        <a href="#" class="boxed-btn ml-auto">更多案例 >></a>
+                        <a href="javascript:void(0)" class="boxed-btn ml-auto">更多案例 >></a>
                     </div>
                 </div>
             </div>

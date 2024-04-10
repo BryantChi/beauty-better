@@ -60,6 +60,13 @@
 
     @include('layouts_main.footer')
 
+    <div class="loading">
+        <div class="loader">
+
+        </div>
+        <img src="{{ asset('images/logo_bk.png') }}" alt="{{ config('app.name') }}">
+    </div>
+
     <!-- JS here -->
     <script src="assets/js/vendor/modernizr-3.5.0.min.js"></script>
     <script src="assets/js/vendor/jquery-1.12.4.min.js"></script>
@@ -96,6 +103,18 @@
     @stack('third_party_scripts')
 
     @stack('custom_scripts')
+
+    <script>
+        $(window).on('load', function() {
+            // 在這裡放置當整個網頁載入完成時執行的程式碼
+            console.log("Page and all resources are loaded!");
+            setTimeout(function () {
+                $('.loading').fadeOut();
+            }, 500);
+
+            // 可以進行需要在所有資源載入完成後執行的工作
+        });
+    </script>
 
 </body>
 
