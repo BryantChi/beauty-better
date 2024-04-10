@@ -4030,15 +4030,15 @@ h6 {
     border-top: 8px solid #a367e7;
     /* Dark Green */
     border-radius: 50%;
-    width: 120px;
-    height: 120px;
+    width: 100px;
+    height: 100px;
     animation: spinloader 2s linear infinite;
 }
 
 .loading img {
     position: absolute;
-    height: 100px !important;
-    width: 100px !important;
+    height: 80px !important;
+    width: 80px !important;
     /* animation: spinlogo 2s linear infinite; */
 }
 
