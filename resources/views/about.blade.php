@@ -119,6 +119,25 @@
     </div>
     <!-- about_area_end -->
 @endsection
+@push('custom_css')
+    <style>
+        .about_area {
+            background-image: url("images/about/about-bg2.jpg");
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center center;
+        }
+
+        @media (max-width: 767px) {
+            .about_area {
+                background-image: url("images/about/about-bg-mob2.jpg");
+                background-repeat: no-repeat;
+                background-size: cover;
+                background-position: center center;
+            }
+        }
+    </style>
+@endpush
 @push('custom_scripts')
     <script>
         view(1);
