@@ -35,13 +35,20 @@ $(function () {
         ],
     });
 
+    let mode = "mousemove";
+    if ($(window).width() > 768) {
+        mode = "mousemove";
+    } else {
+        mode = "drag";
+    }
     $("#myImageCompare").imagesCompare({
         initVisibleRatio: 0.5,
-        interactionMode: "mousemove",
+        interactionMode: mode,
         addSeparator: true,
         addDragHandle: true,
         animationDuration: 450,
         animationEasing: "linear",
         precision: 2,
     });
+
 });
