@@ -1307,6 +1307,9 @@ h3 {
     letter-spacing: 10px;
 }
 @media (max-width: 767px) {
+    .breadcam_area {
+        padding: 60px 0;
+    }
     .breadcam_area .bradcam_text h3 {
         font-size: 30px;
     }
