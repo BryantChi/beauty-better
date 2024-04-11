@@ -17,20 +17,19 @@
                             <nav>
                                 <ul id="navigation">
                                     <li><a class="{{ Request::is('index') ? 'active' : '' }}" href="{{ route('index') }}">首頁</a></li>
-                                    <li><a class="{{ Request::is('about') ? 'active' : '' }}" href="{{ route('about') }}">關於美美</a></li>
-                                    {{-- <li><a href="project.html">Projects</a></li> --}}
-                                    {{-- <li><a href="service.html">療程項目</a></li> --}}
                                     <li><a href="service.html">醫師團隊</a></li>
-                                    <li><a href="service.html">診所資訊</a></li>
-                                    <li><a href="service.html">美麗見證</a></li>
-                                    <li><a href="service.html">醫師專欄</a></li>
-
+                                    <li><a class="{{ Request::is('about') ? 'active' : '' }}" href="{{ route('about') }}">診所資訊</a></li>
                                     <li><a href="#">療程項目 <i class="ti-angle-down"></i></a>
                                         <ul class="submenu">
                                             <li><a href="blog.html">blog</a></li>
                                             <li><a href="single-blog.html">single-blog</a></li>
                                         </ul>
                                     </li>
+                                    <li><a href="service.html">美麗見證</a></li>
+                                    <li><a href="service.html">醫師專欄</a></li>
+
+                                    {{-- <li><a href="project.html">Projects</a></li> --}}
+                                    {{-- <li><a href="service.html">療程項目</a></li> --}}
                                     {{-- <li><a href="#">pages <i class="ti-angle-down"></i></a>
                                         <ul class="submenu">
                                             <li><a href="project-details.html">project-details</a></li>

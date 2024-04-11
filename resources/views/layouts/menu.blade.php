@@ -31,7 +31,7 @@
     ?>
     <a href="{{ $route_about }}"
        class="nav-link {{ Request::is('admin/aboutUsInfos*') ? 'active' : '' }}">
-        <p>關於我們</p>
+        <p>診所資訊</p>
     </a>
 </li>
 
