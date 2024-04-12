@@ -8,14 +8,14 @@
 <li class="nav-item">
     <a href="{{ route('admin.adminUsers.index') }}"
        class="nav-link {{ Request::is('admin/adminUsers*') ? 'active' : '' }}">
-        <p>管理員</p>
+        <p><span><i class="fas fa-users-cog"></i></span> 管理員</p>
     </a>
 </li>
 
 <li class="nav-item">
     <a href="{{ route('admin.pageSettingInfos.index') }}"
        class="nav-link {{ Request::is('admin/pageSettingInfos*') ? 'active' : '' }}">
-        <p>頁面設定</p>
+        <p><span><i class="fab fa-pagelines"></i></span> 頁面設定</p>
     </a>
 </li>
 
@@ -31,28 +31,28 @@
     ?>
     <a href="{{ $route_about }}"
        class="nav-link {{ Request::is('admin/aboutUsInfos*') ? 'active' : '' }}">
-        <p>診所資訊</p>
+        <p><span><i class="fas fa-hospital-alt"></i></span> 診所資訊</p>
     </a>
 </li>
 
 <li class="nav-item">
     <a href="{{ route('admin.servicesInfos.index') }}"
        class="nav-link {{ Request::is('admin/servicesInfos*') ? 'active' : '' }}">
-        <p>療程項目</p>
+        <p><span><i class="fas fa-stethoscope"></i></span> 療程項目</p>
     </a>
 </li>
 
 <li class="nav-item">
     <a href="{{ route('admin.postTypeInfos.index') }}"
        class="nav-link {{ Request::is('admin/postTypeInfos*') ? 'active' : '' }}">
-        <p>文章分類</p>
+        <p><span><i class="fas fa-sitemap"></i></span> 文章分類</p>
     </a>
 </li>
 
 <li class="nav-item">
     <a href="{{ route('admin.postsInfos.index') }}"
        class="nav-link {{ Request::is('admin/postsInfos*') ? 'active' : '' }}">
-        <p>文章資訊</p>
+        <p><span><i class="fas fa-file-alt"></i></span> 文章資訊</p>
     </a>
 </li>
 
@@ -69,14 +69,14 @@
     ?>
     <a href="{{ $route_company }}"
        class="nav-link {{ Request::is('admin/companyInfos*') ? 'active' : '' }}">
-        <p>公司資訊</p>
+        <p><span><i class="fas fa-building"></i></span> 公司資訊</p>
     </a>
 </li>
 
 <li class="nav-item">
     <a href="{{ route('admin.teamInfos.index') }}"
        class="nav-link {{ Request::is('admin/teamInfos*') ? 'active' : '' }}">
-        <p>團隊資訊</p>
+        <p><span><i class="fas fa-portrait"></i></span> 團隊資訊</p>
     </a>
 </li>
 
