@@ -5,9 +5,11 @@
 
     <!-- team_area_start -->
     <div class="team_area">
+
+
         <div class="section_title mb-5 mx-auto text-center">
             <span class="sub_heading">Teams</span>
-            <h3>醫師團隊</h3>
+            <h2>醫師團隊</h2>
             <div class="seperator"></div>
         </div>
         <div class="container">
@@ -36,7 +38,7 @@
                         </div>
 
                         <div class="row">
-                            <div class="col-lg-6 mb-3 {{ count($team->degree ?? []) == 0 ? 'd-none' : '' }}">
+                            <div class="col-lg-4 mb-3 {{ count($team->degree ?? []) == 0 || count($team->degree ?? []) == null ? 'd-none' : '' }}">
                                 <h4>學歷</h4>
                                 <ul>
                                     @foreach ($team->degree ?? [] as $key => $value)
@@ -45,7 +47,7 @@
                                 </ul>
                             </div>
 
-                            <div class="col-lg-6 mb-3 {{ count($team->expertise ?? []) == 0 ? 'd-none' : '' }}">
+                            <div class="col-lg-4 mb-3 {{ count($team->expertise ?? []) == 0 || count($team->expertise ?? []) == null ? 'd-none' : '' }}">
                                 <h4>專長</h4>
                                 <ul>
                                     @foreach ($team->expertise ?? [] as $key => $value)
@@ -54,8 +56,8 @@
                                 </ul>
                             </div>
 
-                            <div class="col-lg-6 mb-3 {{ count($team->experience ?? []) == 0 ? 'd-none' : '' }}">
-                                <h4>經歷</h4>
+                            <div class="col-lg-4 mb-3 {{ count($team->experience ?? []) == 0 || count($team->experience ?? []) == null ? 'd-none' : '' }}">
+                                <h4>經歷/資格</h4>
                                 <ul>
                                     @foreach ($team->experience ?? [] as $key => $value)
                                         <li>{{ $value }}</li>
@@ -63,14 +65,14 @@
                                 </ul>
                             </div>
 
-                            <div class="col-lg-6 mb-3 {{ count($team->certificate_license ?? []) == 0 ? 'd-none' : '' }}">
+                            {{-- <div class="col-lg-6 mb-3 {{ count($team->certificate_license ?? []) == 0 || count($team->certificate_license ?? []) == null ? 'd-none' : '' }} {{ count($team->certificate_license ?? []) ? 'd-none' : '' }}">
                                 <h4>證照/資格</h4>
                                 <ul>
                                     @foreach ($team->certificate_license ?? [] as $key => $value)
                                         <li>{{ $value }}</li>
                                     @endforeach
                                 </ul>
-                            </div>
+                            </div> --}}
                         </div>
 
                     </div>

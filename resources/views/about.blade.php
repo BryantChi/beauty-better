@@ -3,8 +3,12 @@
 @section('content')
     @include('layouts_main.sub_hero', ['bradcam_title' => '認識美美上美 / About Us'])
 
+
+
     <!-- about_area_start -->
     <div class="about_area">
+        {{-- @include('layouts_main.breadcrumb', ['breadcrumb_title' => '認識美美上美 / About Us']) --}}
+
         <div class="text-center mb-5 d-flex justify-content-center">
             <a href="javascript:void(0)" class="boxed-btn m-1" onclick="view(1)">V1</a>
             <a href="javascript:void(0)" class="boxed-btn m-1" onclick="view(2)">V2</a>
@@ -23,8 +27,8 @@
                     <div class="about_info">
                         <div class="section_title">
                             <span class="sub_heading">About Us</span>
-                            <h3>MakeYou <br>
-                                A Better You</h3>
+                            <h2>MakeYou <br>
+                                A Better You</h2>
                             <div class="seperator"></div>
                         </div>
                         {{-- <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
@@ -154,7 +158,7 @@
             <div class="row justify-content-center align-items-center my-5 py-5 pl-md-0 mx-0" style="margin-bottom: 15rem;">
                 <div class="col-xl-5 col-md-5 mb-md-auto mb-4 px-md-0 px-3">
                     <div class="about_thumb">
-                        <img src="images/about/about-04.jpg" class="img-fluid about_area_3_img" alt="">
+                        <img src="images/about/about-03.jpg" class="img-fluid about_area_3_img" alt="">
                     </div>
                 </div>
                 <div class="col-xl-7 offset-xl-0 col-md-7 px-md-5 px-3">

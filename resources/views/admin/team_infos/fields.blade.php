@@ -166,7 +166,7 @@
 </div>
 
 <!-- Certificate License Field -->
-<div class="form-group col-sm-6">
+{{-- <div class="form-group col-sm-6">
     {!! Form::label('certificate_license', '證照/資格:') !!}
     <div id="dynamicField" class="dynamicField">
         @foreach ($teamInfo->certificate_license ?? [] as $i => $certificate_license)
@@ -175,7 +175,7 @@
                 <span class="btn btn-danger removeButton d-flex ml-auto align-items-center" style="width: max-content;"><i class="fas fa-minus"></i></span>
             </div>
             @endforeach
-        {{-- @if (Request::is('admin/teamInfos/*/edit*'))
+        @if (Request::is('admin/teamInfos/*/edit*'))
             @if (count($teamInfo->certificate_license) == 0)
                 <div class="input-group mb-3">
                     <input type="text" name="certificate_license[]" class="form-control" id="certificate_license">
@@ -191,13 +191,13 @@
         <div class="input-group mb-3">
             <input type="text" name="certificate_license[]" class="form-control" id="certificate_license">
         </div>
-        @endif --}}
+        @endif
     </div>
 
     <div class="d-flex justify-content-end w-100">
         <span class="btn btn-primary my-1" id="addCertificateLicenseBtn"><i class="fas fa-plus"></i></span>
     </div>
-</div>
+</div> --}}
 
 <!-- Certificate License Photos Field -->
 <div class="form-group col-sm-6 d-none">

@@ -35,6 +35,7 @@
     <link rel="stylesheet" href="assets/css/flaticon.css">
     <link rel="stylesheet" href="assets/css/animate.css">
     <link rel="stylesheet" href="assets/css/slicknav.css">
+    {{-- <link rel="stylesheet" href="assets/css/materialdesignicons.min.css"> --}}
     <link rel="stylesheet" href="assets/css/style.css?v={{ time() }}">
     <!-- <link rel="stylesheet" href="assets/css/responsive.css"> -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.css" />
