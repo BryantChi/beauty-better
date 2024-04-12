@@ -42,15 +42,21 @@
             box-shadow: #3c4858 0px 0px 20px;
         }
 
+        ul.breadcrumb {
+            background-color: #fefefecb !important;
+        }
+
         .breadcrumb .breadcrumb-item {
             font-size: 14px;
             font-weight: 700;
             padding-left: 0;
             display: inline-block;
+            font-weight: 900 !important;
         }
 
         .breadcrumb .breadcrumb-item a {
             color: #3c4858;
+            font-weight: 900 !important;
         }
 
         .breadcrumb .breadcrumb-item a:hover {
