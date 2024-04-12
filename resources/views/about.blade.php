@@ -242,7 +242,7 @@
 @endpush
 @push('custom_scripts')
     <script>
-        view(3);
+        view(1);
         function view(type) {
             if (type == 1) {
                 $('.view1').show();

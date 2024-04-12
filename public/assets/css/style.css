@@ -4014,6 +4014,12 @@ h6 {
     background-color: #a68a5e80 !important;
 }
 
+@media (max-width: 768px) {
+    .w-d-75 {
+        width: 75% !important;
+    }
+}
+
 /* loading */
 .loading {
     position: fixed;

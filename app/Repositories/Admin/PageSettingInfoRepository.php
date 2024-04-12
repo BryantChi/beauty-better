@@ -63,6 +63,11 @@ class PageSettingInfoRepository extends BaseRepository
     public static function getSubBanner($uri)
     {
         $pageInfos = PageSettingInfo::where('url', '=', $uri)->first();
+
+        if (empty($pageInfos)) {
+            $pageInfos = PageSettingInfo::where('url', '=', '/*')->first();
+        }
+
         $pageInfo = new \stdClass();
 
         $count = count($pageInfos->banner ?? []);
