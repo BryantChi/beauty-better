@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" style="height: 0;">
     <div class="row justify-content-center">
         <div class="col-lg-12 text-center">
             <div class="title-heading justify-content-center align-items-end">
@@ -30,7 +30,7 @@
     <style>
         .title-heading .breadcrumb-position {
             position: relative;
-            top: 140px;
+            top: 100px;
             /* top: -170px; */
             z-index: 99;
         }
@@ -91,7 +91,7 @@
         @media (max-width: 768px) {
             .title-heading .breadcrumb-position {
                 position: relative;
-                top: 80px;
+                top: 38px;
                 /* top: -170px; */
                 z-index: 99;
             }

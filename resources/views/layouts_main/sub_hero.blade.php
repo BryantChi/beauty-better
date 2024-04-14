@@ -6,7 +6,7 @@
     <div class="bradcam_text">
         <h1>{{ $bradcam_title }}</h1>
     </div>
-    @include('layouts_main.breadcrumb', ['breadcrumb_title' => $bradcam_title])
+    {{-- @include('layouts_main.breadcrumb', ['breadcrumb_title' => $bradcam_title]) --}}
 </div>
 
 

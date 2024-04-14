@@ -180,7 +180,7 @@
         <div class="container">
             <div class="section_title mx-auto text-center">
                 <span class="sub_heading">Core Values</span>
-                <h3>美美上美的中心理念</h3>
+                <h2 style="color: #A68A5E;">美美上美的中心理念</h2>
                 <div class="seperator"></div>
             </div>
 

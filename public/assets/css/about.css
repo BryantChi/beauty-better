@@ -54,6 +54,9 @@
 .single_about_sub {
     text-align: center;
 }
+.single_about_sub h3, .single_about_sub p {
+    color: #6D625A !important;
+}
 
 @media (min-width: 768px) {
     .about_area_2 {
