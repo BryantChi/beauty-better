@@ -741,8 +741,8 @@ h3 {
     width: 240px;
 }
 .about_area {
-    padding-top: 150px;
-    padding-bottom: 100px;
+    padding-top: 100px;
+    padding-bottom: 70px;
     background-color: #f1e4e49d;
 }
 .about_area.extra_padding {
@@ -770,7 +770,7 @@ h3 {
 @media (min-width: 768px) and (max-width: 991px) {
     .about_area {
         padding-top: 100px;
-        padding-bottom: 100px;
+        padding-bottom: 70px;
     }
 }
 .about_area .about_thumb {
@@ -1297,7 +1297,7 @@ h3 {
     background-image: url(../img/banner/breadcam_bg.png);
 }
 .breadcam_area {
-    padding: 120px 0;
+    padding: 100px 0;
     text-align: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -1324,7 +1324,7 @@ h3 {
         font-size: 30px;
     }
     .breadcam_area .bradcam_text h1 {
-        font-size: 2rem;
+        font-size: 1.5rem;
         color: #fff;
         font-weight: 700;
         text-transform: uppercase;
@@ -1346,8 +1346,8 @@ h3 {
 .team_area {
     /* padding-top: 196px;
     padding-bottom: 166px; */
-    padding-top: 150px;
-    padding-bottom: 100px;
+    padding-top: 100px;
+    padding-bottom: 70px;
 }
 @media (max-width: 767px) {
     .team_area {
