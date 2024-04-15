@@ -9,13 +9,13 @@
     <div class="about_area">
         {{-- @include('layouts_main.breadcrumb', ['breadcrumb_title' => '認識美美上美 / About Us']) --}}
 
-        <div class="text-center mb-5 d-flex justify-content-center">
+        <div class="text-center mb-5 d-flex2 justify-content-center d-none">
             <a href="javascript:void(0)" class="boxed-btn m-1" onclick="view(1)">V1</a>
             <a href="javascript:void(0)" class="boxed-btn m-1" onclick="view(2)">V2</a>
             <a href="javascript:void(0)" class="boxed-btn m-1" onclick="view(3)">V3</a>
         </div>
 
-        <div class="container d-none2">
+        <div class="container d-none">
 
             <div class="row justify-content-center align-items-center view1" style="margin-bottom: 12rem;">
                 <div class="col-xl-3 col-md-4 ">
@@ -246,7 +246,7 @@
 @endpush
 @push('custom_scripts')
     <script>
-        view(1);
+        // view(1);
         function view(type) {
             if (type == 1) {
                 $('.view1').show();
