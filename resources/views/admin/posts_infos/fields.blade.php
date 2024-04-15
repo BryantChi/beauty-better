@@ -4,6 +4,12 @@
     {!! Form::text('post_title', null, ['class' => 'form-control']) !!}
 </div>
 
+<!-- Post Slug Field -->
+<div class="form-group col-sm-6">
+    {!! Form::label('post_slug', '文章自訂網址:') !!}
+    {!! Form::text('post_slug', null, ['class' => 'form-control', 'required' => true]) !!}
+</div>
+
 <!-- Post Content Field -->
 <div class="form-group col-sm-12">
     {!! Form::label('post_content', '文章內容:') !!}
@@ -14,7 +20,7 @@
 <!-- Post Type Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('post_type', '文章分類:') !!}
-    {!! Form::select('post_type', ['' => '請選擇'] + ($postsTypes ?? []), ['class' => 'form-control', 'required' => true]) !!}
+    {!! Form::select('post_type', ['' => '請選擇'] + ($postsTypes ?? []), $postsInfo->post_type ?? null, ['class' => 'form-control', 'required' => true]) !!}
 </div>
 
 <!-- Post Seo Setting Customize Field -->

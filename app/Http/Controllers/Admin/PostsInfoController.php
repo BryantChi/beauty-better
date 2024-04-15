@@ -8,6 +8,7 @@ use App\Repositories\Admin\PostsInfoRepository;
 use App\Http\Controllers\AppBaseController;
 use App\Models\Admin\PostTypeInfo;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 use Flash;
 use Response;
 
@@ -58,6 +59,8 @@ class PostsInfoController extends AppBaseController
     public function store(CreatePostsInfoRequest $request)
     {
         $input = $request->all();
+
+        $input['post_slug'] = Str::slug($input['post_slug']);
 
         $postsInfo = $this->postsInfoRepository->create($input);
 
@@ -126,6 +129,12 @@ class PostsInfoController extends AppBaseController
             Flash::error('Posts Info not found');
 
             return redirect(route('admin.postsInfos.index'));
+        }
+
+        $input = $request->all();
+
+        if ($postsInfo->post_slug != $input['post_slug']) {
+            $input['post_slug'] = Str::slug($input['post_slug']);
         }
 
         $postsInfo = $this->postsInfoRepository->update($request->all(), $id);
