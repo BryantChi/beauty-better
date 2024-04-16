@@ -17,7 +17,7 @@
     <div class="custom-file">
         {{-- {!! Form::file('post_front_cover', null, ['class' => 'custom-file-input post_front_cover', 'required' => true]) !!} --}}
         <?php
-        if ($postsInfo->post_front_cover ?? null) {
+        if (Request::is('admin/postsInfos/create')) {
             $required = 'required';
         } else {
             $required = '';
