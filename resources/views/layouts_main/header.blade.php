@@ -7,7 +7,7 @@
                     <div class="col-xl-2 col-lg-2 d-lg-none d-block">
                         <div class="logo-img">
                             <a href="{{ route('index') }}">
-                                <img src="images/logo_full_bk.png" class="img-fluid img-logo" alt="">
+                                <img src="{{ asset('images/logo_full_bk.png') }}" class="img-fluid img-logo" alt="">
                             </a>
                         </div>
                     </div>
@@ -27,11 +27,11 @@
                                     </li>
                                     <li class="logo-img d-lg-inline-block d-none px-4">
                                         <a href="{{ route('index') }}">
-                                            <img src="images/logo_full_bk.png" class="img-fluid img-logo" alt="">
+                                            <img src="{{ asset('images/logo_full_bk.png') }}" class="img-fluid img-logo" alt="">
                                         </a>
                                     </li>
-                                    <li class="px-md-4"><a href="service.html">美麗見證</a></li>
-                                    <li class="px-md-4"><a href="service.html">醫師專欄</a></li>
+                                    <li class="px-md-4"><a class="{{ Request::is('case*') ? 'active' : '' }}" href="{{ route('case') }}">美麗見證</a></li>
+                                    <li class="px-md-4"><a class="{{ Request::is('blog*') ? 'active' : '' }}" href="{{ route('blog') }}">醫師專欄</a></li>
 
                                     {{-- <li><a href="project.html">Projects</a></li> --}}
                                     {{-- <li><a href="service.html">療程項目</a></li> --}}

@@ -1,7 +1,7 @@
 <!-- breadcam_area_start -->
 <div class="breadcam_area bradcam_bg overlay2 position-relative">
-    <img src="{{ $pageSettings->banner == '' ? 'images/hero-sub-default.webp' : $pageSettings->banner }}" class="img-fluid d-none d-md-block sub-hero-img" alt="{{ $pageSettings->banner_alt ?? '' }}">
-    <img src="{{ $pageSettings->banner_mob == '' ? 'images/hero-sub-default.webp' : $pageSettings->banner_mob }}" class="img-fluid d-block d-md-none sub-hero-img" alt="{{ $pageSettings->banner_alt_mob ?? '' }}">
+    <img src="{{ $pageSettings->banner == '' ? asset('images/hero-sub-default.webp') : $pageSettings->banner }}" class="img-fluid d-none d-md-block sub-hero-img" alt="{{ $pageSettings->banner_alt ?? '' }}">
+    <img src="{{ $pageSettings->banner_mob == '' ? asset('images/hero-sub-default.webp') : $pageSettings->banner_mob }}" class="img-fluid d-block d-md-none sub-hero-img" alt="{{ $pageSettings->banner_alt_mob ?? '' }}">
     <div class="overlay2 sub-hero-overlay"></div>
     <div class="bradcam_text">
         <h1>{{ $bradcam_title }}</h1>

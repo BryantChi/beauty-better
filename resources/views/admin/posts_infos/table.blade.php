@@ -3,6 +3,7 @@
         <thead>
             <tr>
                 <th>ID</th>
+                <th>文章封面</th>
                 <th>文章標題</th>
                 <th>文章自訂網址</th>
                 {{-- <th>文章內容</th> --}}
@@ -20,6 +21,11 @@
             @foreach ($postsInfos as $postsInfo)
                 <tr>
                     <td>{{ $postsInfo->id }}</td>
+                    <td>
+                        <a href="{{ env('APP_URL', 'https://beauty4u-clinic.com'). '/uploads/' . $postsInfo->post_front_cover }}" data-fancybox>
+                            <img src="{{ env('APP_URL', 'https://beauty4u-clinic.com'). '/uploads/' . $postsInfo->post_front_cover }}" class="img-fluid" style="max-width: 200px;" alt="">
+                        </a>
+                    </td>
                     <td>{{ $postsInfo->post_title }}</td>
                     <td>{{ $postsInfo->post_slug }}</td>
                     {{-- <td>

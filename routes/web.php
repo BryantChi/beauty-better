@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AboutUsController;
 use App\Http\Controllers\IndexController;
+use App\Http\Controllers\PostsController;
 use App\Http\Controllers\TeamsController;
 use Illuminate\Support\Facades\Route;
 
@@ -19,6 +20,11 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [IndexController::class, 'index'])->name('index');
 Route::get('/about', [AboutUsController::class, 'index'])->name('about');
 Route::get('/teams', [TeamsController::class, 'index'])->name('teams');
+Route::get('/blog/{type?}', [PostsController::class, 'blog'])->name('blog');
+Route::get('/blog/{type}/{slug}', [PostsController::class, 'blogShow'])->name('blog.show');
+Route::get('/case', [PostsController::class, 'case'])->name('case');
+Route::get('/case/{slug}', [PostsController::class, 'caseShow'])->name('case.show');
+
 
 Route::any('/clear-cache', function () {
     \Artisan::call('optimize:clear');

@@ -10,6 +10,23 @@
     {!! Form::text('post_slug', null, ['class' => 'form-control', 'required' => true]) !!}
 </div>
 
+<!-- Post Front Cover Field -->
+<div class="form-group col-sm-6">
+    {!! Form::label('post_front_cover', '文章封面:') !!}
+
+    <div class="custom-file">
+        {{-- {!! Form::file('post_front_cover', null, ['class' => 'custom-file-input post_front_cover', 'required' => true]) !!} --}}
+        <input type="file" class="custom-file-input post_front_cover" id="post_front_cover" name="post_front_cover" accept="image/*" required>
+        <label class="custom-file-label" for="post_front_cover">Choose file</label>
+    </div>
+    <div class="img-preview mt-2">
+        <p for="">預覽</p>
+        @if ($postsInfo->post_front_cover ?? null)
+        <img src="{{ env('APP_URL', 'https://beauty4u-clinic.com'). '/uploads/' . $postsInfo->post_front_cover }}" style="max-width: 200px; max-height: 200px;">
+        @endif
+    </div>
+</div>
+
 <!-- Post Content Field -->
 <div class="form-group col-sm-12">
     {!! Form::label('post_content', '文章內容:') !!}
@@ -91,6 +108,19 @@
                     // $("#post_meta_keywords").prop("readonly", true);
                     $('.seo-setting').slideUp('1500');
                 }
+            });
+
+
+            $(document).on('change', '.post_front_cover', function () {
+                let fileInput = this;
+                let fileReader = new FileReader();
+
+                fileReader.onload = function(e) {
+                    let previewHtml = `<p for="">預覽</p><img src="${e.target.result}" style="max-width: 200px; max-height: 200px;">`;
+                    $(fileInput).closest('.form-group').find('.img-preview').html(previewHtml);
+                };
+
+                fileReader.readAsDataURL(fileInput.files[0]);
             });
         });
     </script>

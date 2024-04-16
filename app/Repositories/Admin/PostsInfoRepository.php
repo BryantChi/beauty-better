@@ -19,6 +19,7 @@ class PostsInfoRepository extends BaseRepository
     protected $fieldSearchable = [
         'post_title',
         'post_slug',
+        'post_front_cover',
         'post_content',
         'post_type',
         'post_seo_setting_customize',
