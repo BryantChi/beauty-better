@@ -73,10 +73,11 @@ class PostsInfoController extends AppBaseController
                 mkdir($path, 0755, true);
             }
             // 壓縮圖片
-            $image_cover_front = Image::make($image_cover_front)->orientate()->resize(800, null, function ($constraint) {
-                $constraint->aspectRatio();
-                $constraint->upsize();
-            })->encode('jpg', 75); // 設定 JPG 格式和 75% 品質
+            $image_cover_front = Image::make($image_cover_front)->orientate()->encode('jpg', 75);
+            // ->resize(800, null, function ($constraint) {
+            //     $constraint->aspectRatio();
+            //     $constraint->upsize();
+            // }); // 設定 JPG 格式和 75% 品質
             $image_cover_front->save($path.$filename);
 
             $input['post_front_cover'] = 'images/post_front_cover/' . $filename;
@@ -175,10 +176,11 @@ class PostsInfoController extends AppBaseController
                 }
             }
             // 壓縮圖片
-            $image_cover_front = Image::make($image_cover_front)->orientate()->resize(800, null, function ($constraint) {
-                $constraint->aspectRatio();
-                $constraint->upsize();
-            })->encode('jpg', 75); // 設定 JPG 格式和 75% 品質
+            $image_cover_front = Image::make($image_cover_front)->orientate()->encode('jpg', 75);
+            // ->resize(800, null, function ($constraint) {
+            //     $constraint->aspectRatio();
+            //     $constraint->upsize();
+            // }); // 設定 JPG 格式和 75% 品質
             $image_cover_front->save($path.$filename);
 
 
