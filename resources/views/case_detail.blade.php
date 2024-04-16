@@ -81,3 +81,27 @@
         </div>
     </section>
 @endsection
+@push('third_party_css')
+    <style>
+        .blog_details img {
+            max-width: 100% !important;
+        }
+
+        .blog_details iframe {
+            max-width: 100% !important;
+            height: 25rem;
+        }
+
+        @media (max-width: 768px) {
+            .blog_details img {
+                max-width: 100% !important;
+                height: auto !important;
+            }
+
+            .blog_details iframe {
+                max-width: 100% !important;
+                height: 15rem !important;
+            }
+        }
+    </style>
+@endpush

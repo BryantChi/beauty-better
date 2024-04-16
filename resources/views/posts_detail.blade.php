@@ -11,7 +11,7 @@
                         <div class="feature-img">
                             <img class="img-fluid" src="{{ $postInfo->post_front_cover ?? null ? env('APP_URL', 'https://beauty4u-clinic.com') . '/uploads/' . $postInfo->post_front_cover : asset('images/about/about-05.jpg') }}" alt="{{ $postInfo->post_seo_title }}" />
                         </div>
-                        <div class="blog_details">
+                        <div class="blog_details table-responsive">
                             <h2>
                                 {{ $postInfo->post_title }}
                             </h2>
@@ -81,3 +81,27 @@
         </div>
     </section>
 @endsection
+@push('third_party_css')
+    <style>
+        .blog_details img {
+            max-width: 100% !important;
+        }
+
+        .blog_details iframe {
+            max-width: 100% !important;
+            height: 25rem;
+        }
+
+        @media (max-width: 768px) {
+            .blog_details img {
+                max-width: 100% !important;
+                height: auto !important;
+            }
+
+            .blog_details iframe {
+                max-width: 100% !important;
+                height: 15rem !important;
+            }
+        }
+    </style>
+@endpush
