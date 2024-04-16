@@ -22,9 +22,11 @@
                 <tr>
                     <td>{{ $postsInfo->id }}</td>
                     <td>
+                        @if ($postsInfo->post_front_cover)
                         <a href="{{ env('APP_URL', 'https://beauty4u-clinic.com'). '/uploads/' . $postsInfo->post_front_cover }}" data-fancybox>
                             <img src="{{ env('APP_URL', 'https://beauty4u-clinic.com'). '/uploads/' . $postsInfo->post_front_cover }}" class="img-fluid" style="max-width: 200px;" alt="">
                         </a>
+                        @endif
                     </td>
                     <td>{{ $postsInfo->post_title }}</td>
                     <td>{{ $postsInfo->post_slug }}</td>
