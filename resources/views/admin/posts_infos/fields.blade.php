@@ -16,7 +16,14 @@
 
     <div class="custom-file">
         {{-- {!! Form::file('post_front_cover', null, ['class' => 'custom-file-input post_front_cover', 'required' => true]) !!} --}}
-        <input type="file" class="custom-file-input post_front_cover" id="post_front_cover" name="post_front_cover" accept="image/*" required>
+        <?php
+        if ($postsInfo->post_front_cover ?? null) {
+            $required = 'required';
+        } else {
+            $required = '';
+        }
+        ?>
+        <input type="file" class="custom-file-input post_front_cover" id="post_front_cover" name="post_front_cover" accept="image/*" {{ $required }}>
         <label class="custom-file-label" for="post_front_cover">Choose file</label>
     </div>
     <div class="img-preview mt-2">
