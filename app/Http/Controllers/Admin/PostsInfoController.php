@@ -62,7 +62,7 @@ class PostsInfoController extends AppBaseController
     {
         $input = $request->all();
 
-        $input['post_slug'] = Str::slug($input['post_slug'],language: 'zh_TW');
+        $input['post_slug'] = Str::slug($input['post_slug'],language: '');
 
         $image_cover_front = $request->file('post_front_cover');
 
@@ -156,7 +156,7 @@ class PostsInfoController extends AppBaseController
         $input = $request->all();
 
         if ($postsInfo->post_slug != $input['post_slug']) {
-            $input['post_slug'] = Str::slug($input['post_slug'],language: 'zh_TW');
+            $input['post_slug'] = Str::slug($input['post_slug'],language: '');
         }
 
         $image_cover_front = $request->file('post_front_cover');
