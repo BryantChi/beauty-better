@@ -64,10 +64,10 @@ class PostsInfoController extends AppBaseController
 
         $input['post_slug'] = Str::slug($input['post_slug']);
 
-        $image_cover_front = $request->file('post_cover_front');
+        $image_cover_front = $request->file('post_front_cover');
 
         if ($image_cover_front) {
-            $path = public_path('uploads/images/post_cover_front') . '/';
+            $path = public_path('uploads/images/post_front_cover') . '/';
             $filename = time() . '_' . $image_cover_front->getClientOriginalName();
             if (!file_exists($path)) {
                 mkdir($path, 0755, true);
@@ -79,9 +79,9 @@ class PostsInfoController extends AppBaseController
             })->encode('jpg', 75); // 設定 JPG 格式和 75% 品質
             $image_cover_front->save($path.$filename);
 
-            $input['post_cover_front'] = 'images/post_cover_front/' . $filename;
+            $input['post_front_cover'] = 'images/post_front_cover/' . $filename;
         } else {
-            $input['post_cover_front'] = '';
+            $input['post_front_cover'] = '';
         }
 
         $postsInfo = $this->postsInfoRepository->create($input);
@@ -159,19 +159,19 @@ class PostsInfoController extends AppBaseController
             $input['post_slug'] = Str::slug($input['post_slug']);
         }
 
-        $image_cover_front = $request->file('post_cover_front');
+        $image_cover_front = $request->file('post_front_cover');
 
         if ($image_cover_front) {
-            $path = public_path('uploads/images/post_cover_front/');
+            $path = public_path('uploads/images/post_front_cover/');
             $filename = time() . '_' . $image_cover_front->getClientOriginalName();
             if (!file_exists($path)) {
                 mkdir($path, 0755, true);
             }
 
-            if ($postsInfo['post_cover_front'] != null) {
+            if ($postsInfo['post_front_cover'] != null) {
                 // 若已存在，則覆蓋原有圖片
-                if (File::exists(public_path('uploads/' . $postsInfo['post_cover_front']))) {
-                    File::delete(public_path('uploads/' . $postsInfo['post_cover_front']));
+                if (File::exists(public_path('uploads/' . $postsInfo['post_front_cover']))) {
+                    File::delete(public_path('uploads/' . $postsInfo['post_front_cover']));
                 }
             }
             // 壓縮圖片
@@ -183,12 +183,12 @@ class PostsInfoController extends AppBaseController
 
 
 
-            $input['post_cover_front'] = 'images/post_cover_front/' . $filename;
+            $input['post_front_cover'] = 'images/post_front_cover/' . $filename;
         } else {
-            $input['post_cover_front'] = $postsInfo['post_cover_front'];
+            $input['post_front_cover'] = $postsInfo['post_front_cover'];
         }
 
-        $postsInfo = $this->postsInfoRepository->update($request->all(), $id);
+        $postsInfo = $this->postsInfoRepository->update($input, $id);
 
         Flash::success('Posts Info updated successfully.');
 
