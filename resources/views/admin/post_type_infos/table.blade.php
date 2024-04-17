@@ -9,6 +9,11 @@
         </thead>
         <tbody>
         @foreach($postTypeInfos as $postTypeInfo)
+            @php
+                if ($postTypeInfo->id == 2) {
+                    continue;
+                }
+            @endphp
             <tr>
                 <td>{{ $postTypeInfo->id }}</td>
                 <td>{{ $postTypeInfo->type_name }}</td>

@@ -6,6 +6,7 @@ use App\Http\Requests\Admin\CreatePostsInfoRequest;
 use App\Http\Requests\Admin\UpdatePostsInfoRequest;
 use App\Repositories\Admin\PostsInfoRepository;
 use App\Http\Controllers\AppBaseController;
+use App\Models\Admin\PostsInfo;
 use App\Models\Admin\PostTypeInfo;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;

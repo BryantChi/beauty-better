@@ -61,8 +61,13 @@
                             <h4 class="widget_title">Category</h4>
                             <ul class="list cat-list">
                                 @foreach ($typeInfo as $type)
+                                @php
+                                    if ($type->id == 2) {
+                                        continue;
+                                    }
+                                @endphp
                                 <li>
-                                    <a href="{{ $type->id == 2 ? route('case') : route('blog', $type->id) }}" class="d-flex">
+                                    <a href="{{ route('blog', $type->id)  }}" class="d-flex">
                                         <p>{{ $type->type }}</p>
                                         <p>({{ $type->count }})</p>
                                     </a>

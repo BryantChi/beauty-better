@@ -14,9 +14,11 @@ class PostsController extends Controller
     public function blog($type = null)
     {
         if ($type == null) {
-            $type = 3;
+            $postsInfo = Posts::whereNotIn('post_type', [1])->paginate(10);
+        } else {
+            $postsInfo = Posts::where('post_type', $type)->paginate(10);
         }
-        $postsInfo = Posts::where('post_type', $type)->paginate(10);
+
         $pagesInfo = PageSettingInfoRepository::getSubBanner('/blog');
 
         $postType = PostTypeInfo::all();
