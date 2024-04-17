@@ -21,8 +21,8 @@
     </a>
 </li>
 
-<li class="nav-item">
-    <?php
+{{-- <li class="nav-item">
+    @php
     $about = DB::table('about_us_infos')->get();
     if (count($about) == 0) {
         # code...
@@ -30,12 +30,12 @@
     } else {
         $route_about = route('admin.aboutUsInfos.edit', 1);
     }
-    ?>
+    @endphp
     <a href="{{ $route_about }}" class="nav-link {{ Request::is('admin/aboutUsInfos*') ? 'active' : '' }}">
         <span class="mr-2 brand-image"><i class="fas fa-hospital-alt"></i></span>
         <p> 診所資訊</p>
     </a>
-</li>
+</li> --}}
 
 <li class="nav-item">
     <a href="{{ route('admin.servicesInfos.index') }}"
