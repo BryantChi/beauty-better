@@ -29,9 +29,15 @@
                         <aside class="single_sidebar_widget post_category_widget">
                             <h4 class="widget_title">Category</h4>
                             <ul class="list cat-list">
+                                <li>
+                                    <a href="{{ route('blog', DB::table('post_type_infos')->where('id', 1)->value('type_slug')) }}" class="d-flex">
+                                        <p>{{ __('未分類') }}</p>
+                                        <p>({{ DB::table('posts_infos')->where('post_type', 1)->count('id') }})</p>
+                                    </a>
+                                </li>
                                 @foreach ($typeInfo as $type)
                                 <li>
-                                    <a href="{{ $type->id == 2 ? route('case') : route('blog', $type->id) }}" class="d-flex">
+                                    <a href="{{ route('blog', DB::table('post_type_infos')->where('id', $type->id)->value('type_slug')) }}" class="d-flex">
                                         <p>{{ $type->type }}</p>
                                         <p>({{ $type->count }})</p>
                                     </a>
@@ -40,7 +46,7 @@
                             </ul>
                         </aside>
 
-                        <aside class="single_sidebar_widget instagram_feeds">
+                        {{-- <aside class="single_sidebar_widget instagram_feeds">
                             <h4 class="widget_title">Instagram Feeds</h4>
                             <ul class="instagram_row flex-wrap">
                                 <li>
@@ -74,7 +80,7 @@
                                     </a>
                                 </li>
                             </ul>
-                        </aside>
+                        </aside> --}}
                     </div>
                 </div>
             </div>

@@ -47,7 +47,8 @@ class PostsInfoController extends AppBaseController
      */
     public function create()
     {
-        $postsTypes = PostTypeInfo::get()->pluck('type_name', 'id')->toArray();
+        // $postsTypes = PostTypeInfo::get()->pluck('type_name', 'id')->toArray();
+        $postsTypes = PostTypeInfo::getCategoriesDropdown();
 
         return view('admin.posts_infos.create', compact('postsTypes'));
     }
@@ -63,7 +64,7 @@ class PostsInfoController extends AppBaseController
     {
         $input = $request->all();
 
-        $input['post_slug'] = Str::slug($input['post_slug'],language: '');
+        $input['post_slug'] = Str::slug($input['post_slug'],language: 'zh_TW');
 
         $image_cover_front = $request->file('post_front_cover');
 
@@ -124,7 +125,9 @@ class PostsInfoController extends AppBaseController
     {
         $postsInfo = $this->postsInfoRepository->find($id);
 
-        $postsTypes = PostTypeInfo::get()->pluck('type_name', 'id')->toArray();
+        // $postsTypes = PostTypeInfo::get()->pluck('type_name', 'id')->toArray();
+
+        $postsTypes = PostTypeInfo::getCategoriesDropdown();
 
         if (empty($postsInfo)) {
             Flash::error('Posts Info not found');
@@ -158,7 +161,7 @@ class PostsInfoController extends AppBaseController
         $input = $request->all();
 
         if ($postsInfo->post_slug != $input['post_slug']) {
-            $input['post_slug'] = Str::slug($input['post_slug'],language: '');
+            $input['post_slug'] = Str::slug($input['post_slug'],language: 'zh_TW');
         }
 
         $image_cover_front = $request->file('post_front_cover');

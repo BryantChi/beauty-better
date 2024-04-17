@@ -7,6 +7,8 @@ use App\Models\Admin\PostsInfo as Posts;
 use App\Models\Admin\PostTypeInfo;
 use App\Repositories\Admin\PageSettingInfoRepository;
 
+use function PHPSTORM_META\type;
+
 class PostsController extends Controller
 {
     //
@@ -14,14 +16,17 @@ class PostsController extends Controller
     public function blog($type = null)
     {
         if ($type == null) {
-            $postsInfo = Posts::whereNotIn('post_type', [1])->paginate(10);
+            $postTypes = PostTypeInfo::whereNotIn('type_parent_id', [2])->whereNotNull('type_parent_id')->get('id')->toArray();
+            array_push($postTypes, 1);
+            $postsInfo = Posts::whereIn('post_type', $postTypes)->paginate(10);
         } else {
-            $postsInfo = Posts::where('post_type', $type)->paginate(10);
+            $types = PostTypeInfo::where('type_slug', $type)->value('id');
+            $postsInfo = Posts::where('post_type', $types)->paginate(10);
         }
 
         $pagesInfo = PageSettingInfoRepository::getSubBanner('/blog');
 
-        $postType = PostTypeInfo::all();
+        $postType = PostTypeInfo::whereNotNull('type_parent_id')->whereNotIn('type_parent_id', [2])->get();
 
         $typeInfo = array();
         foreach ($postType as $value) {
@@ -40,11 +45,12 @@ class PostsController extends Controller
 
     public function blogShow($type, $slug)
     {
-        $postInfo = Posts::where('post_type', $type)->where('post_slug', $slug)->firstOrFail();
+        $types = PostTypeInfo::where('type_slug', $type)->value('id');
+        $postInfo = Posts::where('post_type', $types)->where('post_slug', $slug)->firstOrFail();
         $pageInfo = PageSettingInfoRepository::getSubBanner('/blog');
         $pagesInfo = new \StdClass();
-        $pagesInfo->title = $postInfo->post_title ?? '';
-        $pagesInfo->seo_title = $postInfo->post_seo_title ?? '';
+        $pagesInfo->title = $postInfo->post_meta_title ?? '';
+        // $pagesInfo->seo_title = $postInfo->post_seo_title ?? '';
         $pagesInfo->meta_title = $postInfo->post_meta_title ?? '';
         $pagesInfo->meta_description = $postInfo->post_meta_description ?? '';
         $pagesInfo->meta_keywords = $postInfo->post_meta_keywords ?? '';
@@ -57,7 +63,7 @@ class PostsController extends Controller
         $pagesInfo->banner_link_mob = $pageInfo->banner_link_mob;
         $pagesInfo->meta_google_site_verification = $pageInfo->meta_google_site_verification;
 
-        $postType = PostTypeInfo::all();
+        $postType = PostTypeInfo::whereNotNull('type_parent_id')->whereNotIn('type_parent_id', [2])->get();
 
         $typeInfo = array();
         foreach ($postType as $value) {

@@ -3,13 +3,7 @@
     {!! Form::label('post_title', '文章標題:') !!}
     {!! Form::text('post_title', null, ['class' => 'form-control']) !!}
 </div>
-
-<!-- Post Slug Field -->
-<div class="form-group col-sm-6">
-    {!! Form::label('post_slug', '文章自訂網址:') !!}
-    {!! Form::text('post_slug', null, ['class' => 'form-control', 'required' => true]) !!}
-</div>
-
+<div class="col-12"></div>
 <!-- Post Front Cover Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('post_front_cover', '文章封面:') !!}
@@ -44,7 +38,13 @@
 <!-- Post Type Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('post_type', '文章分類:') !!}
-    {!! Form::select('post_type', ['' => '請選擇'] + ($postsTypes ?? []), $postsInfo->post_type ?? null, ['class' => 'form-control', 'required' => true]) !!}
+    {!! Form::select('post_type', ['' => '請選擇'] + ($postsTypes ?? []), $postsInfo->post_type ?? 1, ['class' => 'form-control', 'required' => true]) !!}
+</div>
+<div class="col-12"></div>
+<!-- Post Slug Field -->
+<div class="form-group col-sm-6">
+    {!! Form::label('post_slug', '文章自訂網址:') !!}
+    {!! Form::text('post_slug', null, ['class' => 'form-control', 'required' => true]) !!}
 </div>
 
 <!-- Post Seo Setting Customize Field -->
@@ -61,11 +61,12 @@
 </div>
 
 <div class="seo-setting row">
-    <!-- Post Seo Title Field -->
+
+    {{-- <!-- Post Seo Title Field -->
     <div class="form-group col-sm-6">
         {!! Form::label('post_seo_title', '文章SEO標題:') !!}
         {!! Form::text('post_seo_title', null, ['class' => 'form-control']) !!}
-    </div>
+    </div> --}}
 
     <!-- Post Meta Title Field -->
     <div class="form-group col-sm-6">
@@ -73,17 +74,19 @@
         {!! Form::text('post_meta_title', null, ['class' => 'form-control']) !!}
     </div>
 
-    <!-- Post Meta Description Field -->
-    <div class="form-group col-sm-6">
-        {!! Form::label('post_meta_description', '文章 Meta Description:') !!}
-        {!! Form::text('post_meta_description', null, ['class' => 'form-control']) !!}
-    </div>
-
     <!-- Post Meta Keywords Field -->
     <div class="form-group col-sm-6">
         {!! Form::label('post_meta_keywords', '文章 Meta Keywords:') !!}
         {!! Form::text('post_meta_keywords', null, ['class' => 'form-control']) !!}
     </div>
+
+    <!-- Post Meta Description Field -->
+    <div class="form-group col-sm-6">
+        {!! Form::label('post_meta_description', '文章 Meta Description:') !!}
+        {!! Form::textarea('post_meta_description', null, ['class' => 'form-control', 'rows' => '8']) !!}
+    </div>
+
+
 </div>
 
 
