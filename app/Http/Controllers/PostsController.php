@@ -15,9 +15,15 @@ class PostsController extends Controller
 
     public function blog($type = null)
     {
+        $postType = PostTypeInfo::where(function($query) {
+            $query->whereNotNull('type_parent_id')
+                ->whereNotIn('type_parent_id', [2]);
+        })->orWhere(function($query) {
+            $query->whereIn('id', [1, 3]);
+        });
+
         if ($type == null) {
-            $postTypes = PostTypeInfo::whereNotIn('type_parent_id', [2])->whereNotNull('type_parent_id')->get('id')->toArray();
-            array_push($postTypes, 1);
+            $postTypes = $postType->get('id')->toArray();
             $postsInfo = Posts::whereIn('post_type', $postTypes)->paginate(10);
         } else {
             $types = PostTypeInfo::where('type_slug', $type)->value('id');
@@ -26,10 +32,8 @@ class PostsController extends Controller
 
         $pagesInfo = PageSettingInfoRepository::getSubBanner('/blog');
 
-        $postType = PostTypeInfo::whereNotNull('type_parent_id')->whereNotIn('type_parent_id', [2])->get();
-
         $typeInfo = array();
-        foreach ($postType as $value) {
+        foreach ($postType->get() as $value) {
             $type = new \StdClass();
             $type->id = $value->id;
             $type->type = $value->type_name;
@@ -63,7 +67,12 @@ class PostsController extends Controller
         $pagesInfo->banner_link_mob = $pageInfo->banner_link_mob;
         $pagesInfo->meta_google_site_verification = $pageInfo->meta_google_site_verification;
 
-        $postType = PostTypeInfo::whereNotNull('type_parent_id')->whereNotIn('type_parent_id', [2])->get();
+        $postType = PostTypeInfo::where(function($query) {
+            $query->whereNotNull('type_parent_id')
+                ->whereNotIn('type_parent_id', [2]);
+        })->orWhere(function($query) {
+            $query->whereIn('id', [1, 3]);
+        })->get();
 
         $typeInfo = array();
         foreach ($postType as $value) {
