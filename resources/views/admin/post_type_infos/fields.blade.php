@@ -12,7 +12,7 @@
 
 <!-- Type Parent Id Field -->
 @php
-    if (DB::table('post_type_infos')->where('type_parent_id', $postTypeInfo->id)->count() > 0 && Request::is('admin/postTypeInfos/*/edit*')) {
+    if (DB::table('post_type_infos')->where('type_parent_id', $postTypeInfo->id ?? null)->count() > 0 && Request::is('admin/postTypeInfos/*/edit*')) {
         $disabled = true;
     } else {
         $disabled = false;
@@ -20,5 +20,5 @@
 @endphp
 <div class="form-group col-sm-6 {{ $disabled ? 'd-none' : '' }}">
     {!! Form::label('type_parent_id', '上級分類:') !!}
-    {!! Form::select('type_parent_id', ['' => '請選擇'] + $parentTypes, $postTypeInfo->type_parent_id ?? null, ['class' => 'form-control', 'disabled' => $disabled]) !!}
+    {!! Form::select('type_parent_id', ['' => '請選擇'] + ($parentTypes ?? []), $postTypeInfo->type_parent_id ?? null, ['class' => 'form-control', 'disabled' => $disabled]) !!}
 </div>
