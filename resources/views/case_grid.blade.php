@@ -9,7 +9,7 @@
         <div class="container">
             <div class="row">
                 @if (count($postsInfo) == 0)
-                    <h3 class="text-center">暫無資料</h3>
+                    <h3 class="text-center w-100">暫無資料</h3>
                 @endif
                 @foreach ($postsInfo as $post)
                     <div class="col-lg-4 mb-3 mb-lg-5 h-100">
