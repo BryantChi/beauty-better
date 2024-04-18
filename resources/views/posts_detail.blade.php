@@ -16,8 +16,8 @@
                                 {{ $postInfo->post_title }}
                             </h2>
                             <ul class="blog-info-link mt-3 mb-4 ml-auto">
-                                <li><a href="#"><i class="fas fa-flag"></i> {{ DB::table('post_type_infos')->where('id', $postInfo->post_type)->value('type_name') }}</a></li>
-                                <li><a href="#"><i class="fas fa-calendar-alt"></i> {{ \Carbon\Carbon::parse($postInfo->created_at)->format('d M, Y') }}</a></li>
+                                <li><a href="{{ route('blog', DB::table('post_type_infos')->where('id', $postInfo->post_type)->value('type_slug'))  }}"><i class="fas fa-flag"></i> {{ DB::table('post_type_infos')->where('id', $postInfo->post_type)->value('type_name') }}</a></li>
+                                <li><a href="javascript:void(0)"><i class="fas fa-calendar-alt"></i> {{ \Carbon\Carbon::parse($postInfo->created_at)->format('d M, Y') }}</a></li>
                             </ul>
 
                             {!! $postInfo->post_content !!}
