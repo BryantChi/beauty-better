@@ -30,6 +30,11 @@
                             <h4 class="widget_title">Category</h4>
                             <ul class="list cat-list">
                                 @foreach ($typeInfo as $type)
+                                @php
+                                    if ($type->id == 3) {
+                                        continue;
+                                    }
+                                @endphp
                                 <li>
                                     <a href="{{ route('blog', DB::table('post_type_infos')->where('id', $type->id)->value('type_slug')) }}" class="d-flex">
                                         <p>{{ $type->type }}</p>
