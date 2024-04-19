@@ -131,7 +131,7 @@
                         </div>
                     </div>
                     <div class="w-100 d-flex mt-3">
-                        <a href="javascript:void(0)" class="boxed-btn ml-auto">更多案例 >></a>
+                        <a href="{{ route('case') }}" class="boxed-btn ml-auto">更多案例 >></a>
                     </div>
                 </div>
             </div>
