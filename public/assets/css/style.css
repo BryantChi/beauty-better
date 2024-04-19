@@ -1745,9 +1745,10 @@ h3 {
     margin-right: 20px;
 }
 .contact-info__icon i,
-.contact-info__icon span {
-    color: #8f9195;
-    font-size: 27px;
+span.contact-info__icon {
+    /* color: #8f9195; */
+    color: #6f42c1 !important;
+    font-size: 30px !important;
 }
 .contact-info .media-body h3 {
     font-size: 16px;

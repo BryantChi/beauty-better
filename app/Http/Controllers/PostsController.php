@@ -66,6 +66,7 @@ class PostsController extends Controller
         $pagesInfo->banner_link = $pageInfo->banner_link;
         $pagesInfo->banner_link_mob = $pageInfo->banner_link_mob;
         $pagesInfo->meta_google_site_verification = $pageInfo->meta_google_site_verification;
+        $pagesInfo->header_anlytics_code = $pageInfo->header_anlytics_code;
 
         $postType = PostTypeInfo::where(function($query) {
             $query->whereNotNull('type_parent_id')

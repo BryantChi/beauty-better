@@ -41,6 +41,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.css" />
 
+    {!! $pageSettings->header_anlytics_code ?? '' !!}
+
     @stack('third_party_css')
 
     @stack('custom_css')

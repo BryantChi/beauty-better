@@ -41,7 +41,7 @@
                                             <li><a href="elements.html">elements</a></li>
                                         </ul>
                                     </li> --}}
-                                    <li><a href="contact.html">聯絡資訊</a></li>
+                                    <li><a href="{{ route('contact') }}">聯絡資訊</a></li>
                                 </ul>
                             </nav>
                         </div>
