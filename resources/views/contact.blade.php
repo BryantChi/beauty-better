@@ -1,11 +1,11 @@
 @extends('layouts_main.master')
 
 @section('content')
-    @include('layouts_main.sub_hero', ['bradcam_title' => '聯絡我們 / Contact Us'])
+    @include('layouts_main.sub_hero', ['bradcam_title' => '聯絡我們 / <br class="d-block d-md-none">Contact Us'])
 
-    <section class="contact-section">
+    <section class="contact_area contact-section">
         <div class="container">
-            <div class="d-none d-sm-block mb-5 pb-4">
+            <div class="mb-5 pb-4">
                 <div id="map" style="height: 480px; position: relative; overflow: hidden;">
 
                     {!! $companyInfo->company_map_iframe !!}
@@ -59,7 +59,8 @@
                     <div class="media contact-info align-items-center">
                         <span class="contact-info__icon"><i class="fas fa-map-marked-alt"></i></span>
                         <div class="media-body">
-                            <h3><a href="{{ $companyInfo->company_map_url }}" target="_blank">{{ $companyInfo->company_address }}</a></h3>
+                            <h3><a href="{{ $companyInfo->company_map_url }}"
+                                    target="_blank">{{ $companyInfo->company_address }}</a></h3>
                             {{-- <p></p> --}}
                         </div>
                     </div>
@@ -86,7 +87,9 @@
                     <div class="media contact-info align-items-center">
                         <span class="contact-info__icon"><i class="fas fa-envelope"></i></span>
                         <div class="media-body">
-                            <h3><a href="mailto:{{ $companyInfo->company_mail ?? '' }}">{{ $companyInfo->company_mail ?? '' }}</a></h3>
+                            <h3><a
+                                    href="mailto:{{ $companyInfo->company_mail ?? '' }}">{{ $companyInfo->company_mail ?? '' }}</a>
+                            </h3>
                             <p>Send us your query anytime!</p>
                         </div>
                     </div>
@@ -95,7 +98,8 @@
                     <div class="media contact-info align-items-center">
                         <span class="contact-info__icon"><i class="fab fa-facebook"></i></span>
                         <div class="media-body">
-                            <h3><a href="{{ $companyInfo->company_facebook }}" target="_blank">{{ $companyInfo->company_name }}</a></h3>
+                            <h3><a href="{{ $companyInfo->company_facebook }}"
+                                    target="_blank">{{ $companyInfo->company_name }}</a></h3>
                             {{-- <p></p> --}}
                         </div>
                     </div>
@@ -104,7 +108,8 @@
                     <div class="media contact-info align-items-center">
                         <span class="contact-info__icon"><i class="fab fa-line"></i></span>
                         <div class="media-body">
-                            <h3><a href="{{ $companyInfo->company_line }}" target="_blank">{{ $companyInfo->company_name }}</a></h3>
+                            <h3><a href="{{ $companyInfo->company_line }}"
+                                    target="_blank">{{ $companyInfo->company_name }}</a></h3>
                             {{-- <p></p> --}}
                         </div>
                     </div>
@@ -113,7 +118,8 @@
                     <div class="media contact-info align-items-center">
                         <span class="contact-info__icon"><i class="fab fa-instagram"></i></span>
                         <div class="media-body">
-                            <h3><a href="{{ $companyInfo->company_instagram }}" target="_blank">{{ $companyInfo->company_name }}</a></h3>
+                            <h3><a href="{{ $companyInfo->company_instagram }}"
+                                    target="_blank">{{ $companyInfo->company_name }}</a></h3>
                             {{-- <p></p> --}}
                         </div>
                     </div>
@@ -122,7 +128,8 @@
                     <div class="media contact-info align-items-center">
                         <span class="contact-info__icon"><i class="fab fa-youtube"></i></span>
                         <div class="media-body">
-                            <h3><a href="{{ $companyInfo->company_youtube }}" target="_blank">{{ $companyInfo->company_name }}</a></h3>
+                            <h3><a href="{{ $companyInfo->company_youtube }}"
+                                    target="_blank">{{ $companyInfo->company_name }}</a></h3>
                             {{-- <p></p> --}}
                         </div>
                     </div>
@@ -133,16 +140,34 @@
 @endsection
 @push('custom_css')
     <style>
+        .contact_area {
+            background-image: url("../../images/about/about-bg2.jpg");
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center center;
+        }
+
         #map iframe {
             border: 0;
             width: 100% !important;
             height: 100% !important;
         }
+
         .media-body a:hover {
             color: #570386 !important;
         }
+
         .media-body p {
             margin-bottom: 0 !important;
+        }
+
+        @media (max-width: 767px) {
+            .contact_area {
+                background-image: url("../../images/about/about-bg-mob2.jpg");
+                background-repeat: no-repeat;
+                background-size: cover;
+                background-position: center center;
+            }
         }
     </style>
 @endpush

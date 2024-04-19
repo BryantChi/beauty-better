@@ -4,7 +4,7 @@
     <img src="{{ $pageSettings->banner_mob == '' ? asset('images/hero-sub-default.webp') : $pageSettings->banner_mob }}" class="img-fluid d-block d-md-none sub-hero-img" alt="{{ $pageSettings->banner_alt_mob ?? '' }}">
     <div class="overlay2 sub-hero-overlay"></div>
     <div class="bradcam_text">
-        <h1>{{ $bradcam_title }}</h1>
+        <h1>{!! $bradcam_title !!}</h1>
     </div>
     {{-- @include('layouts_main.breadcrumb', ['breadcrumb_title' => $bradcam_title]) --}}
 </div>
