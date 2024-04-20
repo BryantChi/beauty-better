@@ -43,7 +43,13 @@
 <!-- Service Sub List Field -->
 <div class="col-sm-12">
     {!! Form::label('service_sub_list', '療程項目子項:') !!}
-    <p>{{ $servicesInfo->service_sub_list }}</p>
+    @foreach ($servicesInfo->service_sub_list ?? [] as $key => $value)
+        <div class="mb-2">
+            <h5>項目{{ $key + 1 }}：{{ $value['item'] }}</h5>
+            <p>文章類型：{{ \App\Models\Admin\PostTypeInfo::find($value['type'])->type_name }}</p>
+            <p>文章名稱：{{ \App\Models\Admin\PostsInfo::find($value['article'])->post_title }}</p>
+        </div>
+    @endforeach
 </div>
 
 <!-- Created At Field -->
@@ -57,4 +63,3 @@
     {!! Form::label('updated_at', 'Updated At:') !!}
     <p>{{ $servicesInfo->updated_at }}</p>
 </div>
-
