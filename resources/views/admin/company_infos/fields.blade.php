@@ -23,7 +23,7 @@
 </div>
 
 <!-- Company Map Iframe Field -->
-<div class="form-group col-sm-6">
+<div class="form-group col-sm-8">
     {!! Form::label('company_map_iframe', '公司 Map Iframe 內嵌:') !!}
     {!! Form::textarea('company_map_iframe', null, ['class' => 'form-control']) !!}
 </div>
