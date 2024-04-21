@@ -2,7 +2,7 @@
     <table class="table" id="postsInfos-table">
         <thead>
             <tr>
-                <th>ID</th>
+                {{-- <th>ID</th> --}}
                 <th>文章封面</th>
                 <th>文章標題</th>
                 <th>文章自訂網址</th>
@@ -20,7 +20,7 @@
         <tbody>
             @foreach ($postsInfos as $postsInfo)
                 <tr>
-                    <td>{{ $postsInfo->id }}</td>
+                    {{-- <td>{{ $postsInfo->id }}</td> --}}
                     <td>
                         @if ($postsInfo->post_front_cover)
                         <a href="{{ env('APP_URL', 'https://beauty4u-clinic.com'). '/uploads/' . $postsInfo->post_front_cover }}" data-fancybox>
