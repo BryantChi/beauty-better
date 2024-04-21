@@ -1,4 +1,4 @@
-<div class="table-responsive">
+<div class="table-responsive p-3">
     <table class="table" id="postsInfos-table">
         <thead>
             <tr>
@@ -14,7 +14,7 @@
                 <th>文章 Meta Description</th>
                 <th>文章 Meta Keywords</th> --}}
                 <th>建立時間</th>
-                <th colspan="3">操作</th>
+                <th width="120">操作</th>
             </tr>
         </thead>
         <tbody>
