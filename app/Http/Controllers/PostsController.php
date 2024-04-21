@@ -17,7 +17,10 @@ class PostsController extends Controller
     {
         $postType = PostTypeInfo::where(function($query) {
             $query->whereNotNull('type_parent_id')
-                ->whereNotIn('type_parent_id', [2]);
+                ->whereNotIn('type_parent_id',
+                PostTypeInfo::whereNull('type_parent_id')->where(function($query) {
+                    $query->whereNotIn('id', [1, 3]);
+                })->get('id')->toArray());
         })->orWhere(function($query) {
             $query->whereIn('id', [1, 3]);
         });
@@ -72,13 +75,16 @@ class PostsController extends Controller
 
         $postType = PostTypeInfo::where(function($query) {
             $query->whereNotNull('type_parent_id')
-                ->whereNotIn('type_parent_id', [2]);
+                ->whereNotIn('type_parent_id',
+                PostTypeInfo::whereNull('type_parent_id')->where(function($query) {
+                    $query->whereNotIn('id', [1, 3]);
+                })->get('id')->toArray());
         })->orWhere(function($query) {
             $query->whereIn('id', [1, 3]);
-        })->get();
+        });
 
         $typeInfo = array();
-        foreach ($postType as $value) {
+        foreach ($postType->get() as $value) {
             $type = new \StdClass();
             $type->id = $value->id;
             $type->type = $value->type_name;
