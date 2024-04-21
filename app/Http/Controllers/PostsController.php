@@ -53,12 +53,12 @@ class PostsController extends Controller
         $postInfo = Posts::where('post_type', $types)->where('post_slug', $slug)->firstOrFail();
         $pageInfo = PageSettingInfoRepository::getSubBanner('/blog');
         $pagesInfo = new \StdClass();
-        $pagesInfo->title = $postInfo->post_meta_title ?? '';
-        // $pagesInfo->seo_title = $postInfo->post_seo_title ?? '';
-        $pagesInfo->meta_title = $postInfo->post_meta_title ?? '';
-        $pagesInfo->meta_description = $postInfo->post_meta_description ?? '';
-        $pagesInfo->meta_keywords = $postInfo->post_meta_keywords ?? '';
-        $pagesInfo->header_anlytics_code = $pageInfo->header_anlytics_code ?? '';
+        $pagesInfo->title = ($postInfo->post_meta_title ?? '') == '' && $postInfo->post_seo_setting_customize == 1 ? $postInfo->post_meta_title : ($postInfo->post_title ?? '');
+        // $pagesInfo->seo_title = ($postInfo->post_seo_title ?? '') == '' && $postInfo->post_seo_setting_customize == 1 ? $postInfo->post_seo_title : ($pageInfo->meta_title ?? '');
+        $pagesInfo->meta_title = ($postInfo->post_meta_title ?? '') == '' && $postInfo->post_seo_setting_customize == 1 ? $postInfo->post_meta_title : ($postInfo->post_title ?? '');
+        $pagesInfo->meta_description = ($postInfo->post_meta_description ?? '') == '' && $postInfo->post_seo_setting_customize == 1 ? $postInfo->post_meta_description : ($pageInfo->meta_description ?? '');
+        $pagesInfo->meta_keywords = ($postInfo->post_meta_keywords ?? '') == '' && $postInfo->post_seo_setting_customize == 1 ? $postInfo->post_meta_keywords : ($pageInfo->meta_keywords ?? '');
+
         $pagesInfo->banner = $pageInfo->banner;
         $pagesInfo->banner_mob = $pageInfo->banner_mob;
         $pagesInfo->banner_alt = $pageInfo->banner_alt;
@@ -66,7 +66,9 @@ class PostsController extends Controller
         $pagesInfo->banner_link = $pageInfo->banner_link;
         $pagesInfo->banner_link_mob = $pageInfo->banner_link_mob;
         $pagesInfo->meta_google_site_verification = $pageInfo->meta_google_site_verification;
-        $pagesInfo->header_anlytics_code = $pageInfo->header_anlytics_code;
+        $pagesInfo->header_anlytics_code = $pageInfo->header_anlytics_code ?? '';
+        $pagesInfo->body_anlytics_code = $pageInfo->body_anlytics_code ?? '';
+
 
         $postType = PostTypeInfo::where(function($query) {
             $query->whereNotNull('type_parent_id')
@@ -118,12 +120,12 @@ class PostsController extends Controller
         $postInfo = Posts::where('post_type', 2)->where('post_slug', $slug)->firstOrFail();
         $pageInfo = PageSettingInfoRepository::getSubBanner('/blog');
         $pagesInfo = new \StdClass();
-        $pagesInfo->title = $postInfo->post_title ?? '';
-        $pagesInfo->seo_title = $postInfo->post_seo_title ?? '';
-        $pagesInfo->meta_title = $postInfo->post_meta_title ?? '';
-        $pagesInfo->meta_description = $postInfo->post_meta_description ?? '';
-        $pagesInfo->meta_keywords = $postInfo->post_meta_keywords ?? '';
-        $pagesInfo->header_anlytics_code = $pageInfo->header_anlytics_code ?? '';
+        $pagesInfo->title = ($postInfo->post_meta_title ?? '') == '' && $postInfo->post_seo_setting_customize == 1 ? $postInfo->post_meta_title : ($postInfo->post_title ?? '');
+        // $pagesInfo->seo_title = ($postInfo->post_seo_title ?? '') == '' && $postInfo->post_seo_setting_customize == 1 ? $postInfo->post_seo_title : ($pageInfo->meta_title ?? '');
+        $pagesInfo->meta_title = ($postInfo->post_meta_title ?? '') == '' && $postInfo->post_seo_setting_customize == 1 ? $postInfo->post_meta_title : ($postInfo->post_title ?? '');
+        $pagesInfo->meta_description = ($postInfo->post_meta_description ?? '') == '' && $postInfo->post_seo_setting_customize == 1 ? $postInfo->post_meta_description : ($pageInfo->meta_description ?? '');
+        $pagesInfo->meta_keywords = ($postInfo->post_meta_keywords ?? '') == '' && $postInfo->post_seo_setting_customize == 1 ? $postInfo->post_meta_keywords : ($pageInfo->meta_keywords ?? '');
+
         $pagesInfo->banner = $pageInfo->banner;
         $pagesInfo->banner_mob = $pageInfo->banner_mob;
         $pagesInfo->banner_alt = $pageInfo->banner_alt;
@@ -131,6 +133,8 @@ class PostsController extends Controller
         $pagesInfo->banner_link = $pageInfo->banner_link;
         $pagesInfo->banner_link_mob = $pageInfo->banner_link_mob;
         $pagesInfo->meta_google_site_verification = $pageInfo->meta_google_site_verification;
+        $pagesInfo->header_anlytics_code = $pageInfo->header_anlytics_code ?? '';
+        $pagesInfo->body_anlytics_code = $pageInfo->body_anlytics_code ?? '';
 
         $postType = PostTypeInfo::all();
 
