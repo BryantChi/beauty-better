@@ -19,7 +19,7 @@
                                     {{-- <li><a class="{{ Request::is('index') ? 'active' : '' }}" href="{{ route('index') }}">首頁</a></li> --}}
                                     <li class="px-md-4"><a class="{{ Request::is('teams') ? 'active' : '' }}" href="{{ route('teams') }}">醫師團隊</a></li>
                                     <li class="px-md-4"><a class="{{ Request::is('about') ? 'active' : '' }}" href="{{ route('about') }}">診所資訊</a></li>
-                                    <li class="px-md-4"><a class="{{ Request::is('services*') ? 'active' : '' }}" href="{{ route('services') }}">診所資訊</a></li>
+                                    <li class="px-md-4"><a class="{{ Request::is('services*') ? 'active' : '' }}" href="{{ route('services') }}">療程項目</a></li>
                                     {{-- <li class="px-md-4"><a class="{{ Request::is('services*') ? 'active' : '' }}" href="{{ route('services') }}">療程項目 <i class="ti-angle-down"></i></a>
                                         <ul class="submenu">
                                             <li><a href="blog.html">blog</a></li>
