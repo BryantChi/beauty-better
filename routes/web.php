@@ -4,6 +4,7 @@ use App\Http\Controllers\AboutUsController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\IndexController;
 use App\Http\Controllers\PostsController;
+use App\Http\Controllers\ServicesController;
 use App\Http\Controllers\TeamsController;
 use Illuminate\Support\Facades\Route;
 
@@ -26,6 +27,9 @@ Route::get('/blog/{type}/{slug}', [PostsController::class, 'blogShow'])->name('b
 Route::get('/case', [PostsController::class, 'case'])->name('case');
 Route::get('/case/{slug}', [PostsController::class, 'caseShow'])->name('case.show');
 Route::get('/contact', [ContactController::class, 'index'])->name('contact');
+Route::get('/services', [ServicesController::class, 'index'])->name('services');
+Route::get('/services/{type?}', [ServicesController::class, 'services'])->name('services.items');
+Route::get('/services/{type}/{slug}', [ServicesController::class, 'servicesShow'])->name('services.items.show');
 
 
 Route::any('/clear-cache', function () {

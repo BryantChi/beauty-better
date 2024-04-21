@@ -19,12 +19,13 @@
                                     {{-- <li><a class="{{ Request::is('index') ? 'active' : '' }}" href="{{ route('index') }}">首頁</a></li> --}}
                                     <li class="px-md-4"><a class="{{ Request::is('teams') ? 'active' : '' }}" href="{{ route('teams') }}">醫師團隊</a></li>
                                     <li class="px-md-4"><a class="{{ Request::is('about') ? 'active' : '' }}" href="{{ route('about') }}">診所資訊</a></li>
-                                    <li class="px-md-4"><a href="#">療程項目 <i class="ti-angle-down"></i></a>
+                                    <li class="px-md-4"><a class="{{ Request::is('services*') ? 'active' : '' }}" href="{{ route('services') }}">診所資訊</a></li>
+                                    {{-- <li class="px-md-4"><a class="{{ Request::is('services*') ? 'active' : '' }}" href="{{ route('services') }}">療程項目 <i class="ti-angle-down"></i></a>
                                         <ul class="submenu">
                                             <li><a href="blog.html">blog</a></li>
                                             <li><a href="single-blog.html">single-blog</a></li>
                                         </ul>
-                                    </li>
+                                    </li> --}}
                                     <li class="logo-img d-lg-inline-block d-none px-4">
                                         <a href="{{ route('index') }}">
                                             <img src="{{ asset('images/logo_full_bk.png') }}" class="img-fluid img-logo" alt="">
