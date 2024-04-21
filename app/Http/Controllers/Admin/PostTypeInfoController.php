@@ -165,6 +165,8 @@ class PostTypeInfoController extends AppBaseController
             return redirect(route('admin.postTypeInfos.index'));
         }
 
+        $postTypeChildren = PostTypeInfo::where('type_parent_id', $id)->delete();
+
         $this->postTypeInfoRepository->delete($id);
 
         Flash::success('Post Type Info deleted successfully.');
