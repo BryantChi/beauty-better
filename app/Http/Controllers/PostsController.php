@@ -15,6 +15,7 @@ class PostsController extends Controller
 
     public function blog($type = null)
     {
+        $typeSlug = $type;
         $postType = PostTypeInfo::where(function($query) {
             $query->whereNotNull('type_parent_id')
                 ->whereNotIn('type_parent_id',
@@ -45,6 +46,7 @@ class PostsController extends Controller
         }
 
         return view('posts_grid')
+            ->with('typeSlug', $typeSlug)
             ->with('pageSettings', $pagesInfo)
             ->with('typeInfo', $typeInfo)
             ->with('postsInfo', $postsInfo);
@@ -52,6 +54,7 @@ class PostsController extends Controller
 
     public function blogShow($type, $slug)
     {
+        $typeSlug = $type;
         $types = PostTypeInfo::where('type_slug', $type)->value('id');
         $postInfo = Posts::where('post_type', $types)->where('post_slug', $slug)->firstOrFail();
         $pageInfo = PageSettingInfoRepository::getSubBanner('/blog');
@@ -93,6 +96,7 @@ class PostsController extends Controller
         }
 
         return view('posts_detail')
+            ->with('typeSlug', $typeSlug)
             ->with('pageSettings', $pagesInfo)
             ->with('typeInfo', $typeInfo)
             ->with('postInfo', $postInfo);

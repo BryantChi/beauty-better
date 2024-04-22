@@ -8,6 +8,14 @@
     <section class="blog_area section-padding">
         <div class="container">
             <div class="row">
+                <div class="col-xl-12">
+                    <div class="section_title text-center mb-95">
+                        <span class="sub_heading">{{ $typeSlug }}</span>
+                        <h3>{{ DB::table('post_type_infos')->where('type_slug', $typeSlug)->value('type_name') }}</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
                 <div class="col-lg-8 mb-5 mb-lg-0">
                     <div class="blog_left_sidebar">
 

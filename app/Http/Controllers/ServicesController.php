@@ -22,6 +22,7 @@ class ServicesController extends Controller
 
     public function services($type = null)
     {
+        $typeSlug = $type;
         $postType = PostTypeInfo::where(function($query) {
             $query->whereNotNull('type_parent_id')
                 ->whereIn('type_parent_id',[13]);
@@ -49,6 +50,7 @@ class ServicesController extends Controller
         }
 
         return view('services_grid')
+            ->with('typeSlug', $typeSlug)
             ->with('pageSettings', $pagesInfo)
             ->with('typeInfo', $typeInfo)
             ->with('postsInfo', $postsInfo);
@@ -56,6 +58,7 @@ class ServicesController extends Controller
 
     public function servicesShow($type, $slug)
     {
+        $typeSlug = $type;
         $types = PostTypeInfo::where('type_slug', $type)->value('id');
         $postInfo = Posts::where('post_type', $types)->where('post_slug', $slug)->firstOrFail();
         $pageInfo = PageSettingInfoRepository::getSubBanner('/services');
@@ -94,6 +97,7 @@ class ServicesController extends Controller
         }
 
         return view('services_detail')
+            ->with('typeSlug', $typeSlug)
             ->with('pageSettings', $pagesInfo)
             ->with('typeInfo', $typeInfo)
             ->with('postInfo', $postInfo);
