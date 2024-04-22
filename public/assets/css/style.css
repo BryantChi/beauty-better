@@ -897,6 +897,7 @@ h3 {
     height: 15rem;
     object-fit: cover;
     object-position: center;
+    box-shadow: 0 0 12px rgba(0, 0, 0, 0.5);
 }
 .dream_service .single_dream .imgbg {
     background-color: #cebcb6b8;
