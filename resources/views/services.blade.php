@@ -31,7 +31,7 @@
                             @foreach ($service->service_sub_list ?? [] as $item)
                                 <div class="col-lg-6 col-12 my-2 text-center">
                                     <a class="btn btn-outline-primary w-100"
-                                    href="{{ ($item['type'] ?? null) == null ? 'javascript:void(0)' : route('services.items.show', ['type' => \App\Models\Admin\PostTypeInfo::find($item['type'] ?? null)->type_slug ?? '', 'slug' => \App\Models\Admin\PostsInfo::find($item['article'] ?? null)->post_slug ?? '']) }}">
+                                    href="{{ ($item['type'] ?? null) == null || ($item['article'] ?? null) == null ? 'javascript:void(0)' : route('services.items.show', ['type' => \App\Models\Admin\PostTypeInfo::find($item['type'] ?? null)->type_slug ?? '', 'slug' => \App\Models\Admin\PostsInfo::find($item['article'] ?? null)->post_slug ?? '']) }}">
                                         {{ $item['item'] }}
                                     </a>
                                 </div>
