@@ -19,7 +19,7 @@
                     $servicesInfo = \App\Models\Admin\ServicesInfo::all();
                 @endphp
                 @foreach ($servicesInfo as $service)
-                <div class="mb-3">
+                <div class="my-3 pt-2">
                     <div class="single_dream text-center">
                         <div class="thumb">
                             <a href="{{ route('services.items', DB::table('post_type_infos')->where('type_name', 'like', '%' . $service->service_name . '%')->value('type_slug')) }}">
