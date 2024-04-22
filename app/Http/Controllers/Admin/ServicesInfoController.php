@@ -238,7 +238,7 @@ class ServicesInfoController extends AppBaseController
             $input['service_cover_front'] = $servicesInfo['service_cover_front'];
         }
 
-        $servicesInfo = $this->servicesInfoRepository->update($request->all(), $id);
+        $servicesInfo = $this->servicesInfoRepository->update($input, $id);
 
         Flash::success('Services Info updated successfully.');
 
