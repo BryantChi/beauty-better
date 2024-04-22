@@ -50,7 +50,7 @@
     @stack('header_code')
 </head>
 
-<body>
+<body id="page-top">
     {!! $pageSettings->body_anlytics_code ?? '' !!}
     <!--[if lte IE 9]>
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
@@ -63,6 +63,35 @@
 
 
     @include('layouts_main.footer')
+
+
+    <div class="hFixFabFlex ">
+        <a href="#page-top">
+            <div class="hFab scroll-to-top ">
+                <i class="fas fa-angle-up "></i>
+            </div>
+        </a>
+        <a href="{{ \App\Models\Admin\CompanyInfo::first()->company_line ?? 'javascript:void(0)' }}" target="_blank ">
+            <div class="hFab hFabLine ">
+                <i class="fab fa-line "></i>
+            </div>
+        </a>
+        <a href="{{ \App\Models\Admin\CompanyInfo::first()->company_instagram ?? 'javascript:void(0)' }}" target="_blank ">
+
+            <div class="hFab hFabIg ">
+                <i class="fab fa-instagram "></i>
+            </div>
+            <!-- <span style="font-size: 9px !important;"></span> -->
+        </a>
+
+        <a href="{{ \App\Models\Admin\CompanyInfo::first()->company_facebook ?? 'javascript:void(0)' }}" target="_blank ">
+            <div class="hFab hFabFacebook ">
+                <i class="fab fa-facebook-f "></i>
+            </div>
+        </a>
+
+    </div>
+
 
     <div class="loading">
         <div class="loader">
