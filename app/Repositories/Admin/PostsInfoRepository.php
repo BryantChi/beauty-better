@@ -26,7 +26,8 @@ class PostsInfoRepository extends BaseRepository
         'post_seo_title',
         'post_meta_title',
         'post_meta_description',
-        'post_meta_keywords'
+        'post_meta_keywords',
+        'created_at'
     ];
 
     /**

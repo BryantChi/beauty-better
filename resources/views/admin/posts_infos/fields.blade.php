@@ -103,6 +103,12 @@
 
 </div>
 
+<!-- Create At Field -->
+<div class="form-group col-sm-6">
+    {!! Form::label('created_at', '建立時間:') !!}
+    {!! Form::datetimelocal('created_at', $postsInfo->created_at ?? \Carbon\Carbon::now(), ['class' => 'form-control']) !!}
+    {{-- <input type="datetime-local" class="form-control" name="created_at" id="created_at" value="{{ $postsInfo->created_at ?? \Carbon\Carbon::now() }}"> --}}
+</div>
 
 
 @push('third_party_scripts')

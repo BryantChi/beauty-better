@@ -22,6 +22,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  * @property string $post_meta_title
  * @property string $post_meta_description
  * @property string $post_meta_keywords
+ * @property string $created_at
  */
 class PostsInfo extends EloquentModel
 {
@@ -42,7 +43,8 @@ class PostsInfo extends EloquentModel
         'post_seo_title',
         'post_meta_title',
         'post_meta_description',
-        'post_meta_keywords'
+        'post_meta_keywords',
+        'created_at',
     ];
 
     /**
@@ -59,7 +61,8 @@ class PostsInfo extends EloquentModel
         'post_seo_setting_customize' => 'boolean',
         'post_seo_title' => 'string',
         'post_meta_title' => 'string',
-        'post_meta_keywords' => 'string'
+        'post_meta_keywords' => 'string',
+        'created_at' => 'datetime',
     ];
 
     /**
