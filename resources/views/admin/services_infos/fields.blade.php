@@ -13,8 +13,8 @@
     {!! Form::label('service_icon', '療程項目 Icon:') !!}
 
     <div class="custom-file">
-        {!! Form::file('service_icon', null, ['class' => 'custom-file-input']) !!}
-        {{-- <input type="file" class="custom-file-input" id="service_icon" name="service_icon" accept="image/*"> --}}
+        {{-- {!! Form::file('service_icon', null, ['class' => 'custom-file-input']) !!} --}}
+        <input type="file" class="custom-file-input" id="service_icon" name="service_icon" accept="image/*">
         <label class="custom-file-label" for="service_icon">Choose file</label>
     </div>
 </div>
@@ -34,8 +34,8 @@
     {!! Form::label('service_cover_front', '療程項目封面:') !!}
 
     <div class="custom-file">
-        {!! Form::file('service_cover_front', null, ['class' => 'custom-file-input']) !!}
-        {{-- <input type="file" class="custom-file-input" id="service_cover_front" name="service_cover_front" accept="image/*"> --}}
+        {{-- {!! Form::file('service_cover_front', null, ['class' => 'custom-file-input']) !!} --}}
+        <input type="file" class="custom-file-input" id="service_cover_front" name="service_cover_front" accept="image/*">
         <label class="custom-file-label" for="service_cover_front">Choose file</label>
     </div>
 </div>

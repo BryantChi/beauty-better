@@ -182,6 +182,8 @@ class ServicesInfoController extends AppBaseController
 
         $image_icon = $request->file('service_icon');
 
+        dd($image_icon);
+
         if ($image_icon) {
             $path = public_path('uploads/images/service_icon/');
             $filename = time() . '_' . $image_icon->getClientOriginalName();
