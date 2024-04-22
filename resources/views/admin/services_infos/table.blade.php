@@ -20,7 +20,7 @@
                     {{-- <td>{{ $servicesInfo->service_icon_alt }}</td> --}}
                     <td>{{ $servicesInfo->service_cover_front }}</td>
                     {{-- <td>{{ $servicesInfo->service_cover_front_alt }}</td> --}}
-                    <td>{{ $servicesInfo->service_description }}</td>
+                    <td width="300"><p class="multiline-ellipsis">{{ $servicesInfo->service_description }}</p></td>
                     <td>
                         @foreach ($servicesInfo->service_sub_list ?? [] as $key => $value)
                         <div class="mb-3">
