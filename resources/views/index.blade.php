@@ -15,51 +15,26 @@
                 </div>
             </div>
             <div class="row justify-content-center treatment-slick mb-md-auto mb-5">
+                @php
+                    $servicesInfo = \App\Models\Admin\ServicesInfo::all();
+                @endphp
+                @foreach ($servicesInfo as $service)
                 <div class="mb-3">
                     <div class="single_dream text-center">
                         <div class="thumb">
-                            <img src="images/services/services-01.webp" class="img-fluid w-75 mx-auto" alt="">
+                            <a href="{{ route('services.items', DB::table('post_type_infos')->where('type_name', 'like', '%' . $service->service_name . '%')->value('type_slug')) }}">
+                                <img src="{{ $service->service_cover_front ?? null ? env('APP_URL', 'https://beauty4u-clinic.com') . '/uploads/' . $service->service_cover_front : asset('images/services/services-01.webp') }}"
+                                        class="img-fluid w-75 mx-auto img-services"
+                                        alt="{{ $service->service_cover_front_alt ?? '美美上美 - ' . $service->service_name }}">
+                            </a>
                         </div>
-                        <h3>醫美手術</h3>
+                        <h3>{{ $service->service_name }}</h3>
                         <p></p>
                     </div>
                 </div>
-                <div class="mb-3">
-                    <div class="single_dream text-center">
-                        <div class="thumb">
-                            <img src="images/services/services-02.webp" class="img-fluid w-75 mx-auto" alt="">
-                        </div>
-                        <h3>微整手術</h3>
-                        <p></p>
-                    </div>
-                </div>
-                <div class="mb-3">
-                    <div class="single_dream text-center">
-                        <div class="thumb">
-                            <img src="images/services/services-03.webp" class="img-fluid w-75 mx-auto" alt="">
-                        </div>
-                        <h3>肌膚管理</h3>
-                        <p></p>
-                    </div>
-                </div>
-                <div class="mb-3">
-                    <div class="single_dream text-center">
-                        <div class="thumb">
-                            <img src="images/services/services-04.webp" class="img-fluid w-75 mx-auto" alt="">
-                        </div>
-                        <h3>雷射光電療程</h3>
-                        <p></p>
-                    </div>
-                </div>
-                <div class="mb-3">
-                    <div class="single_dream text-center">
-                        <div class="thumb">
-                            <img src="images/services/services-05.webp" class="img-fluid w-75 mx-auto" alt="">
-                        </div>
-                        <h3>預防醫學</h3>
-                        <p></p>
-                    </div>
-                </div>
+                @endforeach
+
+
             </div>
         </div>
     </div>
