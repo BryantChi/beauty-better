@@ -18,8 +18,11 @@
                         @foreach ($postsInfo as $post)
                             <article class="blog_item">
                                 <div class="blog_item_img">
-                                    <img class="card-img rounded-0" src="{{ $post->post_front_cover ?? null ? env('APP_URL', 'https://beauty4u-clinic.com') . '/uploads/' . $post->post_front_cover : asset('images/about/about-05.jpg') }}"
+                                    <a class="d-inline-block"
+                                        href="{{ route('blog.show', ['type' => DB::table('post_type_infos')->where('id', $post->post_type)->value('type_slug'), 'slug' => $post->post_slug]) }}">
+                                        <img class="card-img rounded-0" src="{{ $post->post_front_cover ?? null ? env('APP_URL', 'https://beauty4u-clinic.com') . '/uploads/' . $post->post_front_cover : asset('images/about/about-05.jpg') }}"
                                         alt="">
+                                    </a>
                                     <a href="javascript:void(0)" class="blog_item_date">
                                         <h3>{{ \Carbon\Carbon::parse($post->created_at)->format('d') }}</h3>
                                         <p>{{ \Carbon\Carbon::parse($post->created_at)->format('M') }}</p>

@@ -16,8 +16,11 @@
                         <div class="blog_left_sidebar h-100">
                             <article class="blog_item h-100">
                                 <div class="blog_item_img">
-                                    <img class="card-img rounded-0" src="{{ $post->post_front_cover ?? null ? env('APP_URL', 'https://beauty4u-clinic.com') . '/uploads/' . $post->post_front_cover : asset('images/about/about-05.jpg') }}"
-                                        alt="">
+                                    <a class="d-inline-block" href="{{ route('case.show', $post->post_slug) }}">
+                                        <img class="card-img rounded-0"
+                                            src="{{ $post->post_front_cover ?? null ? env('APP_URL', 'https://beauty4u-clinic.com') . '/uploads/' . $post->post_front_cover : asset('images/about/about-05.jpg') }}"
+                                            alt="">
+                                    </a>
                                     <a href="javascript:void(0)" class="blog_item_date">
                                         <h3>{{ \Carbon\Carbon::parse($post->created_at)->format('d') }}</h3>
                                         <p>{{ \Carbon\Carbon::parse($post->created_at)->format('M') }}</p>
@@ -40,7 +43,8 @@
                                     </ul>
 
                                     <div class="w-100 text-right">
-                                        <a class="btn btn-purple" href="{{ route('case.show', $post->post_slug) }}">繼續閱讀 》</a>
+                                        <a class="btn btn-purple" href="{{ route('case.show', $post->post_slug) }}">繼續閱讀
+                                            》</a>
                                     </div>
                                 </div>
                             </article>
