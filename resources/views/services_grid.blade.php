@@ -7,7 +7,7 @@
 
     <section class="blog_area section-padding">
         <div class="container">
-            <div class="row">
+            <div class="row {{ $typeSlug ?? null == null ? 'd-none' : ''  }}">
                 <div class="col-xl-12">
                     <div class="section_title text-center mb-95">
                         <span class="sub_heading">{{ $typeSlug }}</span>
