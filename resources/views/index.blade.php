@@ -123,6 +123,56 @@
             style="z-index: 2;top: 0;left: 0;background-color: rgba(0, 0, 0, 0.3);"></div>
     </div>
 
+    <div class="index_blog_area">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-12">
+                    <div class="section_title text-center mb-5">
+                        <span class="sub_heading">Blog</span>
+                        <h2>醫師專欄</h2>
+                        <div class="seperator"></div>
+                        <p></p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                @php
+                    $postTypes = \App\Models\Admin\PostTypeInfo::where(function($query) {
+                        $query->whereNotNull('type_parent_id')
+                            ->whereNotIn('type_parent_id',
+                            \App\Models\Admin\PostTypeInfo::whereNull('type_parent_id')->where(function($query) {
+                                $query->whereNotIn('id', [1, 3]);
+                            })->get('id')->toArray());
+                    })->orWhere(function($query) {
+                        $query->whereIn('id', [1, 3]);
+                    })->pluck('id')->toArray();
+                    $index_blogs = \App\Models\Admin\PostsInfo::whereIn('post_type', $postTypes)->orderBy('created_at', 'desc')->limit(4)->get();
+                @endphp
+
+                @foreach ($index_blogs ?? [] as $index_blog)
+                <div class="col-xl-3 col-md-6">
+                    <div class="single_blog_item">
+                        <div class="thumb">
+                            <img class="card-img rounded" src="{{ $index_blog->post_front_cover ?? null ? env('APP_URL', 'https://beauty4u-clinic.com') . '/uploads/' . $index_blog->post_front_cover : asset('images/about/about-05.jpg') }}"
+                                        alt="">
+                        </div>
+                        <span class="mt-2 text-secondary">{{  \Carbon\Carbon::parse($index_blog->created_at)->format('Y-m-d') }}</span>
+                        <h3 class="mt-3 font-weight-bolder">{{ $index_blog->post_title }}</h3>
+                        <p class="multiline-ellipsis mt-2">
+                            {{ str_replace(["\r\n", "\r", "\n"], '', strip_tags($index_blog->post_content)) }}</p>
+                    </div>
+                </div>
+                @endforeach
+
+                <div class="col-xl-12 mt-3">
+                    <div class="w-100 text-center">
+                        <a class="boxed-btn" href="{{ route('blog') }}">查看更多</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
 
 @endsection
 
