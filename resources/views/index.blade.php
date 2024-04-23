@@ -22,7 +22,7 @@
                 <div class="my-3 pt-2">
                     <div class="single_dream text-center">
                         <div class="thumb">
-                            <a href="{{ route('services.items', DB::table('post_type_infos')->where('deleted_at', '!=', null)->where('type_name', 'like', '%' . $service->service_name . '%')->value('type_slug')) }}">
+                            <a href="{{ route('services.items', DB::table('post_type_infos')->where('deleted_at', null)->where('type_name', 'like', '%' . $service->service_name . '%')->value('type_slug')) }}">
                                 <img src="{{ $service->service_cover_front ?? null ? env('APP_URL', 'https://beauty4u-clinic.com') . '/uploads/' . $service->service_cover_front : asset('images/services/services-01.webp') }}"
                                         class="img-fluid w-75 mx-auto img-services"
                                         alt="{{ $service->service_cover_front_alt ?? '美美上美 - ' . $service->service_name }}">

@@ -65,7 +65,7 @@
                                         <ul class="quick_links">
                                             @foreach ($servicesInfos ?? [] as $service)
                                             <li>
-                                                <a href="{{ route('services.items', DB::table('post_type_infos')->where('deleted_at', '!=', null)->where('type_name', 'like', '%' . $service->service_name . '%')->value('type_slug')) }}">
+                                                <a href="{{ route('services.items', DB::table('post_type_infos')->where('deleted_at', null)->where('type_name', 'like', '%' . $service->service_name . '%')->value('type_slug')) }}">
                                                     {{ $service->service_name }}
                                                 </a>
                                             </li>
