@@ -22,7 +22,7 @@
                                             alt="">
                                     </a>
                                     <a href="javascript:void(0)" class="blog_item_date">
-                                        <h3>{{ \Carbon\Carbon::parse($post->created_at)->format('d') }}</h3>
+                                        <p class="h3">{{ \Carbon\Carbon::parse($post->created_at)->format('d') }}</p>
                                         <p>{{ \Carbon\Carbon::parse($post->created_at)->format('M') }}</p>
                                     </a>
                                 </div>

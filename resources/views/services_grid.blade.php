@@ -32,7 +32,7 @@
                                             alt="">
                                     </a>
                                     {{-- <a href="javascript:void(0)" class="blog_item_date">
-                                        <h3>{{ \Carbon\Carbon::parse($post->created_at)->format('d') }}</h3>
+                                        <p class="h3">{{ \Carbon\Carbon::parse($post->created_at)->format('d') }}</p>
                                         <p>{{ \Carbon\Carbon::parse($post->created_at)->format('M') }}</p>
                                     </a> --}}
                                 </div>
@@ -70,7 +70,7 @@
                     <div class="blog_right_sidebar">
 
                         <aside class="single_sidebar_widget post_category_widget">
-                            <h4 class="widget_title">Category</h4>
+                            <div class="widget_title">Category</div>
                             <ul class="list cat-list">
                                 @foreach ($typeInfo as $type)
                                 @php

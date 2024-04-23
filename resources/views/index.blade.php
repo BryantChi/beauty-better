@@ -2,7 +2,7 @@
 
 @section('content')
     @include('layouts_main.hero')
-
+    <h1 class="d-none">{{ $pageSettings->title }}</h1>
     <!-- dream_service_start -->
     <div class="dream_service">
         <div class="container">
@@ -10,7 +10,7 @@
                 <div class="col-xl-12">
                     <div class="section_title text-center mb-5">
                         <span class="sub_heading">Treatment</span>
-                        <h3>美美上美療程</h3>
+                        <h2>美美上美療程</h2>
                     </div>
                 </div>
             </div>
@@ -18,7 +18,7 @@
                 @php
                     $servicesInfo = \App\Models\Admin\ServicesInfo::all();
                 @endphp
-                @foreach ($servicesInfo as $service)
+                @foreach ($servicesInfo ?? [] as $service)
                 <div class="my-3 pt-2">
                     <div class="single_dream text-center">
                         <div class="thumb">
@@ -41,16 +41,17 @@
     <!-- dream_service_end -->
 
     <!-- about_area_start -->
-    <div class="about_area">
+    @include('about')
+    {{-- <div class="about_area">
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-xl-6 col-md-6">
                     <div class="about_thumb">
                         <img src="images/about-01.jpg" class="img-fluid img-about-index" alt="">
-                        {{-- <div class="exprience">
+                        <div class="exprience">
                             <h1>25</h1>
                             <span>Years of Experience</span>
-                        </div> --}}
+                        </div>
                     </div>
                 </div>
                 <div class="col-xl-5 offset-xl-1 col-md-6">
@@ -75,17 +76,17 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
     <!-- about_area_end -->
 
-    <div class="my-5 bg-white">
+    <div class="my-5 bg-white" id="compare">
 
         <div class="container">
             <div class="row">
                 <div class="col-xl-12 justify-content-center">
                     <div class="section_title mb-60 text-center">
                         {{-- <span class="sub_heading"></span> --}}
-                        <h3 class="title-brown">專業醫療團隊‧打造美麗極緻</h3>
+                        <h2 class="title-brown">專業醫療團隊‧打造美麗極緻</h2>
                         <div class="seperator"></div>
                         <p>這是我們的美麗見證，也是我們與您的約定，和我們一起專注於您的美麗。</p>
                     </div>
@@ -122,183 +123,7 @@
             style="z-index: 2;top: 0;left: 0;background-color: rgba(0, 0, 0, 0.3);"></div>
     </div>
 
-    <!-- lastest_project_strat -->
-    {{-- <div class="lastest_project">
-        <div class="container">
-            <div class="row">
-                <div class="col-xl-12">
-                    <div class="section_title mb-60">
-                        <span class="sub_heading">Project view</span>
-                        <h3>Our Latest Projects</h3>
-                        <div class="seperator"></div>
-                    </div>
-                </div>
-            </div>
-            <div class="row align-items-center mb-80">
-                <div class="col-xl-6 col-md-6">
-                    <div class="single_project_thumb">
-                        <img src="img/project/1.png" alt="">
-                    </div>
-                </div>
-                <div class="col-xl-5 offset-xl-1 col-md-6">
-                    <div class="section_title">
-                        <span class="sub_heading2">Dubai, UAE</span>
-                        <h4>Abahoni Building</h4>
-                        <p>Consectetur adipiscing elit, sed do eiusmod tempor labore et dolore magna aliqua
-                            quis ipsum suspendisse.</p>
-                        <a href="#" class="boxed-btn">View More</a>
-                    </div>
-                </div>
-            </div>
-            <div class="row align-items-center mb-80">
-                <div class="col-xl-6 col-md-6">
-                    <div class="section_title">
-                        <span class="sub_heading2">Dhaka, Bangladesh</span>
-                        <h4>MR Kholifa Tower</h4>
-                        <p>Consectetur adipiscing elit, sed do eiusmod tempor incididunt labore et dolore magna aliqua
-                            quis ipsum suspendisse.</p>
-                        <a href="#" class="boxed-btn">View More</a>
-                    </div>
-                </div>
-                <div class="col-xl-5 offset-xl-1 col-md-6">
-                    <div class="single_project_thumb">
-                        <img src="img/project/2.png" alt="">
-                    </div>
-                </div>
-            </div>
-            <div class="row align-items-center mb-80">
-                <div class="col-xl-6 col-md-6">
-                    <div class="single_project_thumb">
-                        <img src="img/project/3.png" alt="">
-                    </div>
-                </div>
-                <div class="col-xl-5 offset-xl-1 col-md-6">
-                    <div class="section_title">
-                        <span class="sub_heading2">Dubai, UAE</span>
-                        <h4>Galoni Plan & Design</h4>
-                        <p>Consectetur adipiscing elit, sed do eiusmod tempor labore et dolore magna aliqua
-                            quis ipsum suspendisse.</p>
-                        <a href="#" class="boxed-btn">View More</a>
-                    </div>
-                </div>
-            </div>
-            <div class="row align-items-center mb-80">
-                <div class="col-xl-6 col-md-6">
-                    <div class="section_title">
-                        <span class="sub_heading2">Dhaka, Bangladesh</span>
-                        <h4>Hiclick Mirror design</h4>
-                        <p>Consectetur adipiscing elit, sed do eiusmod tempor incididunt labore et dolore magna aliqua
-                            quis ipsum suspendisse.</p>
-                        <a href="#" class="boxed-btn">View More</a>
-                    </div>
-                </div>
-                <div class="col-xl-5 offset-xl-1 col-md-6">
-                    <div class="single_project_thumb">
-                        <img src="img/project/4.png" alt="">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div> --}}
-    <!-- lastest_project_end -->
 
-    <!-- testmonial_area_start -->
-    {{-- <div class="testmonial_area testimonial_bg overlay2">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-xl-12">
-                    <div class="testmonial_active owl-carousel">
-                        <div class="single_testmonial">
-                            <div class="testmonial_info text-center">
-                                <div class="author">
-                                    <img src="img/testmonial/author.png" alt="">
-                                </div>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-                                    tempor
-                                    incididunt ut
-                                    <br> labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida.
-                                    Risus
-                                    commodo
-                                    viverra <br> maecenas accumsan lacus vel facilisis.
-                                </p>
-                                <div class="author_name">
-                                    <h4>-MITHILA</h4>
-                                    <span> Designer at Colorlib</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="single_testmonial">
-                            <div class="testmonial_info text-center">
-                                <div class="author">
-                                    <img src="img/testmonial/author.png" alt="">
-                                </div>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-                                    tempor
-                                    incididunt ut
-                                    <br> labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida.
-                                    Risus
-                                    commodo
-                                    viverra <br> maecenas accumsan lacus vel facilisis.
-                                </p>
-                                <div class="author_name">
-                                    <h4>-MITHILA</h4>
-                                    <span> Designer at Colorlib</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="single_testmonial">
-                            <div class="testmonial_info text-center">
-                                <div class="author">
-                                    <img src="img/testmonial/author.png" alt="">
-                                </div>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-                                    tempor
-                                    incididunt ut
-                                    <br> labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida.
-                                    Risus
-                                    commodo
-                                    viverra <br> maecenas accumsan lacus vel facilisis.
-                                </p>
-                                <div class="author_name">
-                                    <h4>-MITHILA</h4>
-                                    <span> Designer at Colorlib</span>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div> --}}
-    <!-- testmonial_area_end -->
-
-    <!-- messege_area_start -->
-    {{-- <div class="messege_area">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-xl-6 col-md-6">
-                    <div class="messege_thumb">
-                        <img src="img/testmonial/mesege.png" alt="">
-                    </div>
-                </div>
-                <div class="col-xl-5 offset-xl-1 col-md-6">
-                    <div class="section_title mb-20">
-                        <span class="sub_heading">Contact Us</span>
-                        <h3>Send your message</h3>
-                        <div class="seperator"></div>
-                    </div>
-                    <form action="#" class="messege">
-                        <input type="email" placeholder="Your Email">
-                        <input type="text" placeholder="Subject">
-                        <textarea placeholder="Messege"></textarea>
-                        <button class="boxed-btn">SEND US</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div> --}}
-    <!-- messege_area_end -->
 @endsection
 
 @push('third_party_css')
@@ -306,6 +131,14 @@
 @endpush
 @push('custom_css')
 <link rel="stylesheet" href="css/index.css?v={{ time() }}">
+<style>
+    @media (max-width: 768px) {
+        #compare .section_title h3 {
+            font-size: 1.5rem !important;
+        }
+    }
+
+</style>
 @endpush
 @push('third_party_scripts')
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/hammer.js/2.0.8/hammer.min.js"></script>
@@ -313,4 +146,22 @@
 @endpush
 @push('custom_scripts')
 <script src="js/index.js?v={{ time() }}"></script>
+<script>
+    $(function() {
+        $('a.scrollto').on('click', function(e) {
+            e.preventDefault();
+
+            var header = $('#sticky-header');
+            var selector = $(this).context.hash;
+            console.log($(this).context.hash);
+            var to = $(selector).offset().top - header.height() - 100;
+
+            $('html, body').animate({
+                scrollTop: to
+            }, 1000);
+
+            $('.mobile_menu .slicknav_btn').click();
+        });
+    })
+</script>
 @endpush

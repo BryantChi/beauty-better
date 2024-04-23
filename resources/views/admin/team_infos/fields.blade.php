@@ -40,7 +40,7 @@
 
     <div class="custom-file">
         {{-- {!! Form::file('headshots', null, ['class' => 'custom-file-input', 'id' => 'headshots', 'required' => true, 'accept' => 'image/*']) !!} --}}
-        <input type="file" class="custom-file-input" id="headshots" name="headshots" accept="image/*" required>
+        <input type="file" class="custom-file-input" id="headshots" name="headshots" accept="image/*" {{ Request::is('/admin/teamInfos/*/edit') || ($teamInfo->headshots ?? null) != null ? '' : 'required' }}>
         <label class="custom-file-label" for="headshots">Choose Image</label>
     </div>
     <div class="img-preview-headshots mt-2">

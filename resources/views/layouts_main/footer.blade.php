@@ -1,5 +1,6 @@
 @php
     $contact = App\Models\Admin\CompanyInfo::first();
+    $servicesInfos = \App\Models\Admin\ServicesInfo::get('service_name');
 @endphp
 <!-- footer_start -->
 <footer class="footer footer_bg">
@@ -8,12 +9,12 @@
             <div class="row no-gutters ">
                 <div class="col-xl-3 col-12 col-md-4">
                     <div class="footer_widget">
-                        <div class="footer_logo text-center">
-                            <a href="index.html">
-                                <img src="images/logo_bk.png" class="img-fluid" alt="">
+                        <div class="footer_logo text-lg-center">
+                            <a href="{{ route('index') }}">
+                                <img src="{{ asset('images/logo_footer.png') }}" class="img-fluid w-50" alt="">
                             </a>
                         </div>
-                        <ul class="social_links text-center">
+                        <ul class="social_links text-lg-center">
                             <li>
                                 <a href="{{ $contact->company_facebook ?? 'javascript:void(0)' }}"><i class="fa-brands fa-facebook-f"></i></a>
                             </li>
@@ -40,13 +41,13 @@
                         </div>
                     </div> --}}
                     <div class="row">
-                        <div class="col-xl-8 col-12 col-md-12">
+                        <div class="col-xl-9 col-12 col-md-12">
                             <div class="row">
                                 <div class="col-xl-4 col-12 col-md-4">
                                     <div class="footer_widget">
-                                        <h3 class="footer_heading">
+                                        <p class="h3 footer_heading">
                                             導覽列
-                                        </h3>
+                                        </p>
                                         <ul class="quick_links">
                                             <li><a href="{{ route('index') }}">Home</a></li>
                                             <li><a href="{{ route('about') }}">關於美美</a></li>
@@ -58,26 +59,38 @@
                                 </div>
                                 <div class="col-xl-4 col-12 col-md-4">
                                     <div class="footer_widget">
-                                        <h3 class="footer_heading">
+                                        <p class="h3 footer_heading">
                                             療程項目
-                                        </h3>
+                                        </p>
                                         <ul class="quick_links">
-                                            <li><a href="javascript:void(0)">項目一</a></li>
-                                            <li><a href="javascript:void(0)">項目二</a></li>
-                                            <li><a href="javascript:void(0)">項目三</a></li>
+                                            @foreach ($servicesInfos ?? [] as $service)
+                                            <li>
+                                                <a href="{{ route('services.items', DB::table('post_type_infos')->where('type_name', 'like', '%' . $service->service_name . '%')->value('type_slug')) }}">
+                                                    {{ $service->service_name }}
+                                                </a>
+                                            </li>
+                                            @endforeach
                                         </ul>
                                     </div>
                                 </div>
                                 <div class="col-xl-4 col-12 col-md-4 ">
                                     <div class="footer_widget">
-                                        <h3 class="footer_heading">
+                                        <p class="h3 footer_heading">
                                             聯繫資訊
-                                        </h3>
-                                        <ul class="quick_links">
-                                            <li><a href="tel:{{ $contact->company_phone ?? '' }}">電話:
+                                        </p>
+                                        <ul class="quick_links" style="line-height: 1.2rem !important;">
+                                            <li class="mb-3"><a href="tel:{{ $contact->company_phone ?? 'javascript:void(0)' }}" style="line-height: 1rem !important;">電話:
                                                     {{ $contact->company_phone ?? '' }}</a></li>
-                                            <li><a
-                                                    href="mailto:{{ $contact->company_email ?? '' }}">{{ $contact->company_email ?? '' }}</a>
+                                            <li class="mb-3"><a
+                                                    href="mailto:{{ $contact->company_email ?? 'javascript:void(0)' }}" style="line-height: 1rem !important;">{{ $contact->company_email ?? '' }}</a>
+                                            </li>
+                                            <li class="mb-3">
+                                                <a href="{{ $contact->company_map_url ?? 'javascript:void(0)' }}" style="line-height: 1rem !important;">{{ $contact->company_address ?? '' }}</a>
+                                            </li>
+                                            <li class="mb-2">
+                                                <a href="javascript:void(0)" style="line-height: 1rem !important;">
+                                                    營業時間:週一至週六 10:00–18:00 (周日公休)
+                                                </a>
                                             </li>
                                         </ul>
                                     </div>

@@ -22,7 +22,7 @@
     <link rel="canonical" href="{{ env('APP_URL') }}" />
 
     <!-- <link rel="manifest" href="site.webmanifest"> -->
-    <link rel="shortcut icon" type="image/x-icon" href="images/logo_bk.png">
+    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('images/logo_footer.png') }}">
     <!-- Place favicon.ico in the root directory -->
 
     <!-- CSS here -->

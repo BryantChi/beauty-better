@@ -24,16 +24,16 @@
                                     alt="{{ $service->service_cover_front_alt ?? '美美上美 - ' . $service->service_name }}">
                                 <div class="imgbg"></div>
                             </div>
-                            <h3>{{ $service->service_name }}</h3>
+                            <h2>{{ $service->service_name }}</h2>
                             <p>{{ $service->service_description }}</p>
                         </div>
                         <div class="row justify-content-center sub-list mt-3 g-0">
                             @foreach ($service->service_sub_list ?? [] as $item)
                                 <div class="col-lg-6 col-12 my-2 text-center">
-                                    <a class="btn btn-outline-primary w-100"
+                                    <h3><a class="btn btn-outline-primary w-100"
                                     href="{{ ($item['type'] ?? null) == null || ($item['article'] ?? null) == null ? 'javascript:void(0)' : route('services.items.show', ['type' => \App\Models\Admin\PostTypeInfo::find($item['type'] ?? null)->type_slug ?? '', 'slug' => \App\Models\Admin\PostsInfo::find($item['article'] ?? null)->post_slug ?? '']) }}">
                                         {{ $item['item'] }}
-                                    </a>
+                                    </a></h3>
                                 </div>
                             @endforeach
                         </div>

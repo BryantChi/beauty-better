@@ -1,7 +1,7 @@
 @extends('layouts_main.master')
 
 @section('content')
-    @include('layouts_main.sub_hero', ['bradcam_title' => '療程項目 / Services'])
+    @include('layouts_main.sub_hero_h2', ['bradcam_title' => '療程項目 / Services'])
 
     <section class="blog_area single-post-area section-padding">
         <div class="container">
@@ -27,7 +27,7 @@
                 <div class="col-lg-4">
                     <div class="blog_right_sidebar">
                         <aside class="single_sidebar_widget post_category_widget">
-                            <h4 class="widget_title">Category</h4>
+                            <div class="widget_title">Category</div>
                             <ul class="list cat-list">
                                 @foreach ($typeInfo as $type)
                                 @php
