@@ -22,7 +22,7 @@
     <link rel="canonical" href="{{ env('APP_URL') }}" />
 
     <!-- <link rel="manifest" href="site.webmanifest"> -->
-    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('images/logo_footer.png') }}">
+    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('images/logo_page.png') }}">
     <!-- Place favicon.ico in the root directory -->
 
     <!-- CSS here -->
@@ -97,7 +97,7 @@
         <div class="loader">
 
         </div>
-        <img src="{{ asset('images/logo_bk.png') }}" alt="{{ config('app.name') }}">
+        <img src="{{ asset('images/logo_page.png') }}" alt="{{ config('app.name') }}">
     </div>
 
     <!-- JS here -->
