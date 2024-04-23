@@ -65,7 +65,7 @@
     @include('layouts_main.footer')
 
 
-    <div class="hFixFabFlex ">
+    {{-- <div class="hFixFabFlex ">
         <a href="#page-top">
             <div class="hFab scroll-to-top ">
                 <i class="fas fa-angle-up "></i>
@@ -90,7 +90,7 @@
             </div>
         </a>
 
-    </div>
+    </div> --}}
 
 
     <div class="loading">
