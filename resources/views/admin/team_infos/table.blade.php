@@ -6,7 +6,7 @@
                 <th>姓名</th>
                 <th>角色</th>
                 <th>社群</th>
-                <th>簡介</th>
+                {{-- <th>簡介</th> --}}
                 <th>學歷</th>
                 <th>經歷</th>
                 <th>專長</th>
@@ -32,7 +32,7 @@
                             <li><a href="{{ $teamInfo->instagram == '' ? 'javascript:void(0)' : $teamInfo->instagram }}">Instagram</a></li>
                         </ul>
                     </td>
-                    <td>{{ $teamInfo->introduce }}</td>
+                    {{-- <td>{{ $teamInfo->introduce }}</td> --}}
                     <td>
                         <ul class="{{ count($teamInfo->degree ?? []) == 0 ? 'd-none' : '' }}">
                             @foreach ($teamInfo->degree ?? [] as $degree)
