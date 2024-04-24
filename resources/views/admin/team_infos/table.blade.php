@@ -8,7 +8,7 @@
                 <th>社群</th>
                 {{-- <th>簡介</th> --}}
                 <th>學歷</th>
-                <th>經歷</th>
+                <th>經歷/資格</th>
                 <th>專長</th>
                 <th>證照/資格</th>
                 <th colspan="3">操作</th>

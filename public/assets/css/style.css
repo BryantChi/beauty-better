@@ -3240,13 +3240,15 @@ h6 {
 .blog_details a:hover {
     color: #131313;
 }
-.blog_details h2 {
+.blog_details h2,
+.blog_details h1 {
     font-size: 18px;
     font-weight: 600;
     margin-bottom: 8px;
 }
 @media (min-width: 768px) {
-    .blog_details h2 {
+    .blog_details h2,
+    .blog_details h1 {
         font-size: 24px;
         margin-bottom: 15px;
     }

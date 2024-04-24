@@ -28,7 +28,7 @@
                                         alt="{{ $service->service_cover_front_alt ?? '美美上美 - ' . $service->service_name }}">
                             </a>
                         </div>
-                        <h3>{{ $service->service_name }}</h3>
+                        <h3><a href="{{ route('services.items', DB::table('post_type_infos')->where('deleted_at', null)->where('type_name', 'like', '%' . $service->service_name . '%')->value('type_slug')) }}">{{ $service->service_name }}</a></h3>
                         <p></p>
                     </div>
                 </div>
@@ -115,13 +115,13 @@
 
     </div>
 
-    <div class="ev_area p-0 m-0 position-relative">
+    {{-- <div class="ev_area p-0 m-0 position-relative">
         <div class="container-fluid p-0 m-0">
             <video src="images/ev-vid.mov" autoplay loop muted playsinline class="vid p-0 m-0"></video>
         </div>
         <div class=" p-0 m-0 w-100 h-100 position-absolute"
             style="z-index: 2;top: 0;left: 0;background-color: rgba(0, 0, 0, 0.3);"></div>
-    </div>
+    </div> --}}
 
     <div class="index_blog_area">
         <div class="container">
@@ -150,10 +150,10 @@
                 @endphp
 
                 @foreach ($index_blogs ?? [] as $index_blog)
-                <div class="col-xl-3 col-md-6">
+                <div class="col-xl-3 col-6">
                     <div class="single_blog_item">
                         <div class="thumb">
-                            <img class="card-img rounded" src="{{ $index_blog->post_front_cover ?? null ? env('APP_URL', 'https://beauty4u-clinic.com') . '/uploads/' . $index_blog->post_front_cover : asset('images/about/about-05.jpg') }}"
+                            <img class="card-img img-blog-index img-fluid rounded" src="{{ $index_blog->post_front_cover ?? null ? env('APP_URL', 'https://beauty4u-clinic.com') . '/uploads/' . $index_blog->post_front_cover : asset('images/about/about-05.jpg') }}"
                                         alt="">
                         </div>
                         <span class="mt-2 text-secondary">{{  \Carbon\Carbon::parse($index_blog->created_at)->format('Y-m-d') }}</span>
@@ -182,9 +182,21 @@
 @push('custom_css')
 <link rel="stylesheet" href="css/index.css?v={{ time() }}">
 <style>
+    .img-blog-index {
+        width: 100%;
+        height: 15rem;
+        object-fit: cover;
+        object-position: center;
+    }
     @media (max-width: 768px) {
-        #compare .section_title h3 {
+        #compare .section_title h2 {
             font-size: 1.5rem !important;
+        }
+        .img-blog-index {
+            width: 100%;
+            height: 10rem;
+            object-fit: cover;
+            object-position: center;
         }
     }
 

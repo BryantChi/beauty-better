@@ -45,7 +45,7 @@
                 <div class="col-xl-5 offset-xl-0 col-md-7 px-md-0 px-2">
                     <div class="about_info ml-md-3">
                         <div class="about_content table-responsive">
-                            <h2 class="mb-3 text-white">讓我們協助你擺脫歲月的痕跡</h2>
+                            <h2 class="mb-3 text-white" style="color: white !important;">讓我們協助你擺脫歲月的痕跡</h2>
                             <p class="text-white">在醫美診所林立的多元市場中，我們持著專業醫療人員盡心盡力的態度，提供顧客美容美體的整體規劃、統合建議，站在顧客的角度思考，絕不強迫推銷，並力求所有療程設計都可以切合顧客需要，保障顧客的安全和權益，真誠服務貫穿始終，從首次接觸到後期追蹤，我們都以顧客需求為出發點，用心聆聽、細心解答，每位顧客都能感受到像家人一般溫暖而親切的關注。</p>
                         </div>
                     </div>

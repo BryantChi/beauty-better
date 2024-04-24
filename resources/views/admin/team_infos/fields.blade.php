@@ -99,7 +99,7 @@
 
 <!-- Experience Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('experience', '經歷:') !!}
+    {!! Form::label('experience', '經歷/資格:') !!}
     <div id="dynamicField" class="dynamicField">
         @foreach ($teamInfo->experience ?? [] as $i => $experience)
             <div class="input-group mb-3">
