@@ -157,7 +157,7 @@
                                         alt="">
                         </div>
                         <span class="mt-2 text-secondary">{{  \Carbon\Carbon::parse($index_blog->created_at)->format('Y-m-d') }}</span>
-                        <h3 class="mt-3 font-weight-bolder">{{ $index_blog->post_title }}</h3>
+                        <h3 class="mt-3 font-weight-bolder title-blog-index multiline-ellipsis">{{ $index_blog->post_title }}</h3>
                         <p class="multiline-ellipsis mt-2">
                             {{ str_replace(["\r\n", "\r", "\n"], '', strip_tags($index_blog->post_content)) }}</p>
                     </div>
@@ -188,6 +188,9 @@
         object-fit: cover;
         object-position: center;
     }
+    .title-blog-index {
+        font-size: 1.25rem !important;
+    }
     @media (max-width: 768px) {
         #compare .section_title h2 {
             font-size: 1.5rem !important;
@@ -197,6 +200,9 @@
             height: 10rem;
             object-fit: cover;
             object-position: center;
+        }
+        .title-blog-index {
+            font-size: 1rem !important;
         }
     }
 
