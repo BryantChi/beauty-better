@@ -7,6 +7,7 @@
 <!-- Post Front Cover Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('post_front_cover', '文章封面:') !!}
+    <span class="text-secondary">＊圖片建議尺寸比例為16:9，長方形橫式</span>
 
     <div class="custom-file">
         {{-- {!! Form::file('post_front_cover', null, ['class' => 'custom-file-input post_front_cover', 'required' => true]) !!} --}}

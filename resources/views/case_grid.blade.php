@@ -16,8 +16,8 @@
                         <div class="blog_left_sidebar h-100">
                             <article class="blog_item h-100">
                                 <div class="blog_item_img">
-                                    <a class="d-inline-block" href="{{ route('case.show', $post->post_slug) }}">
-                                        <img class="card-img rounded-0"
+                                    <a class="" href="{{ route('case.show', $post->post_slug) }}">
+                                        <img class="card-img rounded-0 img-fluid img-post"
                                             src="{{ $post->post_front_cover ?? null ? env('APP_URL', 'https://beauty4u-clinic.com') . '/uploads/' . $post->post_front_cover : asset('images/about/about-05.jpg') }}"
                                             alt="">
                                     </a>
