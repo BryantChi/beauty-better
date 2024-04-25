@@ -32,10 +32,10 @@ class ServicesController extends Controller
 
         if ($type == null) {
             $postTypes = $postType->get('id')->toArray();
-            $postsInfo = Posts::whereIn('post_type', $postTypes)->paginate(10);
+            $postsInfo = Posts::whereIn('post_type', $postTypes)->orderBy('created_at', 'desc')->paginate(10);
         } else {
             $types = PostTypeInfo::where('type_slug', $type)->value('id');
-            $postsInfo = Posts::where('post_type', $types)->paginate(10);
+            $postsInfo = Posts::where('post_type', $types)->orderBy('created_at', 'desc')->paginate(10);
         }
 
         $pagesInfo = PageSettingInfoRepository::getSubBanner('/services');
