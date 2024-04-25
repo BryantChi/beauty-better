@@ -22,13 +22,13 @@
                 <div class="my-3 pt-2">
                     <div class="single_dream text-center">
                         <div class="thumb">
-                            <a href="{{ route('services.items', DB::table('post_type_infos')->where('deleted_at', null)->where('type_name', 'like', '%' . $service->service_name . '%')->value('type_slug')) }}">
+                            <a href="{{ route('services.items', DB::table('post_type_infos')->whereNull('deleted_at')->where('type_name', 'like', '%' . $service->service_name . '%')->value('type_slug')) }}">
                                 <img src="{{ $service->service_cover_front ?? null ? env('APP_URL', 'https://beauty4u-clinic.com') . '/uploads/' . $service->service_cover_front : asset('images/services/services-01.webp') }}"
                                         class="img-fluid w-75 mx-auto img-services"
                                         alt="{{ $service->service_cover_front_alt ?? '美美上美 - ' . $service->service_name }}">
                             </a>
                         </div>
-                        <h3><a href="{{ route('services.items', DB::table('post_type_infos')->where('deleted_at', null)->where('type_name', 'like', '%' . $service->service_name . '%')->value('type_slug')) }}">{{ $service->service_name }}</a></h3>
+                        <h3><a href="{{ route('services.items', DB::table('post_type_infos')->whereNull('deleted_at')->where('type_name', 'like', '%' . $service->service_name . '%')->value('type_slug')) }}">{{ $service->service_name }}</a></h3>
                         <p></p>
                     </div>
                 </div>
@@ -153,11 +153,19 @@
                 <div class="col-xl-3 col-6">
                     <div class="single_blog_item">
                         <div class="thumb">
-                            <img class="card-img img-blog-index img-fluid rounded" src="{{ $index_blog->post_front_cover ?? null ? env('APP_URL', 'https://beauty4u-clinic.com') . '/uploads/' . $index_blog->post_front_cover : asset('images/about/about-05.jpg') }}"
-                                        alt="">
+                            <a class=""
+                                href="{{ route('blog.show', ['type' => DB::table('post_type_infos')->whereNull('deleted_at')->where('id', $index_blog->post_type)->value('type_slug'), 'slug' => $index_blog->post_slug]) }}">
+                                <img class="card-img img-blog-index img-fluid rounded" src="{{ $index_blog->post_front_cover ?? null ? env('APP_URL', 'https://beauty4u-clinic.com') . '/uploads/' . $index_blog->post_front_cover : asset('images/about/about-05.jpg') }}"
+                                    alt="">
+                            </a>
                         </div>
                         <span class="mt-2 text-secondary">{{  \Carbon\Carbon::parse($index_blog->created_at)->format('Y-m-d') }}</span>
-                        <h3 class="mt-3 font-weight-bolder title-blog-index multiline-ellipsis">{{ $index_blog->post_title }}</h3>
+                        <h3 class="mt-3 font-weight-bolder title-blog-index multiline-ellipsis">
+                            <a class=""
+                                href="{{ route('blog.show', ['type' => DB::table('post_type_infos')->whereNull('deleted_at')->where('id', $index_blog->post_type)->value('type_slug'), 'slug' => $index_blog->post_slug]) }}">
+                                {{ $index_blog->post_title }}
+                            </a>
+                        </h3>
                         <p class="multiline-ellipsis mt-2">
                             {{ str_replace(["\r\n", "\r", "\n"], '', strip_tags($index_blog->post_content)) }}</p>
                     </div>

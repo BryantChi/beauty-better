@@ -33,7 +33,7 @@
                     {{-- <td>
                         <div class="multiline-ellipsis">{!! $postsInfo->post_content !!}</div>
                     </td> --}}
-                    <td>{{ DB::table('post_type_infos')->where('id', $postsInfo->post_type)->value('type_name') }}</td>
+                    <td>{{ DB::table('post_type_infos')->whereNull('deleted_at')->where('id', $postsInfo->post_type)->value('type_name') }}</td>
                     {{-- <td>{{ $postsInfo->post_seo_setting_customize ? '是' : '否' }}</td> --}}
                     {{-- <td>{{ $postsInfo->post_seo_title }}</td>
                     <td>{{ $postsInfo->post_meta_title }}</td>

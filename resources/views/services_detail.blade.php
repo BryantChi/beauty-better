@@ -16,7 +16,7 @@
                                 {{ $postInfo->post_title }}
                             </h1>
                             <ul class="blog-info-link mt-3 mb-4 ml-auto">
-                                <li><a href="{{ route('services.items', DB::table('post_type_infos')->where('id', $postInfo->post_type)->value('type_slug'))  }}"><i class="fas fa-flag"></i> {{ DB::table('post_type_infos')->where('id', $postInfo->post_type)->value('type_name') }}</a></li>
+                                <li><a href="{{ route('services.items', DB::table('post_type_infos')->whereNull('deleted_at')->where('id', $postInfo->post_type)->value('type_slug'))  }}"><i class="fas fa-flag"></i> {{ DB::table('post_type_infos')->whereNull('deleted_at')->where('id', $postInfo->post_type)->value('type_name') }}</a></li>
                                 <li><a href="javascript:void(0)"><i class="fas fa-calendar-alt"></i> {{ \Carbon\Carbon::parse($postInfo->created_at)->format('d M, Y') }}</a></li>
                             </ul>
 
@@ -36,7 +36,7 @@
                                     }
                                 @endphp
                                 <li>
-                                    <a href="{{ route('services.items', DB::table('post_type_infos')->where('id', $type->id)->value('type_slug')) }}" class="d-flex">
+                                    <a href="{{ route('services.items', DB::table('post_type_infos')->whereNull('deleted_at')->where('id', $type->id)->value('type_slug')) }}" class="d-flex">
                                         <p>{{ $type->type }}</p>
                                         <p>({{ $type->count }})</p>
                                     </a>

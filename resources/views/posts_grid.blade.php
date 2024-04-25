@@ -11,7 +11,7 @@
                 <div class="col-xl-12">
                     <div class="section_title text-center mb-95">
                         <span class="sub_heading">{{ $typeSlug }}</span>
-                        <h3>{{ DB::table('post_type_infos')->where('type_slug', $typeSlug)->value('type_name') }}</h3>
+                        <h3>{{ DB::table('post_type_infos')->whereNull('deleted_at')->where('type_slug', $typeSlug)->value('type_name') }}</h3>
                     </div>
                 </div>
             </div>
@@ -27,7 +27,7 @@
                             <article class="blog_item">
                                 <div class="blog_item_img w-100">
                                     <a class=""
-                                        href="{{ route('blog.show', ['type' => DB::table('post_type_infos')->where('id', $post->post_type)->value('type_slug'), 'slug' => $post->post_slug]) }}">
+                                        href="{{ route('blog.show', ['type' => DB::table('post_type_infos')->whereNull('deleted_at')->where('id', $post->post_type)->value('type_slug'), 'slug' => $post->post_slug]) }}">
                                         <img class="card-img rounded-0 img-fluid img-post" src="{{ $post->post_front_cover ?? null ? env('APP_URL', 'https://beauty4u-clinic.com') . '/uploads/' . $post->post_front_cover : asset('images/about/about-05.jpg') }}"
                                         alt="">
                                     </a>
@@ -39,14 +39,14 @@
 
                                 <div class="blog_details">
                                     <a class="d-inline-block"
-                                        href="{{ route('blog.show', ['type' => DB::table('post_type_infos')->where('id', $post->post_type)->value('type_slug'), 'slug' => $post->post_slug]) }}">
+                                        href="{{ route('blog.show', ['type' => DB::table('post_type_infos')->whereNull('deleted_at')->where('id', $post->post_type)->value('type_slug'), 'slug' => $post->post_slug]) }}">
                                         <h2>{{ $post->post_title }}</h2>
                                     </a>
                                     <p class="multiline-ellipsis">
                                         {{ str_replace(["\r\n", "\r", "\n"], '', strip_tags($post->post_content)) }}</p>
                                     <ul class="blog-info-link mt-3 mb-4 ml-auto">
-                                        <li><a href="{{ route('blog', DB::table('post_type_infos')->where('id', $post->post_type)->value('type_slug'))  }}"><i class="fas fa-flag"></i>
-                                                {{ DB::table('post_type_infos')->where('id', $post->post_type)->value('type_name') }}</a>
+                                        <li><a href="{{ route('blog', DB::table('post_type_infos')->whereNull('deleted_at')->where('id', $post->post_type)->value('type_slug'))  }}"><i class="fas fa-flag"></i>
+                                                {{ DB::table('post_type_infos')->whereNull('deleted_at')->where('id', $post->post_type)->value('type_name') }}</a>
                                         </li>
                                         {{-- <li><a href="#"><i class="fas fa-calendar-alt"></i>
                                                 {{ \Carbon\Carbon::parse($postInfo->created_at)->format('d M, Y') }}</a>
@@ -55,7 +55,7 @@
 
                                     <div class="w-100 text-right">
                                         <a class="btn btn-purple"
-                                        href="{{ route('blog.show', ['type' => DB::table('post_type_infos')->where('id', $post->post_type)->value('type_slug'), 'slug' => $post->post_slug]) }}">繼續閱讀 》</a>
+                                        href="{{ route('blog.show', ['type' => DB::table('post_type_infos')->whereNull('deleted_at')->where('id', $post->post_type)->value('type_slug'), 'slug' => $post->post_slug]) }}">繼續閱讀 》</a>
                                     </div>
                                 </div>
                             </article>
@@ -79,7 +79,7 @@
                                     }
                                 @endphp
                                 <li>
-                                    <a href="{{ route('blog', DB::table('post_type_infos')->where('id', $type->id)->value('type_slug'))  }}" class="d-flex">
+                                    <a href="{{ route('blog', DB::table('post_type_infos')->whereNull('deleted_at')->where('id', $type->id)->value('type_slug'))  }}" class="d-flex">
                                         <p>{{ $type->type }}</p>
                                         <p>({{ $type->count }})</p>
                                     </a>

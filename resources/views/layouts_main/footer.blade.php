@@ -49,9 +49,8 @@
                                             導覽列
                                         </p>
                                         <ul class="quick_links">
-                                            <li><a href="{{ route('about') }}">關於美美</a></li>
+                                            <li><a href="{{ route('index') }}/#about">診所資訊</a></li>
                                             <li><a href="{{ route('teams') }}">醫師團隊</a></li>
-                                            <li><a href="{{ route('services') }}">療程項目</a></li>
                                             <li><a href="{{ route('case') }}">美麗見證</a></li>
                                             <li><a href="{{ route('blog') }}">醫師專欄</a></li>
                                             <li><a href="{{ route('contact') }}">聯絡資訊</a></li>
@@ -66,7 +65,7 @@
                                         <ul class="quick_links">
                                             @foreach ($servicesInfos ?? [] as $service)
                                             <li>
-                                                <a href="{{ route('services.items', DB::table('post_type_infos')->where('deleted_at', null)->where('type_name', 'like', '%' . $service->service_name . '%')->value('type_slug')) }}">
+                                                <a href="{{ route('services.items', DB::table('post_type_infos')->whereNull('deleted_at')->where('deleted_at', null)->where('type_name', 'like', '%' . $service->service_name . '%')->value('type_slug')) }}">
                                                     {{ $service->service_name }}
                                                 </a>
                                             </li>
