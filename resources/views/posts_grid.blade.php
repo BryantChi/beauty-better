@@ -49,7 +49,7 @@
                                                 {{ DB::table('post_type_infos')->whereNull('deleted_at')->where('id', $post->post_type)->value('type_name') }}</a>
                                         </li>
                                         <li><a href="#"><i class="fas fa-calendar-alt"></i>
-                                                {{ \Carbon\Carbon::parse($post->created_at)->format('YYYY-MM-dd HH:mm') }}</a>
+                                                {{ \Carbon\Carbon::parse($post->created_at)->format('Y-m-d H:m') }}</a>
                                         </li>
                                     </ul>
 
