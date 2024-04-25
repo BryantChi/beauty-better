@@ -16,16 +16,16 @@
                         </div>
                         <ul class="social_links text-lg-center">
                             <li>
-                                <a href="{{ $contact->company_facebook ?? 'javascript:void(0)' }}"><i class="fa-brands fa-facebook-f"></i></a>
+                                <a href="{{ $contact->company_facebook ?? 'javascript:void(0)' }}" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
                             </li>
                             <li>
-                                <a href="{{ $contact->company_line ?? 'javascript:void(0)' }}"><i class="fa-brands fa-line"></i></a>
+                                <a href="{{ $contact->company_line ?? 'javascript:void(0)' }}" target="_blank"><i class="fa-brands fa-line"></i></a>
                             </li>
                             <li>
-                                <a href="{{ $contact->company_instagram ?? 'javascript:void(0)' }}"><i class="fa-brands fa-instagram"></i></a>
+                                <a href="{{ $contact->company_instagram ?? 'javascript:void(0)' }}" target="_blank"><i class="fa-brands fa-instagram"></i></a>
                             </li>
                             <li>
-                                <a href="{{ $contact->company_youtube ?? 'javascript:void(0)' }}"><i class="fa-brands fa-youtube"></i></a>
+                                <a href="{{ $contact->company_youtube ?? 'javascript:void(0)' }}" target="_blank"><i class="fa-brands fa-youtube"></i></a>
                             </li>
                         </ul>
                     </div>
