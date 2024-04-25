@@ -48,9 +48,9 @@
                                         <li><a href="{{ route('services.items', DB::table('post_type_infos')->whereNull('deleted_at')->where('id', $post->post_type)->value('type_slug'))  }}"><i class="fas fa-flag"></i>
                                                 {{ DB::table('post_type_infos')->whereNull('deleted_at')->where('id', $post->post_type)->value('type_name') }}</a>
                                         </li>
-                                        {{-- <li><a href="#"><i class="fas fa-calendar-alt"></i>
-                                                {{ \Carbon\Carbon::parse($postInfo->created_at)->format('d M, Y') }}</a>
-                                        </li> --}}
+                                        <li><a href="#"><i class="fas fa-calendar-alt"></i>
+                                            {{ \Carbon\Carbon::parse($post->created_at)->format('YYYY-MM-dd HH:mm') }}</a>
+                                        </li>
                                     </ul>
 
                                     <div class="w-100 text-right">
