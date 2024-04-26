@@ -19,7 +19,7 @@
                                     <a class="" href="{{ route('case.show', $post->post_slug) }}">
                                         <img class="card-img rounded-0 img-fluid img-post"
                                             src="{{ $post->post_front_cover ?? null ? env('APP_URL', 'https://beauty4u-clinic.com') . '/uploads/' . $post->post_front_cover : asset('images/about/about-05.jpg') }}"
-                                            alt="">
+                                            alt="{{ $post->post_front_cover_alt ?? $post->post_title }}">
                                     </a>
                                     <a href="javascript:void(0)" class="blog_item_date">
                                         <p class="h3">{{ \Carbon\Carbon::parse($post->created_at)->format('d') }}</p>

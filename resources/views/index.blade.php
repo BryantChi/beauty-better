@@ -156,7 +156,7 @@
                             <a class=""
                                 href="{{ route('blog.show', ['type' => DB::table('post_type_infos')->whereNull('deleted_at')->where('id', $index_blog->post_type)->value('type_slug'), 'slug' => $index_blog->post_slug]) }}">
                                 <img class="card-img img-blog-index img-fluid rounded" src="{{ $index_blog->post_front_cover ?? null ? env('APP_URL', 'https://beauty4u-clinic.com') . '/uploads/' . $index_blog->post_front_cover : asset('images/about/about-05.jpg') }}"
-                                    alt="">
+                                    alt="{{ $index_blog->post_front_cover_alt ?? $index_blog->post_title }}">
                             </a>
                         </div>
                         <span class="mt-2 text-secondary">{{  \Carbon\Carbon::parse($index_blog->created_at)->format('Y-m-d') }}</span>
@@ -167,7 +167,7 @@
                             </a>
                         </h3>
                         <p class="multiline-ellipsis mt-2">
-                            {{ str_replace(["\r\n", "\r", "\n"], '', strip_tags($index_blog->post_content)) }}</p>
+                            {!! str_replace(["\r\n", "\r", "\n"], '', strip_tags($index_blog->post_content)) !!}</p>
                     </div>
                 </div>
                 @endforeach

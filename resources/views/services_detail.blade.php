@@ -9,7 +9,7 @@
                 <div class="col-lg-8 posts-list">
                     <div class="single-post">
                         <div class="feature-img">
-                            <img class="img-fluid" src="{{ $postInfo->post_front_cover ?? null ? env('APP_URL', 'https://beauty4u-clinic.com') . '/uploads/' . $postInfo->post_front_cover : asset('images/about/about-05.jpg') }}" alt="{{ $postInfo->post_seo_title }}" />
+                            <img class="img-fluid" src="{{ $postInfo->post_front_cover ?? null ? env('APP_URL', 'https://beauty4u-clinic.com') . '/uploads/' . $postInfo->post_front_cover : asset('images/about/about-05.jpg') }}" alt="{{ $postInfo->post_front_cover_alt ?? $postInfo->post_title }}" />
                         </div>
                         <div class="blog_details table-responsive">
                             <h1>
@@ -20,7 +20,7 @@
                                 <li><a href="javascript:void(0)"><i class="fas fa-calendar-alt"></i> {{ \Carbon\Carbon::parse($postInfo->created_at)->format('d M, Y') }}</a></li>
                             </ul>
 
-                            {!! $postInfo->post_content !!}
+                            <div class="contents">{!! $postInfo->post_content !!}</div>
                         </div>
                     </div>
                 </div>
@@ -96,6 +96,16 @@
             max-width: 100% !important;
             height: 25rem;
         }
+
+        .blog_details .contents ul {
+            list-style: disc !important;
+            padding-left: 30px !important;
+        }
+
+        .blog_details .contents ul li {
+            list-style: disc !important;
+        }
+
 
         @media (max-width: 768px) {
             .blog_details img {

@@ -31,6 +31,12 @@
     </div>
 </div>
 
+<!-- Post Front Cover Alt Field -->
+<div class="form-group col-sm-6">
+    {!! Form::label('post_front_cover_alt', '文章封面 Alt:') !!}
+    {!! Form::text('post_front_cover_alt', null, ['class' => 'form-control']) !!}
+</div>
+
 <!-- Post Content Field -->
 <div class="form-group col-sm-12">
     {!! Form::label('post_content', '文章內容:') !!}
