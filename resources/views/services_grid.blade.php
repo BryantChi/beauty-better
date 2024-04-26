@@ -79,7 +79,7 @@
                                     }
                                 @endphp
                                 <li>
-                                    <a href="{{ route('blog', DB::table('post_type_infos')->whereNull('deleted_at')->where('id', $type->id)->value('type_slug'))  }}" class="d-flex">
+                                    <a href="{{ route('services.items', DB::table('post_type_infos')->whereNull('deleted_at')->where('id', $type->id)->value('type_slug'))  }}" class="d-flex">
                                         <p>{{ $type->type }}</p>
                                         <p>({{ $type->count }})</p>
                                     </a>
