@@ -63,11 +63,11 @@ class ServicesController extends Controller
         $postInfo = Posts::where('post_type', $types)->where('post_slug', $slug)->firstOrFail();
         $pageInfo = PageSettingInfoRepository::getSubBanner('/services');
         $pagesInfo = new \StdClass();
-        $pagesInfo->title = ($postInfo->post_meta_title ?? '') == '' && $postInfo->post_seo_setting_customize == 1 ? $postInfo->post_meta_title : ($postInfo->post_title ?? '');
-        // $pagesInfo->seo_title = ($postInfo->post_seo_title ?? '') == '' && $postInfo->post_seo_setting_customize == 1 ? $postInfo->post_seo_title : ($pageInfo->meta_title ?? '');
-        $pagesInfo->meta_title = ($postInfo->post_meta_title ?? '') == '' && $postInfo->post_seo_setting_customize == 1 ? $postInfo->post_meta_title : ($postInfo->post_title ?? '');
-        $pagesInfo->meta_description = ($postInfo->post_meta_description ?? '') == '' && $postInfo->post_seo_setting_customize == 1 ? $postInfo->post_meta_description : ($pageInfo->meta_description ?? '');
-        $pagesInfo->meta_keywords = ($postInfo->post_meta_keywords ?? '') == '' && $postInfo->post_seo_setting_customize == 1 ? $postInfo->post_meta_keywords : ($pageInfo->meta_keywords ?? '');
+        $pagesInfo->title = ($postInfo->post_meta_title ?? '') != '' && $postInfo->post_seo_setting_customize == 1 ? $postInfo->post_meta_title : ($postInfo->post_title ?? '');
+        // $pagesInfo->seo_title = ($postInfo->post_seo_title ?? '') != '' && $postInfo->post_seo_setting_customize == 1 ? $postInfo->post_seo_title : ($pageInfo->meta_title ?? '');
+        $pagesInfo->meta_title = ($postInfo->post_meta_title ?? '') != '' && $postInfo->post_seo_setting_customize == 1 ? $postInfo->post_meta_title : ($postInfo->post_title ?? '');
+        $pagesInfo->meta_description = ($postInfo->post_meta_description ?? '') != '' && $postInfo->post_seo_setting_customize == 1 ? $postInfo->post_meta_description : ($pageInfo->meta_description ?? '');
+        $pagesInfo->meta_keywords = ($postInfo->post_meta_keywords ?? '') != '' && $postInfo->post_seo_setting_customize == 1 ? $postInfo->post_meta_keywords : ($pageInfo->meta_keywords ?? '');
 
         $pagesInfo->banner = $pageInfo->banner;
         $pagesInfo->banner_mob = $pageInfo->banner_mob;
