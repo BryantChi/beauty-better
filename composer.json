@@ -21,7 +21,8 @@
         "yajra/laravel-datatables-buttons": "*",
         "yajra/laravel-datatables-html": "*",
         "yajra/laravel-datatables-oracle": "*",
-        "intervention/image": "^2.7"
+        "intervention/image": "^2.7",
+        "spatie/laravel-sitemap": "*"
     },
     "require-dev": {
         "facade/ignition": "^2.5",
