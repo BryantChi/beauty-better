@@ -1,5 +1,7 @@
 <?php
 
+namespace App\Sitemap;
+
 use Spatie\Crawler\CrawlProfiles\CrawlProfile;
 use Psr\Http\Message\UriInterface;
 
