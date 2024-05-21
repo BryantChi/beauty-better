@@ -66,7 +66,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4">
+                <div class="col-lg-4 position-sticky">
                     <div class="blog_right_sidebar">
 
                         <aside class="single_sidebar_widget post_category_widget">
@@ -143,3 +143,42 @@
         </div>
     </section>
 @endsection
+
+@push('custom_css')
+
+    <style>
+        @media (min-width: 768px) {
+            .ct_fixed {
+                position: fixed;
+                width: inherit;
+                max-width: 23rem;
+                max-height: 450px;
+                overflow-y: scroll;
+                scrollbar-width: none;
+                top: 100px !important;
+            }
+
+        }
+    </style>
+
+@endpush
+
+@push('custom_scripts')
+    <script>
+        $(function() {
+
+            $(window).on('scroll', function() {
+                var scrollPosition = $(window).scrollTop();
+                var targetOffsetTop = $('.blog_left_sidebar').offset().top + 300;
+
+                if (scrollPosition >= targetOffsetTop) {
+                    $('.blog_right_sidebar').addClass('ct_fixed');
+                } else {
+                    $('.blog_right_sidebar').removeClass('ct_fixed');
+                }
+            })
+
+
+        })
+    </script>
+@endpush
