@@ -30,7 +30,7 @@
                                             <img src="{{ asset('images/logo_full_bk.png') }}" class="img-fluid img-logo" alt="">
                                         </a>
                                     </li>
-                                    <li class="px-md-4"><a class="{{ Request::is('case*') ? 'active' : '' }}" href="{{ route('case') }}">美麗見證</a></li>
+                                    <li class="px-md-4"><a class="{{ Request::is('case*') ? 'active' : '' }}" href="javascript:void(0)">美麗見證</a></li>
                                     <li class="px-md-4"><a class="{{ Request::is('blog*') ? 'active' : '' }}" href="{{ route('blog') }}">醫師專欄</a></li>
                                     <li><a href="{{ route('contact') }}">聯絡資訊</a></li>
                                 </ul>

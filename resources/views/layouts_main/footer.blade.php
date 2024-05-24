@@ -51,7 +51,7 @@
                                         <ul class="quick_links">
                                             <li><a href="{{ route('index') }}/#about">診所資訊</a></li>
                                             <li><a href="{{ route('teams') }}">醫師團隊</a></li>
-                                            <li><a href="{{ route('case') }}">美麗見證</a></li>
+                                            {{-- <li><a href="{{ route('case') }}">美麗見證</a></li> --}}
                                             <li><a href="{{ route('blog') }}">醫師專欄</a></li>
                                             <li><a href="{{ route('contact') }}">聯絡資訊</a></li>
                                         </ul>
