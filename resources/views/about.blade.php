@@ -1,7 +1,7 @@
 {{-- @extends('layouts_main.master')
 
 @section('content')
-    @include('layouts_main.sub_hero', ['bradcam_title' => '認識美美上美 / About Us']) --}}
+    @include('layouts_main.sub_hero', ['bradcam_title' => '診所介紹 / About Us']) --}}
 
 
 
