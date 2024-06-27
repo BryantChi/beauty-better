@@ -15,10 +15,10 @@
                             <h1>
                                 {{ $postInfo->post_title }}
                             </h1>
-                            <ul class="blog-info-link mt-3 mb-4 ml-auto">
+                            {{-- <ul class="blog-info-link mt-3 mb-4 ml-auto">
                                 <li><a href="{{ route('services.items', DB::table('post_type_infos')->whereNull('deleted_at')->where('id', $postInfo->post_type)->value('type_slug'))  }}"><i class="fas fa-flag"></i> {{ DB::table('post_type_infos')->whereNull('deleted_at')->where('id', $postInfo->post_type)->value('type_name') }}</a></li>
                                 <li><a href="javascript:void(0)"><i class="fas fa-calendar-alt"></i> {{ \Carbon\Carbon::parse($postInfo->created_at)->format('d M, Y') }}</a></li>
-                            </ul>
+                            </ul> --}}
 
                             <div class="contents">{!! $postInfo->post_content !!}</div>
                         </div>
@@ -104,6 +104,14 @@
             height: 25rem;
             object-fit: contain;
             object-position: center;
+        }
+
+        .blog_details .contents table,
+        .blog_details .contents table th,
+        .blog_details .contents table tr,
+        .blog_details .contents table td {
+            border: 1px solid #000;
+            padding: 5px;
         }
 
         /* .blog_details .contents ul {
