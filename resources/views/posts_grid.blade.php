@@ -40,7 +40,7 @@
                                 <div class="blog_details">
                                     <a class="d-inline-block"
                                         href="{{ route('blog.show', ['type' => DB::table('post_type_infos')->whereNull('deleted_at')->where('id', $post->post_type)->value('type_slug'), 'slug' => $post->post_slug]) }}">
-                                        <h2>{{ $post->post_title }}</h2>
+                                        <h2 class="multiline-ellipsis">{{ $post->post_title }}</h2>
                                     </a>
                                     <p class="multiline-ellipsis">
                                         {!! str_replace(["\r\n", "\r", "\n"], '', strip_tags($post->post_content)) !!}</p>
