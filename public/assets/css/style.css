@@ -4109,6 +4109,13 @@ h6 {
     object-position: center;
 }
 
+.img-case {
+    width: 100%;
+    min-height: 12rem;
+    object-fit: cover;
+    object-position: center;
+}
+
 @media (max-width: 768px) {
     .w-d-75 {
         width: 75% !important;
@@ -4117,6 +4124,13 @@ h6 {
     .img-post {
         width: 100%;
         height: 12rem !important;
+        object-fit: cover;
+        object-position: center;
+    }
+
+    .img-case {
+        width: 100%;
+        min-height: 8rem !important;
         object-fit: cover;
         object-position: center;
     }
