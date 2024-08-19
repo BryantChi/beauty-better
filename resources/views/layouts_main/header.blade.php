@@ -7,7 +7,7 @@
                     <div class="col-xl-2 col-lg-2 d-lg-none d-block">
                         <div class="logo-img">
                             <a href="{{ route('index') }}">
-                                <img src="{{ asset('images/logo_full_bk.png') }}" class="img-fluid img-logo" alt="">
+                                <img src="{{ asset('images/美美logo_new.png') }}" class="img-fluid img-logo" alt="">
                             </a>
                         </div>
                     </div>
@@ -27,7 +27,7 @@
                                     </li> --}}
                                     <li class="logo-img d-lg-inline-block d-none px-4">
                                         <a href="{{ route('index') }}">
-                                            <img src="{{ asset('images/logo_full_bk.png') }}" class="img-fluid img-logo" alt="">
+                                            <img src="{{ asset('images/美美logo_new.png') }}" class="img-fluid img-logo" alt="">
                                         </a>
                                     </li>
                                     <li class="px-md-4"><a class="{{ Request::is('case*') ? 'active' : '' }}" href="{{ route('case') }}">美麗見證</a></li>
