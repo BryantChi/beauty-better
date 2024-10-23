@@ -93,7 +93,7 @@
                 </div>
                 <div class="col-md mb-md-auto my-3">
                     <div class="mb-4 text-center">
-                        <img src="images/about/about_sub_02.jpg" class="img-fluid about_sub_img" alt="">
+                        <img src="images/about/about_sub_02.png" class="img-fluid about_sub_img" alt="">
                     </div>
                     <div class="single_about_sub mx-auto">
                         <h3>諮詢規劃</h3>
@@ -102,7 +102,7 @@
                 </div>
                 <div class="col-md mb-md-auto my-3">
                     <div class="mb-4 text-center">
-                        <img src="images/about/about_sub_03.jpg" class="img-fluid about_sub_img" alt="">
+                        <img src="images/about/about_sub_03.png" class="img-fluid about_sub_img" alt="">
                     </div>
                     <div class="single_about_sub mx-auto">
                         <h3>精進技術</h3>
