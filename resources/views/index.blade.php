@@ -181,7 +181,13 @@
         </div>
     </div>
 
-
+    <div class="container-fluid px-0 mx-0">
+        <div class="map" style="">
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1505.5807844776723!2d121.46160673855!3d25.01592259925798!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3442a9efc216ff6b%3A0xd0020ca776b7ac6d!2z5bCa5rC0576O5Y2aIE11c8OpZUJlYXV4Q2xpbmlj!5e0!3m2!1szh-TW!2stw!4v1716532240520!5m2!1szh-TW!2stw"
+                style="border:0;width: 100%; height: 25rem;margin-bottom: -5px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+    </div>
 @endsection
 
 @push('third_party_css')
