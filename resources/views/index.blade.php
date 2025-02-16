@@ -184,7 +184,7 @@
     <div class="container-fluid px-0 mx-0">
         <div class="map" style="">
             <iframe
-                src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1505.5807844776723!2d121.46160673855!3d25.01592259925798!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3442a9efc216ff6b%3A0xd0020ca776b7ac6d!2z5bCa5rC0576O5Y2aIE11c8OpZUJlYXV4Q2xpbmlj!5e0!3m2!1szh-TW!2stw!4v1716532240520!5m2!1szh-TW!2stw"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3672.9117701560663!2d120.23401120000001!3d22.990271699999997!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x346e773f31cca15b%3A0x1bcab774e4c7b4b1!2z576O576O5LiK576O6Ki65omA772c5Y-w5Y2X6Yar576O5o6o6Jam!5e0!3m2!1szh-TW!2stw!4v1739635768030!5m2!1szh-TW!2stw"
                 style="border:0;width: 100%; height: 25rem;margin-bottom: -5px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
     </div>
