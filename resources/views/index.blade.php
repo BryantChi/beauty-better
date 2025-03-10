@@ -182,10 +182,67 @@
     </div>
 
     <div class="container-fluid px-0 mx-0">
+        <div class="container">
+            <div class="row" id="transportation">
+                <div class="col-xl-12">
+                    <div class="section_title text-center mb-3">
+                        <span class="sub_heading">Transportation</span>
+                        <h2>交通方式</h2>
+                        <div class="seperator"></div>
+                        <p></p>
+                    </div>
+                </div>
+            </div>
+        </div>
         <div class="map" style="">
             <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3672.9117701560663!2d120.23401120000001!3d22.990271699999997!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x346e773f31cca15b%3A0x1bcab774e4c7b4b1!2z576O576O5LiK576O6Ki65omA772c5Y-w5Y2X6Yar576O5o6o6Jam!5e0!3m2!1szh-TW!2stw!4v1739635768030!5m2!1szh-TW!2stw"
                 style="border:0;width: 100%; height: 25rem;margin-bottom: -5px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+        <div class="container mt-4">
+            <div class="row">
+                <div class="col-xl-6 col-lg-6 col-md-6 col-12">
+                    <div class="single_transportation_item">
+                        <h3>從高鐵台南站出發</h3>
+                        <p>
+                            您可搭乘高鐵接駁車，搭乘興南客運的奇美線(H62)，在南紡
+                            購物中心站下車，美美上美位於南紡購物中心對面；若您是
+                            要從高鐵駕車至診所，路線為：沿台86線東西向高速公路，
+                            接著轉入1號省道（大同路）→ 中華東路。
+                        </p>
+                    </div>
+                </div>
+                <div class="col-xl-6 col-lg-6 col-md-6 col-12">
+                    <div class="single_transportation_item">
+                        <h3>自行開車</h3>
+                        <p>
+                            國道1號（中山高速公路）南向行駛至永康交流道後，轉接1
+                            號省道前往台南市區（中正南路→中華路→中華東路）；若
+                            北上則至仁德交流道接182縣道，進入台南市區（中山路→東
+                            門路右轉→中華東路）。
+                        </p>
+                    </div>
+                </div>
+                <div class="col-xl-6 col-lg-6 col-md-6 col-12">
+                    <div class="single_transportation_item">
+                        <h3>從台南火車站出發</h3>
+                        <p>
+                            若您位於台南前站，可搭乘府城客運6號至後甲圓環下車，並
+                            在步行一小段路即可抵達診所；若您在台南後站（靠近香格
+                            里拉大飯店），可搭乘77號公車至南紡購物中心站下車，並
+                            在步行至對面的美美上美診所。
+                        </p>
+                    </div>
+                </div>
+                <div class="col-xl-6 col-lg-6 col-md-6 col-12">
+                    <div class="single_transportation_item">
+                        <h3>搭台南公車</h3>
+                        <p>
+                            美美上美診所位於南紡購物中心對面，您可搭乘15、20、77
+                            號公車至南紡後，步行至對面的美美上美診所，
+                        </p>
+                    </div>
+                </div>
         </div>
     </div>
 @endsection
