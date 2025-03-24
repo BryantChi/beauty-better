@@ -38,7 +38,7 @@
 @push('custom_css')
     <style>
         .slider_area{
-            height: 42rem;
+            height: 50rem;
         }
         .heroSwiper {
             width: 100%;
