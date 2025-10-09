@@ -40,12 +40,20 @@ class ServicesController extends Controller
 
         $pagesInfo = PageSettingInfoRepository::getSubBanner('/services');
 
+        // 優化: 使用單一查詢取得所有 type 的 post 數量,避免 N+1 問題
+        $postTypesForCount = $postType->get();
+        $postTypeIds = $postTypesForCount->pluck('id')->toArray();
+        $postCounts = Posts::selectRaw('post_type, COUNT(*) as count')
+            ->whereIn('post_type', $postTypeIds)
+            ->groupBy('post_type')
+            ->pluck('count', 'post_type');
+
         $typeInfo = array();
-        foreach ($postType->get() as $value) {
+        foreach ($postTypesForCount as $value) {
             $type = new \StdClass();
             $type->id = $value->id;
             $type->type = $value->type_name;
-            $type->count = Posts::where('post_type', $value->id)->count();
+            $type->count = $postCounts[$value->id] ?? 0;
             array_push($typeInfo, $type);
         }
 
@@ -87,12 +95,20 @@ class ServicesController extends Controller
             $query->whereIn('id', [13]);
         });
 
+        // 優化: 使用單一查詢取得所有 type 的 post 數量,避免 N+1 問題
+        $postTypesForCount = $postType->get();
+        $postTypeIds = $postTypesForCount->pluck('id')->toArray();
+        $postCounts = Posts::selectRaw('post_type, COUNT(*) as count')
+            ->whereIn('post_type', $postTypeIds)
+            ->groupBy('post_type')
+            ->pluck('count', 'post_type');
+
         $typeInfo = array();
-        foreach ($postType->get() as $value) {
+        foreach ($postTypesForCount as $value) {
             $type = new \StdClass();
             $type->id = $value->id;
             $type->type = $value->type_name;
-            $type->count = Posts::where('post_type', $value->id)->count();
+            $type->count = $postCounts[$value->id] ?? 0;
             array_push($typeInfo, $type);
         }
 

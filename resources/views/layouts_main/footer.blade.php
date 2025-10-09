@@ -1,6 +1,12 @@
 @php
-    $contact = App\Models\Admin\CompanyInfo::first();
-    $servicesInfos = \App\Models\Admin\ServicesInfo::get('service_name');
+    // 使用快取優化效能,快取 1 小時
+    $contact = Cache::remember('footer_company_info', 3600, function () {
+        return App\Models\Admin\CompanyInfo::first();
+    });
+
+    $servicesInfos = Cache::remember('footer_services_list', 3600, function () {
+        return \App\Models\Admin\ServicesInfo::get(['service_name', 'id']);
+    });
 @endphp
 <!-- footer_start -->
 <footer class="footer footer_bg">
