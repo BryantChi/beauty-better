@@ -138,7 +138,7 @@
     @stack('custom_scripts')
 
     <script>
-        $(window).on('load', function() {
+        $(window).on('DOMContentLoaded', function() {
             // 在這裡放置當整個網頁載入完成時執行的程式碼
             console.log("Page and all resources are loaded!");
             // setTimeout(function () {
