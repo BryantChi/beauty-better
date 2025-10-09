@@ -141,9 +141,9 @@
         $(window).on('load', function() {
             // 在這裡放置當整個網頁載入完成時執行的程式碼
             console.log("Page and all resources are loaded!");
-            setTimeout(function () {
+            // setTimeout(function () {
                 $('.loading').fadeOut();
-            }, 500);
+            // }, 500);
 
             // 可以進行需要在所有資源載入完成後執行的工作
         });
