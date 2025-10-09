@@ -155,8 +155,10 @@
                         <div class="thumb">
                             <a class=""
                                 href="{{ route('blog.show', ['type' => DB::table('post_type_infos')->whereNull('deleted_at')->where('id', $index_blog->post_type)->value('type_slug'), 'slug' => $index_blog->post_slug]) }}">
-                                <img class="card-img img-blog-index img-fluid rounded" src="{{ $index_blog->post_front_cover ?? null ? env('APP_URL', 'https://beauty4u-clinic.com') . '/uploads/' . $index_blog->post_front_cover : asset('images/about/about-05.jpg') }}"
-                                    alt="{{ $index_blog->post_front_cover_alt ?? $index_blog->post_title }}">
+                                <div class="blog-image-wrapper">
+                                    <img class="blog-image" src="{{ $index_blog->post_front_cover ?? null ? env('APP_URL', 'https://beauty4u-clinic.com') . '/uploads/' . $index_blog->post_front_cover : asset('images/about/about-05.jpg') }}"
+                                        alt="{{ $index_blog->post_front_cover_alt ?? $index_blog->post_title }}">
+                                </div>
                             </a>
                         </div>
                         <span class="mt-2 text-secondary">{{  \Carbon\Carbon::parse($index_blog->created_at)->format('Y-m-d') }}</span>
@@ -243,24 +245,32 @@
 @push('custom_css')
 <link rel="stylesheet" href="css/index.css?v={{ time() }}">
 <style>
-    .img-blog-index {
+    /* 16:9 比例容器 (9/16 = 0.5625 = 56.25%) */
+    .blog-image-wrapper {
+        position: relative;
         width: 100%;
-        height: 15rem;
+        padding-top: 56.25%; /* 16:9 Aspect Ratio */
+        overflow: hidden;
+        border-radius: 0.25rem; /* 對應原本的 rounded class */
+    }
+
+    .blog-image {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
         object-fit: cover;
         object-position: center;
     }
+
     .title-blog-index {
         font-size: 1.25rem !important;
     }
+
     @media (max-width: 768px) {
         #compare .section_title h2 {
             font-size: 1.5rem !important;
-        }
-        .img-blog-index {
-            width: 100%;
-            height: 10rem;
-            object-fit: cover;
-            object-position: center;
         }
         .title-blog-index {
             font-size: 1rem !important;
