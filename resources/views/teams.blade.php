@@ -16,7 +16,7 @@
 
             @foreach ($teamsInfo as $i => $team)
                 <div class="row justify-content-between mb-3">
-                    <div class="col-xl-3 col-md-6 col-lg-3 {{ $i % 2 == 0 ? '' : 'order-md-2 order-1' }} mb-5">
+                    <div class="col-xl-3 col-md-6 col-lg-3 {{ $i % 2 == 0 ? 'order-md-1 order-1' : 'order-md-2 order-1' }} mb-5">
                         <div class="single_team text-center">
                             <div class="team_thumb"
                                 style="background-color: #9b745700;box-shadow: 0px 0px 30px rgba(0, 0, 0, 0);opacity: 1;border-radius: 10rem;">
@@ -27,7 +27,7 @@
                         </div>
                     </div>
                     <div
-                        class="col-xl-8 col-md-6 col-lg-8 team_content {{ $i % 2 == 0 ? '' : 'order-md-1 order-2' }} mb-5">
+                        class="col-xl-8 col-md-6 col-lg-8 team_content {{ $i % 2 == 0 ? 'order-md-2 order-2' : 'order-md-1 order-2' }} mb-5">
                         <div class="mb-4">
                             <div class="team_title d-flex align-items-end">
                                 <h3 class="mb-0">{{ $team->name }}</h3>
