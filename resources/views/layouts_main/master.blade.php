@@ -93,12 +93,12 @@
     </div> --}}
 
 
-    <div class="loading">
+    {{-- <div class="loading">
         <div class="loader">
 
         </div>
         <img src="{{ asset('images/logo_page.png') }}" alt="{{ config('app.name') }}">
-    </div>
+    </div> --}}
 
     <!-- JS here -->
     <script src="{{ asset('assets/js/vendor/modernizr-3.5.0.min.js') }}"></script>
@@ -138,15 +138,15 @@
     @stack('custom_scripts')
 
     <script>
-        $(window).on('DOMContentLoaded', function() {
-            // 在這裡放置當整個網頁載入完成時執行的程式碼
-            console.log("Page and all resources are loaded!");
-            // setTimeout(function () {
-                $('.loading').fadeOut();
-            // }, 500);
+        // $(window).on('DOMContentLoaded', function() {
+        //     // 在這裡放置當整個網頁載入完成時執行的程式碼
+        //     console.log("Page and all resources are loaded!");
+        //     // setTimeout(function () {
+        //         $('.loading').fadeOut();
+        //     // }, 500);
 
-            // 可以進行需要在所有資源載入完成後執行的工作
-        });
+        //     // 可以進行需要在所有資源載入完成後執行的工作
+        // });
     </script>
 
 </body>
