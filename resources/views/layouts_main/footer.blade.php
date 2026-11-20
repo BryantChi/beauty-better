@@ -114,8 +114,7 @@
             <script>
                 document.write(new Date().getFullYear());
             </script> All rights reserved | 美美上美 <i class="fas fa-heart" aria-hidden="true"></i> design
-            by <a href="mailto:bryantchi.work@gmail.com" target="_blank">MWStudio - Bryant</a>
-            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+            by <a href="https://mhstudio.tw/" rel="nofollow" target="_blank">MHStudio</a>
         </p>
     </div>
 </footer>
