@@ -114,7 +114,7 @@
             <script>
                 document.write(new Date().getFullYear());
             </script> All rights reserved | 美美上美 <i class="fas fa-heart" aria-hidden="true"></i> design
-            by <a href="https://mhstudio.tw/" rel="nofollow" target="_blank">MHStudio</a>
+            by <a href="https://mhstudio.com.tw/" rel="nofollow" target="_blank">MHStudio。Bryant</a>
         </p>
     </div>
 </footer>
